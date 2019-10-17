@@ -1,0 +1,101 @@
+.column{
+  float: left;
+  width: 50%;
+}
+
+.fullLine{
+  clear: both;
+}
+
+.fakeLink{
+  color: blue;
+}
+
+* {
+ font-size: 100%;
+ font-family: Verdana;
+}
+h1{
+  padding-top: 5;
+  padding-bottom: 15;
+  font-size: 30;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFFFE0;
+}
+main {
+  flex: 1;
+  display: flex;
+  background-color: #FFFFFF;
+}
+
+.left, .right {
+  flex: 0 2 20%;
+  background-color: #FFFFFF;
+}
+.middle {
+  margin: 10%;
+  background-color: rgb(251,251,251);
+
+}
+.middleText {
+  flex:1 1 300px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #07052b;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #0e0861;
+}
+
+.active {
+  background-color: #e6c512;
+}
+
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
