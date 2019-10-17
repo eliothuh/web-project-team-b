@@ -2,6 +2,21 @@
   float: left;
   width: 50%;
 }
+img{
+  box-shadow: 10px 10px 5px grey;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: white;
+  padding: 10px;
+}
+.grid-item{
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
 
 .fullLine{
   clear: both;
@@ -11,6 +26,7 @@
   color: blue;
 }
 
+
 * {
  font-size: 100%;
  font-family: Verdana;
@@ -19,6 +35,7 @@ h1{
   padding-top: 5;
   padding-bottom: 15;
   font-size: 30;
+
 }
 
 body {
