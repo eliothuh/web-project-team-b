@@ -1,3 +1,71 @@
+.navbar {
+  overflow: hidden;
+  background-color: #00053D;
+  font-family: Arial;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: auto;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #1525D6;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .column{
   float: left;
   width: 50%;
@@ -5,18 +73,7 @@
 img{
   box-shadow: 10px 10px 5px grey;
 }
-.grid-container{
-  display: grid;
-  grid-template-columns: auto auto;
-  background-color: white;
-  padding: 10px;
-}
-.grid-item{
-  background-color: white;
-  border: 1px solid black;
-  padding: 5px;
-  text-align: center;
-}
+
 
 .fullLine{
   clear: both;
@@ -50,19 +107,14 @@ main {
   background-color: #FFFFFF;
 }
 
-.left, .right {
-  flex: 0 2 20%;
-  background-color: #FFFFFF;
-}
+
 .middle {
   margin: 15%;
   margin-top: 5%;
   background-color: white;
 
 }
-.middleText {
-  flex:1 1 300px;
-}
+
 ul {
   list-style-type: none;
   margin: 0;
