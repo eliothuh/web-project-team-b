@@ -6,7 +6,7 @@ CREATE TABLE counties1999 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -17,7 +17,7 @@ CREATE TABLE counties2000 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE counties2001 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -39,7 +39,7 @@ CREATE TABLE counties2002 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE counties2003 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -61,7 +61,7 @@ CREATE TABLE counties2004 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE counties2005 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -83,7 +83,7 @@ CREATE TABLE counties2006 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -94,7 +94,7 @@ CREATE TABLE counties2007 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -105,7 +105,7 @@ CREATE TABLE counties2008 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -116,7 +116,7 @@ CREATE TABLE counties2009 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -127,7 +127,7 @@ CREATE TABLE counties2010 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -138,7 +138,7 @@ CREATE TABLE counties2011 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -149,7 +149,7 @@ CREATE TABLE counties2012 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -160,7 +160,7 @@ CREATE TABLE counties2013 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -171,7 +171,7 @@ CREATE TABLE counties2014 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -182,7 +182,7 @@ CREATE TABLE counties2015 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -193,7 +193,7 @@ CREATE TABLE counties2016 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -204,7 +204,7 @@ CREATE TABLE counties2017 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -215,7 +215,7 @@ CREATE TABLE states1999 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -226,7 +226,7 @@ CREATE TABLE states2000 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -237,7 +237,7 @@ CREATE TABLE states2001 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -248,7 +248,7 @@ CREATE TABLE states2002 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -259,7 +259,7 @@ CREATE TABLE states2003 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -270,7 +270,7 @@ CREATE TABLE states2004 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -281,7 +281,7 @@ CREATE TABLE states2005 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -292,7 +292,7 @@ CREATE TABLE states2006 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -303,7 +303,7 @@ CREATE TABLE states2007 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -314,7 +314,7 @@ CREATE TABLE states2008 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -325,7 +325,7 @@ CREATE TABLE states2009 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -336,7 +336,7 @@ CREATE TABLE states2010 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -347,7 +347,7 @@ CREATE TABLE states2011 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -358,7 +358,7 @@ CREATE TABLE states2012 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -369,7 +369,7 @@ CREATE TABLE states2013 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -380,7 +380,7 @@ CREATE TABLE states2014 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -391,7 +391,7 @@ CREATE TABLE states2015 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -402,7 +402,7 @@ CREATE TABLE states2016 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
@@ -413,7 +413,7 @@ CREATE TABLE states2017 (
 	causeofdeath text,
 	causeofdeathcode text, 
 	deaths real, 
-	population real,
+	totalpopulation real,
 	crude rate real	
 );
 
