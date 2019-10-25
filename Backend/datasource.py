@@ -109,11 +109,7 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-<<<<<<< HEAD
-            query = f"SELECT * FROM states{year} WHERE state = {state} ORDER BY Deaths DESC"
-=======
-            query = f"SELECT * FROM states2000 WHERE statename = 'Florida';"
->>>>>>> c48a680274abcf9cec6fb163701ff5b90dc3b1d3
+            query = f"SELECT * FROM states{year} WHERE statename = '{state}' ORDER BY Deaths DESC"
             cursor.execute(query)
             return cursor.fetchall()
 
