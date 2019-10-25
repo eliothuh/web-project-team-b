@@ -109,7 +109,7 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
-            query = f"SELECT * FROM HomicideUCODState{year} WHERE state = {state} ORDER BY Deaths DESC"
+            query = f"SELECT * FROM states{year} WHERE state = {state} ORDER BY Deaths DESC"
             cursor.execute(query)
             return cursor.fetchall()
 
@@ -145,7 +145,7 @@ class DataSource:
 
 def main():
 	# Replace these credentials with your own
-    user = "knights3"
+    user = input("please enter your username: ")
     password = getpass.getpass()
 
     # Connect to the database
