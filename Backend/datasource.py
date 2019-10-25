@@ -145,12 +145,12 @@ class DataSource:
 
 def main():
 	# Replace these credentials with your own
-    user = 'knights3'
+    user = "huhe"
     password = getpass.getpass()
 
     # Connect to the database
-    connection = connect(user, password)
-
+    connection = psycopg2.connect(database=user, user=user, password=password)
+    
     datasource = DataSource(connection)
 
     # Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
