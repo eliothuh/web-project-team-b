@@ -10,6 +10,58 @@ class DataSource:
 
     def __init__(self, connection):
         self.connection = connection
+        self.stateDictionary = {
+                "Alabama" : "AL",
+                "Alaska" : "AK",
+                "Arizona" : "AZ",
+                "Arkansas" : "AR",
+                "California" : "CA",
+                "Colorado" : "CO",
+                "Connecticut" : "CT",
+                "Delaware" : "DE",
+                "Florida" : "FL",
+                "Georgia" : "GA",
+                "Hawaii" : "HI",
+                "Idaho" : "ID",
+                "Illinois" : "IL",
+                "Indiana" : "IN",
+                "Iowa" : "IA",
+                "Kansas" : "KS",
+                "Kentucky" : "KY",
+                "Louisiana" : "LA",
+                "Maine" : "ME",
+                "Maryland" : "MD",
+                "Massachusetts" : "MA",
+                "Michigan" : "MI",
+                "Minnesota" : "MN",
+                "Mississippi" : "MS",
+                "Missouri" : "MO",
+                "Montana" : "MT",
+                "Nebraska" : "NE",
+                "Nevada" : "NV",
+                "New Hampshire" : "NH",
+                "New Jersey" : "NJ",
+                "New Mexico" : "NM",
+                "New York" : "NY",
+                "North Carolina" : "NC",
+                "North Dakota" : "ND",
+                "Ohio" : "OH",
+                "Oklahoma" : "OK",
+                "Oregon" : "OR",
+                "Pennsylvania" : "PA",
+                "Rhode Island" : "RI",
+                "South Carolina" : "SC",
+                "South Dakota" : "SD",
+                "Tennessee" : "TN",
+                "Texas" : "TX",
+                "Utah" : "UT",
+                "Vermont" : "VT",
+                "Virgina" : "VA",
+                "Washington" : "WA",
+                "West Virgina" : "WV",
+                "Wisconsin" : "WI",
+                "Wyoming" : "WY",
+                }
 
     def connect(user, password):
         '''
@@ -50,6 +102,7 @@ class DataSource:
         RETURN:
             a list of all of the states and associated homicide data for each
             year
+        Calls USASingleYearQuery
         '''
         return []
 
@@ -62,6 +115,8 @@ class DataSource:
 
         RETURN:
             a list of all states and associated data
+
+        Calls stateSingleYearQuery
         '''
         return []
 
@@ -92,6 +147,8 @@ class DataSource:
 
         RETURN:
             a list of data for the state, as a list of lists
+
+        Calls StateSingleYearQuery
         '''
         return []
 
@@ -106,27 +163,43 @@ class DataSource:
 
         RETURN:
             a list of data for the state, as a list of lists.
+
+        Calls countySingleYearQuery
         '''
+
+        results = []
+
         try:
             cursor = self.connection.cursor()
             query = f"SELECT * FROM states{year} WHERE statename = '{state}' ORDER BY Deaths DESC"
             cursor.execute(query)
-            return cursor.fetchall()
+            results.append(cursor.fetchall())
+
+            print(self.stateDictionary.get(state))
+            
+            countyType = f"%{self.stateDictionary.get(state)}"
+
+            results.append(countySingleYearQuery(self, year, countyType)) 
+
+            return results
 
         except Exception as e:
-            print ("Something went wrong when executing the query: ", e)
+            print ("Something went wrong when executing the query: " + e)
             return None
+        
+            
+            
 
 
 
-    def CountyQuery(self,  startYear, endYear, county):
+    def countyQuery(self,  startYear, endYear, county):
         '''
-        returns a list of data for a specific county
+        returns a list of data for a specific county or list of counties (using LIKE)
 
         PARAMETERS:
             startYear - the first year to get data for
             endYear - the last year to get data for
-
+            county - the expression defining which county names may be excepted
         RETURN:
             a list of data for the county
         '''
@@ -134,13 +207,26 @@ class DataSource:
 
     def countySingleYearQuery(self, year, county):
         '''
-        returns county data for a single year
+        returns county data for a single year for one county or a list
+        of counties (using LIKE) 
 
         PARAMETERS:
-            year: the year to get data for
-            county: the county to get data for
+            year - the year to get data for
+            county -  the expression defining which county names may be excepted
         '''
-        return []
+        results = []
+
+        try:
+            cursor = self.connection.cursor()
+            query = f"SELECT * FROM counties{year} WHERE county LIKE {county}"
+            cursor.execute(query)
+            result.append(cursor.fetchall())
+
+        except Exception as e:
+            print("Something went wrong when executing the query (county)")
+            return None
+
+        return results
 
 
 def main():
@@ -160,6 +246,8 @@ def main():
         print("Query results: ")
         for item in results:
             print(item)
+
+    print("Query complete")
 
     # Disconnect from database
     connection.close()
