@@ -109,7 +109,11 @@ class DataSource:
         '''
         try:
             cursor = self.connection.cursor()
+<<<<<<< HEAD
             query = f"SELECT * FROM states{year} WHERE state = {state} ORDER BY Deaths DESC"
+=======
+            query = f"SELECT * FROM states2000 WHERE statename = 'Florida';"
+>>>>>>> c48a680274abcf9cec6fb163701ff5b90dc3b1d3
             cursor.execute(query)
             return cursor.fetchall()
 
@@ -154,7 +158,7 @@ def main():
     datasource = DataSource(connection)
 
     # Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
-    results = datasource.stateSingleYearQuery(2014, "Florida")
+    results = datasource.stateSingleYearQuery(2000, "Florida")
 
     if results is not None:
         print("Query results: ")
