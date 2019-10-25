@@ -152,6 +152,29 @@ class DataSource:
         '''
         return []
 
+    def countySingleYearQuery(self, year, county):
+        '''
+        returns county data for a single year for one county or a list
+        of counties (using LIKE)
+
+        PARAMETERS:
+            year - the year to get data for
+            county -  the expression defining which county names may be excepted
+        '''
+        results = []
+
+        try:
+            cursor = self.connection.cursor()
+            query = f"SELECT * FROM counties{year} WHERE county LIKE {county}"
+            cursor.execute(query)
+            result.append(cursor.fetchall())
+
+        except Exception as e:
+            print("Something went wrong when executing the query (county)")
+            return None
+
+        return results
+
     def stateSingleYearQuery(self, year, state):
         '''
         returns a list of data for the specified state, including both general
@@ -176,19 +199,19 @@ class DataSource:
             results.append(cursor.fetchall())
 
             print(self.stateDictionary.get(state))
-            
+
             countyType = f"%{self.stateDictionary.get(state)}"
 
-            results.append(countySingleYearQuery(self, year, countyType)) 
+            results.append(countySingleYearQuery(self, year, countyType))
 
             return results
 
         except Exception as e:
             print ("Something went wrong when executing the query: " + e)
             return None
-        
-            
-            
+
+
+
 
 
 
@@ -205,28 +228,7 @@ class DataSource:
         '''
         return []
 
-    def countySingleYearQuery(self, year, county):
-        '''
-        returns county data for a single year for one county or a list
-        of counties (using LIKE) 
 
-        PARAMETERS:
-            year - the year to get data for
-            county -  the expression defining which county names may be excepted
-        '''
-        results = []
-
-        try:
-            cursor = self.connection.cursor()
-            query = f"SELECT * FROM counties{year} WHERE county LIKE {county}"
-            cursor.execute(query)
-            result.append(cursor.fetchall())
-
-        except Exception as e:
-            print("Something went wrong when executing the query (county)")
-            return None
-
-        return results
 
 
 def main():
