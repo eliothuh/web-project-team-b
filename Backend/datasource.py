@@ -179,7 +179,7 @@ class DataSource:
             
             countyType = f"%{self.stateDictionary.get(state)}"
 
-            results.append(countySingleYearQuery(self, year, countyType)) 
+            results.append(countySingleYearQuery(year, countyType)) 
 
             return results
 
