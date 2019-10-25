@@ -154,7 +154,7 @@ def main():
     datasource = DataSource(connection)
 
     # Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
-    results = DataSource.stateSingleYearQuery(2014, "Florida")
+    results = datasource.stateSingleYearQuery(2014, "Florida")
 
     if results is not None:
         print("Query results: ")
