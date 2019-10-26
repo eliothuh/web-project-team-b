@@ -202,11 +202,8 @@ class DataSource:
 
             countyType = f"%{self.stateDictionary.get(state)}"
 
-<<<<<<< HEAD
-            results.append(countySingleYearQuery(year, countyType)) 
-=======
-            results.append(countySingleYearQuery(self, year, countyType))
->>>>>>> ae85640fdb7d39dd23a40e85f846c070333932fa
+
+            results.append(countySingleYearQuery(year, countyType))
 
             return results
 
@@ -230,7 +227,22 @@ class DataSource:
         RETURN:
             a list of data for the county
         '''
-        return []
+        results = []
+        
+        yearRange = endYear - startYear + 1
+
+        try:
+            for i in range(yearRange):
+                currentYear = i + 1999
+                cursor = self.connection.cursor()
+                query = f"SELECT * FROM counties{currentYear} WHERE county = '{county}' ORDER BY deaths DESC"
+                cursor.execute(query)
+                results.append(cursor.fetchall())
+
+                return results
+        except Exception as e:
+            print("Something went wrong when executing the querry: " + e)
+            return None
 
 
 
@@ -246,7 +258,8 @@ def main():
     datasource = DataSource(connection)
 
     # Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
-    results = datasource.stateSingleYearQuery(2000, "Florida")
+    #results = datasource.stateSingleYearQuery(2000, "Florida")
+    results = datasource.countyQuery(2000, 2005, "Los Angeles County, CA")
 
     if results is not None:
         print("Query results: ")
