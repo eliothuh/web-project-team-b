@@ -152,27 +152,6 @@ class DataSource:
         '''
         return []
 
-    def countySingleYearQuery(self, year, county):
-        '''
-        returns county data for a single year for one county or a list
-        of counties (using LIKE)
-
-        PARAMETERS:
-            year - the year to get data for
-            county -  the expression defining which county names may be excepted
-        '''
-        self.checkValidYear(year)
-
-        results = []
-        
-        
-        cursor = self.connection.cursor()
-        query = f"SELECT * FROM counties{year} WHERE county LIKE '{county}'"
-        cursor.execute(query)
-        results.append(cursor.fetchall())
-
-
-        return results
 
     def stateSingleYearQuery(self, year, state):
         '''
@@ -188,7 +167,7 @@ class DataSource:
 
         Calls countySingleYearQuery
         '''
-        
+
         self.checkValidYear(year)
 
         results = []
@@ -237,7 +216,7 @@ class DataSource:
             a list of data for the county
         '''
         results = []
-        
+
         self.checkValidRange(startYear, endYear)
 
         yearRange = endYear - startYear + 1
@@ -251,19 +230,42 @@ class DataSource:
         except Exception as e:
             print("Something went wrong when executing the query: " + str(e))
             return None
-    
+
+    def countySingleYearQuery(self, year, county):
+        '''
+        returns county data for a single year for one county or a list
+        of counties (using LIKE)
+
+        PARAMETERS:
+            year - the year to get data for
+            county -  the expression defining which county names may be excepted
+        '''
+        self.checkValidYear(year)
+
+        results = []
+
+
+        cursor = self.connection.cursor()
+        query = f"SELECT * FROM counties{year} WHERE county LIKE '{county}'"
+        cursor.execute(query)
+        results.append(cursor.fetchall())
+
+
+        return results
+
+
     def checkValidYear(self, year):
         if(year < 1999 or year > 2017):
             print("invalid year")
             exit()
-    
+
     def checkValidRange(self, startYear, endYear):
         if (startYear < 1999 or endYear > 2017 or startYear > endYear):
             print("invalid year range")
             exit()
 
 def main():
-	
+
     user = input("please enter your username: ")
     password = getpass.getpass()
 
@@ -278,7 +280,7 @@ def main():
     results = datasource.countyQuery(2000, 2002, "Los Angeles County, CA")
     print(results)
     results = datasource.countyQuery(2000, 2020, "Los Angeles County, CA")
- 
+
     if results is not None:
         print("Query results: ")
         for item in results:
