@@ -161,17 +161,16 @@ class DataSource:
             year - the year to get data for
             county -  the expression defining which county names may be excepted
         '''
+        self.checkValidYear(year)
+
         results = []
+        
+        
+        cursor = self.connection.cursor()
+        query = f"SELECT * FROM counties{year} WHERE county LIKE '{county}'"
+        cursor.execute(query)
+        results.append(cursor.fetchall())
 
-        try:
-            cursor = self.connection.cursor()
-            query = f"SELECT * FROM counties{year} WHERE county LIKE {county}"
-            cursor.execute(query)
-            result.append(cursor.fetchall())
-
-        except Exception as e:
-            print("Something went wrong when executing the query (county)")
-            return None
 
         return results
 
@@ -189,6 +188,8 @@ class DataSource:
 
         Calls countySingleYearQuery
         '''
+        
+        self.checkValidYear(year)
 
         results = []
 
@@ -197,21 +198,29 @@ class DataSource:
             query = f"SELECT * FROM states{year} WHERE statename = '{state}' ORDER BY Deaths DESC"
             cursor.execute(query)
             results.append(cursor.fetchall())
-
-            print(self.stateDictionary.get(state))
-
-            countyType = f"%{self.stateDictionary.get(state)}"
-
-
-            results.append(countySingleYearQuery(year, countyType))
-
-            return results
-
         except Exception as e:
-            print ("Something went wrong when executing the query: " + e)
-            return None
+            print("Something when wrong when excecuting the query (state)")
 
 
+        countyPattern = self.getAllCountyPattern(state)
+
+        countyData = self.countySingleYearQuery(year, countyPattern)
+
+        results.append(countyData)
+
+        return results
+
+    def getAllCountyPattern(self, state):
+        '''
+        returns an pattern that will match for every county in the state
+
+        PARAMETERS:
+            state: the state to find the counties of
+
+        RETURN:
+            a pattern that will match all counties of the state with a LIKE operator
+        '''
+        return f"%{self.stateDictionary.get(state)}"
 
 
 
@@ -221,34 +230,40 @@ class DataSource:
         returns a list of data for a specific county or list of counties (using LIKE)
 
         PARAMETERS:
-            startYear - the first year to get data for
-            endYear - the last year to get data for
+            startYear - an integer, the first year to get data for
+            endYear - an integer, the last year to get data for
             county - the expression defining which county names may be excepted
         RETURN:
             a list of data for the county
         '''
         results = []
         
+        self.checkValidRange(startYear, endYear)
+
         yearRange = endYear - startYear + 1
 
         try:
             for i in range(yearRange):
-                currentYear = i + 1999
-                cursor = self.connection.cursor()
-                query = f"SELECT * FROM counties{currentYear} WHERE county = '{county}' ORDER BY deaths DESC"
-                cursor.execute(query)
-                results.append(cursor.fetchall())
+                currentYear = i + startYear
+                results.append(self.countySingleYearQuery(currentYear, county))
 
-                return results
+            return results
         except Exception as e:
-            print("Something went wrong when executing the querry: " + e)
+            print("Something went wrong when executing the query: " + str(e))
             return None
-
-
-
+    
+    def checkValidYear(self, year):
+        if(year < 1999 or year > 2017):
+            print("invalid year")
+            exit()
+    
+    def checkValidRange(self, startYear, endYear):
+        if (startYear < 1999 or endYear > 2017 or startYear > endYear):
+            print("invalid year range")
+            exit()
 
 def main():
-	# Replace these credentials with your own
+	
     user = input("please enter your username: ")
     password = getpass.getpass()
 
@@ -258,9 +273,12 @@ def main():
     datasource = DataSource(connection)
 
     # Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
-    #results = datasource.stateSingleYearQuery(2000, "Florida")
-    results = datasource.countyQuery(2000, 2005, "Los Angeles County, CA")
-
+    results = datasource.stateSingleYearQuery(2000, "Florida")
+    print(results)
+    results = datasource.countyQuery(2000, 2002, "Los Angeles County, CA")
+    print(results)
+    results = datasource.countyQuery(2000, 2020, "Los Angeles County, CA")
+ 
     if results is not None:
         print("Query results: ")
         for item in results:
