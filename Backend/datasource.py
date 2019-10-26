@@ -6,6 +6,11 @@ class DataSource:
     DataSource executes all of the queries on the database.
     It also formats the data to send back to the frontend, typically in a list
     or some other collection or object.
+
+    grade these methods:
+        - stateSingleYearQuery
+        - countyQuery
+        - countySingleYearQuery
     '''
 
     def __init__(self, connection):
@@ -165,7 +170,7 @@ class DataSource:
         RETURN:
             a list of data for the state, as a list of lists.
 
-        Calls countySingleYearQuery
+        Grade this method
         '''
 
         self.checkValidYear(year)
@@ -198,6 +203,7 @@ class DataSource:
 
         RETURN:
             a pattern that will match all counties of the state with a LIKE operator
+
         '''
         return f"%{self.stateDictionary.get(state)}"
 
@@ -214,6 +220,8 @@ class DataSource:
             county - the expression defining which county names may be excepted
         RETURN:
             a list of data for the county
+
+        Grade this method
         '''
         results = []
 
@@ -239,6 +247,8 @@ class DataSource:
         PARAMETERS:
             year - the year to get data for
             county -  the expression defining which county names may be excepted
+
+        Grade this method
         '''
         self.checkValidYear(year)
 
