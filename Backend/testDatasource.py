@@ -17,5 +17,5 @@ class DataSourceTester(unittest.TestCase):
 	def check_compatible_range(self, startYear, endYear):
 		assertTrue(self.dataSource.checkValidRange(2000, 2002))
 		
-if __name__ == '__main__':
-	unittest.main()
+#if __name__ == '__main__':
+#	unittest.main()
