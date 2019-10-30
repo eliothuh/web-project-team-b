@@ -245,29 +245,42 @@ class DataSource:
 
 
         return results
-
-
+	
+	def checkState(self, state):
+		if not isinstance(state, str):
+			raise TypeError
+		if not state in self.stateDictionary:
+			raise ValueError
+		return True
+				
+	
     def checkValidYear(self, year):
+    	if not isinstance(year, int):
+    		raise TypeError
         if(year < 1999 or year > 2017):
             print("invalid year")
-            exit()
+            raise ValueError
+        return True
 
     def checkValidRange(self, startYear, endYear):
+    	if not (isinstance(startYear, int) and isinstance(endYear, int)):
+    		raise TypeError
         if (startYear < 1999 or endYear > 2017 or startYear > endYear):
             print("invalid year range")
-            exit()
+            raise ValueError
+        return True
             
             
 def connect(user, password):
      '''
-        Establishes a connection to the database with the following credentials:
-		user - username, which is also the name of the database
-		password - the password for this database on perlman
+    Establishes a connection to the database with the following credentials:
+	user - username, which is also the name of the database
+	password - the password for this database on perlman
 
-        Returns: a database connection.
+    Returns: a database connection.
 
-        Note: exits if a connection cannot be established.
-        '''
+    Note: exits if a connection cannot be established.
+    '''
     try:
         connection = psycopg2.connect(database=user, user=user, password=password)
     except Exception as e:
@@ -302,5 +315,3 @@ def main():
 
     # Disconnect from database
     connection.close()
-
-main()
