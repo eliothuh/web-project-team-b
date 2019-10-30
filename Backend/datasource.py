@@ -289,7 +289,7 @@ def connect(user, password):
     return connection
 
 
-def main():
+"""def main():
 
     user = input("please enter your username: ")
     password = getpass.getpass()
@@ -314,4 +314,4 @@ def main():
     print("Query complete")
 
     # Disconnect from database
-    connection.close()
+    connection.close()"""
