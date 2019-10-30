@@ -8,7 +8,7 @@ class DataSourceTester(unittest.TestCase):
 		connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye")
 		self.dataSource = DataSource(connection)
 		
-	def test_check_incompatible_range(self, startYear, endYear):
+	def test_check_incompatible_range(self):
 		self.assertRaises(ValueError, self.dataSource.checkValidRange, 2000, 1999)
 		self.assertRaises(ValueError, self.dataSource.checkValidRange, 1960, 1999)
 		self.assertRaises(ValueError, self.dataSource.checkValidRange, 2017, 2020)
