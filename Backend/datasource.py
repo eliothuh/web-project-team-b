@@ -271,7 +271,7 @@ class DataSource:
 			
 	
 def connect(user, password):
-	 '''
+	'''
 	Establishes a connection to the database with the following credentials:
 	user - username, which is also the name of the database
 	password - the password for this database on perlman
