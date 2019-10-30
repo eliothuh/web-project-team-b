@@ -14,7 +14,7 @@ class DataSourceTester(unittest.TestCase):
 		self.assertRaises(ValueError, self.dataSource.checkValidRange, 2017, 2020)
 		self.assertRaises(TypeError, self.dataSource.checkValidRange, 'apple', 'banana')
 	
-	def test_check_compatible_range(self, startYear, endYear):
+	def test_check_compatible_range(self):
 		self.assertTrue(self.dataSource.checkValidRange(2000, 2002))
 		
 if __name__ == '__main__':
