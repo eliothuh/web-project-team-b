@@ -1,5 +1,7 @@
 import psycopg2
 import unittest
+import datasource
+from unittest import *
 from datasource import *
 
 class DataSourceTester(unittest.TestCase):
