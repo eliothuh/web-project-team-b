@@ -245,17 +245,17 @@ class DataSource:
 
 
         return results
-"""
+
 	def checkState(self, state):
 		if not isinstance(state, str):
 			raise TypeError
 		if not state in self.stateDictionary:
 			raise ValueError
 		return True
-"""
 
-    def checkValidYear(self, year):
-    	if not isinstance(year, int):
+
+	def checkValidYear(self, year):
+		if not isinstance(year, int):
     		raise TypeError
         if(year < 1999 or year > 2017):
             print("invalid year")
