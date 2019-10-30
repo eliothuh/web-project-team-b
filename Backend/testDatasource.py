@@ -1,12 +1,11 @@
 import psycopg2
 import unittest
-import datasource
 from unittest import *
 
 
 class DataSourceTester(unittest.TestCase):
 	def setUp(self):
-		connection = datasource.connect("huhe", "tree695eye")
+		connection = psycopg2.connect("huhe", "huhe", "tree695eye")
 		self.dataSource = DataSource(connection)
 		
 	def check_incompatible_range(self, startYear, endYear):
