@@ -5,7 +5,7 @@ from datasource import *
 
 class DataSourceTester(unittest.TestCase):
 	def setUp(self):
-		connection = psycopg2.connect("huhe", "huhe", "tree695eye")
+		connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye")
 		self.dataSource = DataSource(connection)
 		
 	def test_check_incompatible_range(self, startYear, endYear):
