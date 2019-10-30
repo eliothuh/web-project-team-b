@@ -1,6 +1,6 @@
 import psycopg2
 import unittest
-from datasource import connect
+from datasource import *
 
 class DataSourceTester(unittest.TestCase):
 	def setUp(self):
