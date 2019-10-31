@@ -317,7 +317,7 @@ def main():
 	datasource = DataSource(connect(user, password))
 
 	# Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
-	results = datasource.stateSingleYearQuery(2000, "Florida")
+	results = datasource.stateSingleYearQuery(2000, "Delaware")
 
 	for item in results:
 		print("firstlevel: ")
