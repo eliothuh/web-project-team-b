@@ -309,7 +309,7 @@ def main():
 		print("firstlevel: ")
 		print(type(item))
 		for entry in item:
-			print("second level: " 
+			print("second level: ") 
 			print(entry)
 			print(type(item))
 			for thing in entry:
