@@ -307,7 +307,9 @@ def main():
 
 	for item in results:
 		for entry in item:
-			print(type(entry))
+			for thing in entry:
+				print(thing)
+				print(type(thing))
 
 	print("Query complete")
 
