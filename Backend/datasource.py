@@ -254,10 +254,10 @@ class DataSource:
 
 
 	def checkState(self, state):
-	'''
+		'''
 		Returns true if the state is a valid US State name. Throws a TypeError
 		if state is not a String and ValueError if it is not a US State. 
-	'''
+		'''
 		if not isinstance(state, str):
 			print("State must be a string")
 			raise TypeError
@@ -270,10 +270,10 @@ class DataSource:
 
 
 	def checkValidYear(self, year):
-	'''
+		'''
 		Returns true if the year is within range 1999 to 2017. Raises TypeError if 
 		argument is not an int. Raises ValueError if int is too large or small.  
-	'''
+		'''
 		if not isinstance(year, int):
 			print("Year must be an integer")
 			raise TypeError
@@ -285,11 +285,11 @@ class DataSource:
 		return True
 
 	def checkValidRange(self, startYear, endYear):
-	'''
+		'''
 		Returns true if the year range is valid and within 1999 to 2017. Raises TypeError if either 
 		argument is not an int. Raises ValueError if the start year is greater than end year
 		or the range is not within 1999-2017. 
-	'''
+		'''
 		if not (isinstance(startYear, int) and isinstance(endYear, int)):
 			print("Years must be integers")
 			raise TypeError
