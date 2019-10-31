@@ -31,8 +31,9 @@ class DataSourceTester(unittest.TestCase):
 		783600.0, 2.9), [(None, "New Castle County, DE", 10003.0, "Assault by other and unspecified firearm discharge", "X95", 16.0,
 		496079.0, None), ()]]]]
 		print(list)
-		print(self.dataSource.getStateQuery(1999, 2000, "Delaware"))
-		self.assertEqual(list, self.dataSource.getStateQuery(1999, 2000, "Delaware"))
+		results = self.dataSource.getStateQuery(1999, 2002, "Delaware")
+		print(results)
+		self.assertEqual(list, results)
 		
 if __name__ == '__main__':
 	unittest.main()
