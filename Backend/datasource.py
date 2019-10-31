@@ -306,11 +306,15 @@ def main():
 	results = datasource.stateSingleYearQuery(2000, "Florida")
 
 	for item in results:
-		print("firstlevel: " + type(item))
+		print("firstlevel: ")
+		print(type(item))
 		for entry in item:
-			print("second level: " + entry + type(item))
+			print("second level: " 
+			print(entry)
+			print(type(item))
 			for thing in entry:
-				print(thing  + type(thing))
+				print(thing)
+				print(type(thing))
 				
 
 	print("Query complete")
