@@ -66,10 +66,11 @@ class DataSource:
 				"West Virgina" : "WV",
 				"Wisconsin" : "WI",
 				"Wyoming" : "WY",
+				"District of Columbia" : "DC"
 				}
 
 
-	def USAAllYearsQuery(self):
+	def getUSAAllYearsQuery(self):
 		'''
 		returns data for all the US over the full year range, using a special
 		data set to get the highest quality data for this query
@@ -79,7 +80,7 @@ class DataSource:
 		'''
 		return []
 
-	def USAQuery(self, startYear=1999, endYear=2017):
+	def getUSAQuery(self, startYear=1999, endYear=2017):
 		'''
 		returns a list of all states and their associated homicide data
 
@@ -94,7 +95,7 @@ class DataSource:
 		'''
 		return []
 
-	def USASingleYearQuery(self, year):
+	def getUSASingleYearQuery(self, year):
 		'''
 		returns a list of all states and thier associated homicide data
 
@@ -108,7 +109,7 @@ class DataSource:
 		'''
 		return []
 
-	def combineSingleYearQueries(self, queries):
+	def getCombineSingleYearQueries(self, queries):
 		'''
 		returns a list of states and their associated homicide data,
 		averaged for all years the queries contianed
@@ -123,7 +124,7 @@ class DataSource:
 		'''
 		return []
 
-	def stateQuery(self, startYear, endYear, state):
+	def getStateQuery(self, startYear, endYear, state):
 		'''
 		returns a list of data for the specified state, including both general
 		data and data for each county
@@ -138,10 +139,17 @@ class DataSource:
 
 		Calls StateSingleYearQuery
 		'''
-		return []
+		self.checkValidRange(startYear, endYear)
+		self.checkState(state)
+
+		results = []
+		yearDifference = endYear - startYear
+		for i in range(yearDifference):
+			results.append(stateSingleYearQuery(startYear + i, state))
+		return results
 
 
-	def stateSingleYearQuery(self, year, state):
+	def getStateSingleYearQuery(self, year, state):
 		'''
 		returns a list of data for the specified state, including both general
 		data and data for each county, for a single year
@@ -193,7 +201,7 @@ class DataSource:
 
 
 
-	def countyQuery(self,  startYear, endYear, county):
+	def getCountyQuery(self,  startYear, endYear, county):
 		'''
 		returns a list of data for a specific county or list of counties (using LIKE)
 
@@ -222,7 +230,7 @@ class DataSource:
 			print("Something went wrong when executing the query: " + str(e))
 			return None
 
-	def countySingleYearQuery(self, year, county):
+	def getCountySingleYearQuery(self, year, county):
 		'''
 		returns county data for a single year for one county or a list
 		of counties (using LIKE)
@@ -242,37 +250,43 @@ class DataSource:
 		query = f"SELECT * FROM counties{year} WHERE county LIKE '{county}'"
 		cursor.execute(query)
 		results.append(cursor.fetchall())
-		
+
 		return results
+
 
 	def checkState(self, state):
 		if not isinstance(state, str):
+			print("State must be a string")
 			raise TypeError
 		if not state in self.stateDictionary:
+			print("State not found")
 			raise ValueError
 		return True
 
 
 	def checkValidYear(self, year):
 		if not isinstance(year, int):
+			print("Year must be an integer")
 			raise TypeError
 		if(year < 1999 or year > 2017):
-			print("invalid year")
+			print("Invalid year")
 			raise ValueError
 		return True
 
 	def checkValidRange(self, startYear, endYear):
 		if not (isinstance(startYear, int) and isinstance(endYear, int)):
+			print("Years must be integers")
 			raise TypeError
 		if (startYear < 1999 or endYear > 2017 or startYear > endYear):
-			print("invalid year range")
+			print("Invalid year range")
 			raise ValueError
 		return True
-		
+
+
 	def disconnect():
 		self.connection.close()
-	
-	
+
+
 def connect(user, password):
 	'''
 	Establishes a connection to the database with the following credentials:
@@ -309,17 +323,17 @@ def main():
 		print("firstlevel: ")
 		print(type(item))
 		for entry in item:
-			print("second level: ") 
+			print("second level: ")
 			print(entry)
 			print(type(item))
 			for thing in entry:
 				print(thing)
 				print(type(thing))
-				
+
 
 	print("Query complete")
 
 	# Disconnect from database
 	datasource.disconnect()
-	
+
 main()
