@@ -268,7 +268,10 @@ class DataSource:
 			print("invalid year range")
 			raise ValueError
 		return True
-			
+		
+	def disconnect():
+		self.connection.close()
+	
 	
 def connect(user, password):
 	'''
@@ -286,9 +289,7 @@ def connect(user, password):
 		print("Connection error: ", e)
 		exit()
 	return connection
-	
-def disconnect():
-	self.connection.close()
+
 
 
 def main():
@@ -306,11 +307,11 @@ def main():
 
 	for item in results:
 		for entry in item:
-			print(type(item))
+			print(type(entry))
 
 	print("Query complete")
 
 	# Disconnect from database
-	disconnect()
+	datasource.disconnect()
 	
 main()
