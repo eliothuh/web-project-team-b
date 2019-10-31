@@ -286,6 +286,9 @@ def connect(user, password):
 		print("Connection error: ", e)
 		exit()
 	return connection
+	
+def disconnect():
+	self.connection.close()
 
 
 def main():
@@ -302,11 +305,12 @@ def main():
 	results = datasource.stateSingleYearQuery(2000, "Florida")
 
 	for item in results:
-		print(type(item))
+		for entry in item:
+			print(type(item))
 
 	print("Query complete")
 
 	# Disconnect from database
-	connection.close()
+	disconnect()
 	
 main()
