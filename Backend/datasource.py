@@ -288,7 +288,7 @@ def connect(user, password):
 	return connection
 
 
-"""def main():
+def main():
 
 	user = input("please enter your username: ")
 	password = getpass.getpass()
@@ -300,17 +300,11 @@ def connect(user, password):
 
 	# Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
 	results = datasource.stateSingleYearQuery(2000, "Florida")
-	print(results)
-	results = datasource.countyQuery(2000, 2002, "Los Angeles County, CA")
-	print(results)
-	results = datasource.countyQuery(2000, 2020, "Los Angeles County, CA")
 
-	if results is not None:
-		print("Query results: ") 
-		for item in results:
-			print(item)
+	for item in results:
+		print(type(item))
 
 	print("Query complete")
 
 	# Disconnect from database
-	connection.close()"""
+	connection.close()
