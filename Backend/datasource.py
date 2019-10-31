@@ -162,7 +162,7 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} WHERE statename = '{state}' ORDER BY Deaths DESC"
+			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
 			cursor.execute(query)
 			results.append(cursor.fetchall())
 		except Exception as e:

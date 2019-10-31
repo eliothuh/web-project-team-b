@@ -25,7 +25,10 @@ class DataSourceTester(unittest.TestCase):
 		self.assertTrue(self.dataSource.checkState("Florida"))
 		
 	def test_proper_state_query(self):
-		list = [["Florida", 12, "Assault by hanging, strangulation and suffocation", "X91"]]
+		list = [["Delaware", 10.0, "Assault by other and unspecified firearm discharge", "X95", 17.0,
+		774990.0, None], ["Delaware", 10.0, None, None, 24.0,
+		774990.0, 3.1], [("New Castle County, DE", 10003.0, "Assault by other and unspecified firearm discharge", "X95", 16.0,
+		496079.0, None)]]
 		
 if __name__ == '__main__':
 	unittest.main()
