@@ -174,7 +174,7 @@ class DataSource:
 			cursor = self.connection.cursor()
 			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
 			cursor.execute(query)
-			results.append(cursor.fetchall())
+			results = cursor.fetchall()
 		except Exception as e:
 			print("Something when wrong when excecuting the query (state)")
 
@@ -251,7 +251,7 @@ class DataSource:
 		cursor = self.connection.cursor()
 		query = f"SELECT * FROM counties{year} WHERE county LIKE '{county}'"
 		cursor.execute(query)
-		results.append(cursor.fetchall())
+		results = cursor.fetchall()
 
 		return results
 
