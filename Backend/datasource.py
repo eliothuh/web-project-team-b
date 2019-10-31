@@ -7,10 +7,7 @@ class DataSource:
 	It also formats the data to send back to the frontend, typically in a list
 	or some other collection or object.
 
-	grade these methods:
-		- stateSingleYearQuery
-		- countyQuery
-		- countySingleYearQuery
+	grade getStateQuery and its corresponding tests.
 	'''
 
 	def __init__(self, connection):
@@ -141,13 +138,14 @@ class DataSource:
 		'''
 		self.checkValidRange(startYear, endYear)
 		self.checkState(state)
-
 		results = []
 		yearDifference = endYear - startYear
 		i = 0
+		
 		while i <= yearDifference:
 			results.append(self.getStateSingleYearQuery(startYear + i, state))
 			i = i + 1
+			
 		return results
 
 
@@ -175,14 +173,13 @@ class DataSource:
 			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
 			cursor.execute(query)
 			results = cursor.fetchall()
+		
 		except Exception as e:
 			print("Something when wrong when excecuting the query (state)")
 
 
 		countyPattern = self.getAllCountyPattern(state)
-
 		countyData = self.getCountySingleYearQuery(year, countyPattern)
-
 		results.append(countyData)
 
 		return results
@@ -228,6 +225,7 @@ class DataSource:
 				results.append(self.countySingleYearQuery(currentYear, county))
 
 			return results
+		
 		except Exception as e:
 			print("Something went wrong when executing the query: " + str(e))
 			return None
@@ -247,7 +245,6 @@ class DataSource:
 
 		results = []
 
-
 		cursor = self.connection.cursor()
 		query = f"SELECT * FROM counties{year} WHERE county LIKE '{county}'"
 		cursor.execute(query)
@@ -257,31 +254,50 @@ class DataSource:
 
 
 	def checkState(self, state):
+	'''
+		Returns true if the state is a valid US State name. Throws a TypeError
+		if state is not a String and ValueError if it is not a US State. 
+	'''
 		if not isinstance(state, str):
 			print("State must be a string")
 			raise TypeError
+		
 		if not state in self.stateDictionary:
 			print("State not found")
 			raise ValueError
+		
 		return True
 
 
 	def checkValidYear(self, year):
+	'''
+		Returns true if the year is within range 1999 to 2017. Raises TypeError if 
+		argument is not an int. Raises ValueError if int is too large or small.  
+	'''
 		if not isinstance(year, int):
 			print("Year must be an integer")
 			raise TypeError
+		
 		if(year < 1999 or year > 2017):
 			print("Invalid year")
 			raise ValueError
+		
 		return True
 
 	def checkValidRange(self, startYear, endYear):
+	'''
+		Returns true if the year range is valid and within 1999 to 2017. Raises TypeError if either 
+		argument is not an int. Raises ValueError if the start year is greater than end year
+		or the range is not within 1999-2017. 
+	'''
 		if not (isinstance(startYear, int) and isinstance(endYear, int)):
 			print("Years must be integers")
 			raise TypeError
+		
 		if (startYear < 1999 or endYear > 2017 or startYear > endYear):
 			print("Invalid year range")
 			raise ValueError
+		
 		return True
 
 
@@ -301,39 +317,9 @@ def connect(user, password):
 	'''
 	try:
 		connection = psycopg2.connect(database=user, user=user, password=password)
+	
 	except Exception as e:
 		print("Connection error: ", e)
 		exit()
+	
 	return connection
-
-
-
-"""def main():
-
-	user = input("please enter your username: ")
-	password = getpass.getpass()
-
-	# Connect to the database
-	#connection = psycopg2.connect(database=user, user=user, password=password)
-
-	datasource = DataSource(connect(user, password))
-
-	# Execute a simple query: how many earthquakes above the specified magnitude are there in the data?
-	results = datasource.getStateSingleYearQuery(2000, "Delaware")
-
-	for item in results:
-		print("firstlevel: ")
-		print(type(item))
-		for entry in item:
-			print("second level: ")
-			print(entry)
-			print(type(item))
-			for thing in entry:
-				print(thing)
-				print(type(thing))
-
-
-	print("Query complete")
-
-	# Disconnect from database
-	datasource.disconnect()"""
