@@ -30,7 +30,6 @@ class DataSourceTester(unittest.TestCase):
 		774990.0, 3.1),  ("Total", "Delaware", 10.0, None, None, 23.0,
 		783600.0, 2.9), [(None, "New Castle County, DE", 10003.0, "Assault by other and unspecified firearm discharge", "X95", 16.0,
 		496079.0, None), ()]]]]
-		print(list)
 		results = self.dataSource.getStateQuery(1999, 1999, "Delaware")
 		print(results)
 		self.assertEqual(list, results)
