@@ -25,11 +25,11 @@ class DataSourceTester(unittest.TestCase):
 		self.assertTrue(self.dataSource.checkState("Florida"))
 		
 	def test_proper_state_query(self):
-		list = [[[None, "Delaware", 10.0, "Assault by other and unspecified firearm discharge", "X95", 17.0,
-		774990.0, None], ["Total", "Delaware", 10.0, None, None, 24.0,
-		774990.0, 3.1], [(None, "New Castle County, DE", 10003.0, "Assault by other and unspecified firearm discharge", "X95", 16.0,
-		496079.0, None)]], [["Total", "Delaware", 10.0, None, None, 23.0,
-		783600.0, 2.9], []]]
+		list = [[[(None, "Delaware", 10.0, "Assault by other and unspecified firearm discharge", "X95", 17.0,
+		774990.0, None), ("Total", "Delaware", 10.0, None, None, 24.0,
+		774990.0, 3.1),  ("Total", "Delaware", 10.0, None, None, 23.0,
+		783600.0, 2.9), [(None, "New Castle County, DE", 10003.0, "Assault by other and unspecified firearm discharge", "X95", 16.0,
+		496079.0, None), ()]]]]
 		print(list)
 		print(self.dataSource.getStateQuery(1999, 2000, "Delaware"))
 		self.assertEqual(list, self.dataSource.getStateQuery(1999, 2000, "Delaware"))
