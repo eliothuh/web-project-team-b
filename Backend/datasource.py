@@ -179,7 +179,7 @@ class DataSource:
 
 		countyPattern = self.getAllCountyPattern(state)
 
-		countyData = self.countySingleYearQuery(year, countyPattern)
+		countyData = self.getCountySingleYearQuery(year, countyPattern)
 
 		results.append(countyData)
 
