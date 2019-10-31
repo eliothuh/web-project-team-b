@@ -30,7 +30,7 @@ class DataSourceTester(unittest.TestCase):
 	def test_correct_state(self):
 		self.assertTrue(self.dataSource.checkState("Florida"))
 		
-	#Checks state query returns a properly formatted set of state and county data
+	#Checks getStateQuery returns a properly formatted set of state and county data
 	def test_proper_state_query(self):
 		list = [[(None, "Delaware", 10.0, "Assault by other and unspecified firearm discharge", "X95", 17.0,
 		774990.0, None), ("Total", "Delaware", 10.0, None, None, 24.0,
@@ -41,7 +41,7 @@ class DataSourceTester(unittest.TestCase):
 		results = self.dataSource.getStateQuery(1999, 2000, "Delaware")
 		self.assertEqual(list, results)
 		
-	#Checks state query does not return the wrong data set.
+	#Checks getStateQuery does not return the wrong data set.
 	def test_incorrect_state_query(self):
 		incorrectList = [("incorrect")]
 		results = self.dataSource.getStateQuery(1999, 2000, "Florida")
