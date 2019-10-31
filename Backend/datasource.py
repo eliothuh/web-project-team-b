@@ -144,8 +144,10 @@ class DataSource:
 
 		results = []
 		yearDifference = endYear - startYear
-		for i in range(yearDifference):
+		i = 0
+		while i < yearDifference:
 			results.append(self.getStateSingleYearQuery(startYear + i, state))
+			i++
 		return results
 
 
