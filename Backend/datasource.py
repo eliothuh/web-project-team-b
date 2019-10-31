@@ -306,7 +306,7 @@ def connect(user, password):
 
 
 
-def main():
+"""def main():
 
 	user = input("please enter your username: ")
 	password = getpass.getpass()
@@ -334,6 +334,4 @@ def main():
 	print("Query complete")
 
 	# Disconnect from database
-	datasource.disconnect()
-
-main()
+	datasource.disconnect()""""
