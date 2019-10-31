@@ -24,5 +24,8 @@ class DataSourceTester(unittest.TestCase):
 	def test_correct_state(self):
 		self.assertTrue(self.dataSource.checkState("Florida"))
 		
+	def test_proper_state_query(self):
+		list = [["Florida", 12, "Assault by hanging, strangulation and suffocation", "X91"]]
+		
 if __name__ == '__main__':
 	unittest.main()
