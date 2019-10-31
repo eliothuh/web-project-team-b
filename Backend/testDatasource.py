@@ -31,9 +31,12 @@ class DataSourceTester(unittest.TestCase):
 		496079.0, None)]], [("Total", "Delaware", 10.0, None, None, 23.0,
 		783600.0, 2.9), []]]
 		results = self.dataSource.getStateQuery(1999, 2000, "Delaware")
-		print(list)
-		print(results)
 		self.assertEqual(list, results)
+		
+	def test_incorrect_state_query(self):
+		incorrectList = [("incorrect")]
+		results = self.dataSource.getStateQuery(1999, 2000, "Delaware")
+		self.assertNotEqual(list, results)
 		
 if __name__ == '__main__':
 	unittest.main()
