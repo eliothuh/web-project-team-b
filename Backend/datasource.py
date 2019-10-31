@@ -334,4 +334,4 @@ def connect(user, password):
 	print("Query complete")
 
 	# Disconnect from database
-	datasource.disconnect()""""
+	datasource.disconnect()"""
