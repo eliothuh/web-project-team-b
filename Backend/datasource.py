@@ -70,7 +70,7 @@ class DataSource:
 				}
 
 
-	def USAAllYearsQuery(self):
+	def getUSAAllYearsQuery(self):
 		'''
 		returns data for all the US over the full year range, using a special
 		data set to get the highest quality data for this query
@@ -80,7 +80,7 @@ class DataSource:
 		'''
 		return []
 
-	def USAQuery(self, startYear=1999, endYear=2017):
+	def getUSAQuery(self, startYear=1999, endYear=2017):
 		'''
 		returns a list of all states and their associated homicide data
 
@@ -95,7 +95,7 @@ class DataSource:
 		'''
 		return []
 
-	def USASingleYearQuery(self, year):
+	def getUSASingleYearQuery(self, year):
 		'''
 		returns a list of all states and thier associated homicide data
 
@@ -109,7 +109,7 @@ class DataSource:
 		'''
 		return []
 
-	def combineSingleYearQueries(self, queries):
+	def getCombineSingleYearQueries(self, queries):
 		'''
 		returns a list of states and their associated homicide data,
 		averaged for all years the queries contianed
@@ -124,7 +124,7 @@ class DataSource:
 		'''
 		return []
 
-	def stateQuery(self, startYear, endYear, state):
+	def getStateQuery(self, startYear, endYear, state):
 		'''
 		returns a list of data for the specified state, including both general
 		data and data for each county
@@ -149,7 +149,7 @@ class DataSource:
 		return results
 
 
-	def stateSingleYearQuery(self, year, state):
+	def getStateSingleYearQuery(self, year, state):
 		'''
 		returns a list of data for the specified state, including both general
 		data and data for each county, for a single year
@@ -201,7 +201,7 @@ class DataSource:
 
 
 
-	def countyQuery(self,  startYear, endYear, county):
+	def getCountyQuery(self,  startYear, endYear, county):
 		'''
 		returns a list of data for a specific county or list of counties (using LIKE)
 
@@ -230,7 +230,7 @@ class DataSource:
 			print("Something went wrong when executing the query: " + str(e))
 			return None
 
-	def countySingleYearQuery(self, year, county):
+	def getCountySingleYearQuery(self, year, county):
 		'''
 		returns county data for a single year for one county or a list
 		of counties (using LIKE)
