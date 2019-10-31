@@ -308,3 +308,5 @@ def main():
 
 	# Disconnect from database
 	connection.close()
+	
+main()
