@@ -147,8 +147,6 @@ class DataSource:
 		i = 0
 		while i <= yearDifference:
 			print("Year:")
-			print(startYear + i)
-			print(self.getStateSingleYearQuery(startYear + i, state))
 			results.append(self.getStateSingleYearQuery(startYear + i, state))
 			i = i + 1
 		return results
