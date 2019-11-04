@@ -33,7 +33,7 @@ def itDoesHTML():
 
 @app.route('/home/')
 def boring():
-    return render_template('/../web/homepage.html')
+    return render_template('homepage.html')
 
 @app.route('/greet/<person>/')
 def greet(person):
