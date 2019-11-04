@@ -31,9 +31,9 @@ def itDoesHTML():
         '</html>'
     return htmlStr
 
-@app.route('/boring/')
+@app.route('/home/')
 def boring():
-    return render_template('boring.html')
+    return render_template('/../web/homepage.html')
 
 @app.route('/greet/<person>/')
 def greet(person):
