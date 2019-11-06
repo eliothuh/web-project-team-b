@@ -351,3 +351,10 @@ def connect(user, password):
 		exit()
 
 	return connection
+
+
+def main():
+	connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye")
+	dataSource = DataSource(connection)
+
+	results = getCountyQuery(1999, 2006, "Mobile County, AL")
