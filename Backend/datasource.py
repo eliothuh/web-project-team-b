@@ -359,3 +359,4 @@ def main():
 
 	results = getCountyQuery(1999, 2006, "Los Angeles County, CA")
 	print(results)
+main()
