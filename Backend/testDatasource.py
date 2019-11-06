@@ -10,10 +10,10 @@ class DataSourceTester(unittest.TestCase):
 
 	#Checks that getStateQuery raises appropriate errors on unusable year ranges.
 	def test_check_invalid_range(self):
-		self.assertRaises(ValueError, self.dataSource.getStateQuery, 2000, 1999, "Delware")
-		self.assertRaises(ValueError, self.dataSource.getStateQuery, 1960, 1999, "Delaware")
-		self.assertRaises(ValueError, self.dataSource.getStateQuery, 2017, 2020, "Delaware")
-		self.assertRaises(TypeError, self.dataSource.getStateQuery, 'apple', 'banana', "Delaware")
+		self.assertIsNone(self.dataSource.getStateQuery(2000, 1999, "Delware"))
+		self.assertIsNone(self.dataSource.getStateQuery(1960, 1999, "Delaware"))
+		self.assertIsNone(self.dataSource.getStateQuery(2017, 2020, "Delaware"))
+		self.assertIsNone(self.dataSource.getStateQuery('apple', 'banana', "Delaware"))
 
 	#Call checkValidRange directly as getStateQuery does given there are no unittest assert
 	#methods to check an error is NOT raised.
