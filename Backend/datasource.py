@@ -241,7 +241,7 @@ class DataSource:
 		try:
 			for i in range(yearRange):
 				currentYear = i + startYear
-				results.append(self.countySingleYearQuery(currentYear, county))
+				results.append(self.getCountySingleYearQuery(currentYear, county))
 
 			return results
 
