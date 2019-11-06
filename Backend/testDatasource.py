@@ -8,7 +8,7 @@ class DataSourceTester(unittest.TestCase):
 		connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye")
 		self.dataSource = DataSource(connection)
 
-	#Checks that getStateQuery raises appropriate errors on unusable year ranges.
+	#Checks that getStateQuery returns None on unusable year ranges.
 	def test_check_invalid_range(self):
 		self.assertIsNone(self.dataSource.getStateQuery(2000, 1999, "Delware"))
 		self.assertIsNone(self.dataSource.getStateQuery(1960, 1999, "Delaware"))
@@ -20,10 +20,10 @@ class DataSourceTester(unittest.TestCase):
 	def test_check_compatible_range(self):
 		self.assertTrue(self.dataSource.checkValidRange(2000, 2002))
 
-	#Checks that getStateQuery raises appropriate errors on invalid state names
+	#Checks that getStateQuery returns None on invalid state names
 	def test_invalid_state_name(self):
-		self.assertRaises(TypeError, self.dataSource.getStateQuery, 1999, 2000, 2000)
-		self.assertRaises(ValueError, self.dataSource.getStateQuery, 1999, 2000, "iiiii")
+		self.assertIsNone(self.dataSource.getStateQuery(1999, 2000, 2000))
+		self.assertIsNone(self.dataSource.getStateQuery(1999, 2000, "iiiii"))
 
 	#Checks no error is raised when checkValidState is called on an appropriate state name.
 	#method called directly for same reason as in test_check_compatible_range
