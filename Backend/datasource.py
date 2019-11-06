@@ -6,8 +6,6 @@ class DataSource:
 	DataSource executes all of the queries on the database.
 	It also formats the data to send back to the frontend, typically in a list
 	or some other collection or object.
-
-	grade getStateQuery and its corresponding tests.
 	'''
 
 	def __init__(self, connection):
@@ -75,9 +73,11 @@ class DataSource:
 		RETURN:
 			returns a list of data, with each entry for a certain state
 		'''
+
 		return []
 
-	def getUSAQuery(self, startYear=1999, endYear=2017):
+
+	def getUSAQuery(self, startYear, endYear):
 		'''
 		returns a list of all states and their associated homicide data
 
@@ -88,9 +88,12 @@ class DataSource:
 		RETURN:
 			a list of all of the states and associated homicide data for each
 			year
+
 		Calls USASingleYearQuery
 		'''
+
 		return []
+
 
 	def getUSASingleYearQuery(self, year):
 		'''
@@ -104,7 +107,9 @@ class DataSource:
 
 		Calls stateSingleYearQuery
 		'''
+
 		return []
+
 
 	def getCombineSingleYearQueries(self, queries):
 		'''
@@ -119,7 +124,9 @@ class DataSource:
 			a list of data for each unit (states or counties) in the
 			query, each entry is a list of the data for that unit
 		'''
+
 		return []
+
 
 	def getStateQuery(self, startYear, endYear, state):
 		'''
@@ -136,16 +143,22 @@ class DataSource:
 
 		Calls StateSingleYearQuery
 		'''
-		self.checkValidRange(startYear, endYear)
-		self.checkState(state)
+
+		try:
+			self.checkValidRange(startYear, endYear)
+			self.checkValidState(state)
+
+		except Exception as e:
+			return None
+
 		results = []
 		yearDifference = endYear - startYear
 		i = 0
-		
+
 		while i <= yearDifference:
 			results.append(self.getStateSingleYearQuery(startYear + i, state))
 			i = i + 1
-			
+
 		return results
 
 
@@ -160,11 +173,14 @@ class DataSource:
 
 		RETURN:
 			a list of data for the state, as a list of lists.
-
-		Grade this method
 		'''
 
-		self.checkValidYear(year)
+		try:
+			self.checkValidYear(year)
+			self.checkValidState(state)
+
+		except Exception as e:
+			return None
 
 		results = []
 
@@ -173,18 +189,19 @@ class DataSource:
 			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
 			cursor.execute(query)
 			results = cursor.fetchall()
-		
+
 		except Exception as e:
 			print("Something when wrong when excecuting the query (state)")
 
 
-		countyPattern = self.getAllCountyPattern(state)
+		countyPattern = self.getCountyPatternForState(state)
 		countyData = self.getCountySingleYearQuery(year, countyPattern)
 		results.append(countyData)
 
 		return results
 
-	def getAllCountyPattern(self, state):
+
+	def getCountyPatternForState(self, state):
 		'''
 		returns an pattern that will match for every county in the state
 
@@ -193,11 +210,9 @@ class DataSource:
 
 		RETURN:
 			a pattern that will match all counties of the state with a LIKE operator
-
 		'''
+
 		return f"%{self.stateDictionary.get(state)}"
-
-
 
 
 	def getCountyQuery(self,  startYear, endYear, county):
@@ -211,11 +226,15 @@ class DataSource:
 		RETURN:
 			a list of data for the county
 
-		Grade this method
 		'''
+
 		results = []
 
-		self.checkValidRange(startYear, endYear)
+		try:
+			self.checkValidRange(startYear, endYear)
+
+		except Exception as e:
+			return None
 
 		yearRange = endYear - startYear + 1
 
@@ -225,10 +244,11 @@ class DataSource:
 				results.append(self.countySingleYearQuery(currentYear, county))
 
 			return results
-		
+
 		except Exception as e:
 			print("Something went wrong when executing the query: " + str(e))
 			return None
+
 
 	def getCountySingleYearQuery(self, year, county):
 		'''
@@ -238,10 +258,13 @@ class DataSource:
 		PARAMETERS:
 			year - the year to get data for
 			county -  the expression defining which county names may be excepted
-
-		Grade this method
 		'''
-		self.checkValidYear(year)
+
+		try:
+			self.checkValidYear(year)
+
+		except Exception as e:
+			return None
 
 		results = []
 
@@ -253,51 +276,55 @@ class DataSource:
 		return results
 
 
-	def checkState(self, state):
+	def checkValidState(self, state):
 		'''
 		Returns true if the state is a valid US State name. Throws a TypeError
-		if state is not a String and ValueError if it is not a US State. 
+		if state is not a String and ValueError if it is not a US State.
 		'''
+
 		if not isinstance(state, str):
 			print("State must be a string")
 			raise TypeError
-		
+
 		if not state in self.stateDictionary:
 			print("State not found")
 			raise ValueError
-		
+
 		return True
 
 
 	def checkValidYear(self, year):
 		'''
-		Returns true if the year is within range 1999 to 2017. Raises TypeError if 
-		argument is not an int. Raises ValueError if int is too large or small.  
+		Returns true if the year is within range 1999 to 2017. Raises TypeError if
+		argument is not an int. Raises ValueError if int is too large or small.
 		'''
+
 		if not isinstance(year, int):
 			print("Year must be an integer")
 			raise TypeError
-		
+
 		if(year < 1999 or year > 2017):
 			print("Invalid year")
 			raise ValueError
-		
+
 		return True
+
 
 	def checkValidRange(self, startYear, endYear):
 		'''
-		Returns true if the year range is valid and within 1999 to 2017. Raises TypeError if either 
+		Returns true if the year range is valid and within 1999 to 2017. Raises TypeError if either
 		argument is not an int. Raises ValueError if the start year is greater than end year
-		or the range is not within 1999-2017. 
+		or the range is not within 1999-2017.
 		'''
+
 		if not (isinstance(startYear, int) and isinstance(endYear, int)):
 			print("Years must be integers")
 			raise TypeError
-		
+
 		if (startYear < 1999 or endYear > 2017 or startYear > endYear):
 			print("Invalid year range")
 			raise ValueError
-		
+
 		return True
 
 
@@ -315,11 +342,12 @@ def connect(user, password):
 
 	Note: exits if a connection cannot be established.
 	'''
+
 	try:
 		connection = psycopg2.connect(database=user, user=user, password=password)
-	
+
 	except Exception as e:
 		print("Connection error: ", e)
 		exit()
-	
+
 	return connection
