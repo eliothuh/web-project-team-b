@@ -358,3 +358,4 @@ def main():
 	dataSource = DataSource(connection)
 
 	results = getCountyQuery(1999, 2006, "Mobile County, AL")
+	print(results)
