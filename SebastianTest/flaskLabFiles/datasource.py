@@ -65,6 +65,20 @@ class DataSource:
 				}
 
 
+	def getUSAAllYearsQuery(self):
+		'''
+		returns data for all the US over the full year range, using a special
+		data set to get the highest quality data for this query
+
+		RETURN:
+			returns a list of data, with each entry for a certain state
+		'''
+
+		results = []
+
+		return results
+
+
 	def getUSAQuery(self, startYear, endYear):
 		'''
 		returns a list of all states and their associated homicide data
@@ -135,16 +149,10 @@ class DataSource:
 
 		return []
 
-
 	def getUSATotals(self, startYear, endYear):
 		'''
-		returns just the totals for the whole USA and each state
-
-		PARAMETERS:
-			startYear: The first year to gather data for
-			endYear: the lastyear to gather data for (inclusive)
-
-		calls getUSASingleYearTotals
+		returns just the totals for the whole USA in the specified year range
+		to reduce unnecessary data being sent around
 		'''
 		results = []
 		yearRange = endYear - startYear + 1
@@ -155,14 +163,7 @@ class DataSource:
 
 		return results
 
-
 	def getUSASingleYearTotals(self, year):
-		'''
-		returns the totals for the whole USA and each state
-
-		PARAMETERS:
-			year: the year to gather data for
-		'''
 		results = []
 
 		try:
@@ -181,6 +182,25 @@ class DataSource:
 			print("Something went wrong when executing the query (USATotals)" + str(e))
 
 		return results
+
+
+
+
+	def getCombineSingleYearQueries(self, queries):
+		'''
+		returns a list of states and their associated homicide data,
+		averaged for all years the queries contianed
+
+		PARAMETERS:
+			queries: a list each entry of which is the results of a
+			singleYearQuery
+
+		RETURN:
+			a list of data for each unit (states or counties) in the
+			query, each entry is a list of the data for that unit
+		'''
+
+		return []
 
 
 	def getStateQuery(self, startYear, endYear, state):
@@ -287,7 +307,6 @@ class DataSource:
 
 		try:
 			self.checkValidRange(startYear, endYear)
-			self.checkValidCounty(county)
 
 		except Exception as e:
 			return None
@@ -318,7 +337,6 @@ class DataSource:
 
 		try:
 			self.checkValidYear(year)
-			self.checkValidCounty(county)
 
 		except Exception as e:
 			return None
@@ -337,9 +355,6 @@ class DataSource:
 		'''
 		Returns true if the state is a valid US State name. Throws a TypeError
 		if state is not a String and ValueError if it is not a US State.
-
-		PARAMETERS:
-			state: the string to check for validity
 		'''
 
 		if not isinstance(state, str):
@@ -357,9 +372,6 @@ class DataSource:
 		'''
 		Returns true if the year is within range 1999 to 2017. Raises TypeError if
 		argument is not an int. Raises ValueError if int is too large or small.
-
-		PARAMETERS:
-			year: the int to check for validity
 		'''
 
 		if not isinstance(year, int):
@@ -391,18 +403,6 @@ class DataSource:
 		return True
 
 
-	def checkValidCounty(self, county):
-		'''
-		Returns true if the county is a string, and raises a TypeError otherwise
-		'''
-
-		if not isinstance(county, str):
-			print("county must be a year")
-			raise TypeError
-
-		return True
-
-
 	def disconnect():
 		self.connection.close()
 
@@ -430,6 +430,7 @@ def connect(user, password):
 def main():
 	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
-	print(dataSource.checkValidCounty("Bob"))
+	results = dataSource.getUSATotals(1999, 2000)
+	print(results)
 
-main()
+#main()
