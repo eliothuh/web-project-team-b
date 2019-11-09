@@ -433,4 +433,4 @@ def main():
 	results = dataSource.getUSATotals(1999, 2000)
 	print(results)
 
-main()
+#main()
