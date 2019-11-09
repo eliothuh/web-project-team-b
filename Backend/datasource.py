@@ -390,7 +390,7 @@ def connect(user, password):
 	return connection
 
 def main():
-	connection = connect(huhe, tree695eye)
+	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
 	results = dataSource.getUSAQuery(1999, 2005)
 	print(results)
