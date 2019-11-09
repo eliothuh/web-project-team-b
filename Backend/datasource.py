@@ -174,7 +174,7 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} WHERE notes = 'Total'"
+			query = f"SELECT * FROM states{year} WHERE notes = 'Total' AND statename NOT LIKE '%[a-z]%'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
