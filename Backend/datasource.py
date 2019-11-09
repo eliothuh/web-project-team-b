@@ -174,7 +174,7 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} where statename = {None}"
+			query = f"SELECT * FROM states{year} WHERE NOT statename LIKE '%_%'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
