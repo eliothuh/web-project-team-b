@@ -143,7 +143,7 @@ class DataSource:
 			results = cursor.fetchall()
 
 		except Exception as e:
-			print("Something when wrong when excecuting the query (state)")
+			print("Something when wrong when excecuting the query (state)" + str(e))
 
 		return results
 
@@ -159,7 +159,23 @@ class DataSource:
 
 	def getUSASingleYearTotals(self, year):
 
-		query = f"SELECT * FROM states{year} where statename = ''"
+		try:
+			self.checkValidYear(year)
+
+		except Exception as e:
+			return None
+
+		try:
+			cursor = self.connection.cursor()
+			query = f"SELECT * FROM states{year} where statename = ''"
+			cursor.execute(query)
+			results = cursor.fetchall()
+
+		except Exception as e:
+			print("Something went wrong when executing the query (USATotals)" + str(e))
+
+		return results
+
 
 
 
