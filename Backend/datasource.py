@@ -150,6 +150,10 @@ class DataSource:
 		return []
 
 	def getUSATotals(self, startYear, endYear):
+		'''
+		returns just the totals for the whole USA in the specified year range
+		to reduce unnecessary data being sent around
+		'''
 		results = []
 		yearRange = endYear - startYear + 1
 
