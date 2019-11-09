@@ -74,7 +74,9 @@ class DataSource:
 			returns a list of data, with each entry for a certain state
 		'''
 
-		return []
+		results = []
+
+		return results
 
 
 	def getUSAQuery(self, startYear, endYear):
@@ -91,6 +93,24 @@ class DataSource:
 
 		Calls USASingleYearQuery
 		'''
+		try:
+			self.checkValidRange(startYear, endYear)
+
+		except Exception as e:
+			return None
+
+		yearRange = endYear - startYear + 1
+
+		try:
+			for i in range(yearRange):
+				currentYear = i + startYear
+				results.append(self.getUSASingleYearQuery(currentYear))
+
+			return results
+
+		except Exception as e:
+			print("Something went wrong when executing the query(USA): " + str(e))
+			return None
 
 		return []
 
@@ -104,9 +124,26 @@ class DataSource:
 
 		RETURN:
 			a list of all states and associated data
-
-		Calls stateSingleYearQuery
 		'''
+
+		try:
+			self.checkValidYear(year)
+
+		except Exception as e:
+			return None
+
+		results = []
+
+		try:
+			cursor = self.connection.cursor()
+			query = f"SELECT * FROM states{year}"
+			cursor.execute(query)
+			results = cursor.fetchall()
+
+		except Exception as e:
+			print("Something when wrong when excecuting the query (state)")
+
+		return results
 
 		return []
 
@@ -246,7 +283,7 @@ class DataSource:
 			return results
 
 		except Exception as e:
-			print("Something went wrong when executing the query: " + str(e))
+			print("Something went wrong when executing the query(county): " + str(e))
 			return None
 
 
@@ -351,3 +388,9 @@ def connect(user, password):
 		exit()
 
 	return connection
+
+def main():
+	connection = connect(huhe, tree695eye)
+	dataSource = DataSource(connection)
+	results = dataSource.getUSAQuery(1999, 2005)
+	print(results)
