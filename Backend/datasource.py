@@ -431,9 +431,5 @@ def main():
 	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
 	print(dataSource.checkValidCounty("Bob"))
-	try:
-		print(dataSource.checkValidCounty(57))
 
-	except Exception as e:
-		pass
 main()
