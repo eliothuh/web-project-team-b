@@ -168,6 +168,7 @@ class DataSource:
 
 		try:
 			self.checkValidYear(year)
+			raise ValueError
 
 		except Exception as e:
 			return None
