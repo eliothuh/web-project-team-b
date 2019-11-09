@@ -93,6 +93,8 @@ class DataSource:
 
 		Calls USASingleYearQuery
 		'''
+		results = []
+
 		try:
 			self.checkValidRange(startYear, endYear)
 
