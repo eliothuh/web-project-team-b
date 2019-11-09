@@ -162,6 +162,7 @@ class DataSource:
 			results.append(self.getUSASingleYearTotals(currentYear))
 
 	def getUSASingleYearTotals(self, year):
+		results = []
 
 		try:
 			self.checkValidYear(year)
@@ -171,7 +172,7 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} where statename = {None}"
+			query = f"SELECT * FROM states{year} where statename = null"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
