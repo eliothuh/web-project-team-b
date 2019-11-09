@@ -11,7 +11,7 @@ import flask
 from flask import render_template
 import json
 import sys
-import datasource
+import from datasource import DataSource
 
 connection = datasource.connect("huhe", "tree695eye")
 dataSource = DataSource(connection)
