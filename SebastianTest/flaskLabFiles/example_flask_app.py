@@ -14,7 +14,7 @@ import sys
 from datasource import DataSource
 from datasource import connect
 
-connection = DataSource.connect("huhe", "tree695eye")
+connection = connect("huhe", "tree695eye")
 dataSource = DataSource(connection)
 
 app = flask.Flask(__name__)
