@@ -159,7 +159,7 @@ class DataSource:
 
 		for i in range(yearRange):
 			currentYear = startYear + i
-			results.append(getUSASingleYearTotals(currentYear))
+			results.append(self.getUSASingleYearTotals(currentYear))
 
 	def getUSASingleYearTotals(self, year):
 
