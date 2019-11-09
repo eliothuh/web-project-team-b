@@ -25,7 +25,7 @@ def getStateResults(state, startYear, endYear):
 	return render_template('results.html', results=results)
 
 @app.route('/state/<state>/')
-def getStateResults(state, startYear, endYear):
+def getOtherStateResults(state, startYear, endYear):
 	results = dataSource.getStateQuery(1999, 2017, state)
 	return render_template('results.html', results=results)
 
