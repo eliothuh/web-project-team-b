@@ -149,6 +149,19 @@ class DataSource:
 
 		return []
 
+	def getUSATotals(self, startYear, endYear):
+		results = []
+		yearRange = endYear - startYear + 1
+
+		for i in range(yearRange):
+			currentYear = startYear + i
+			results.append(getUSASingleYearTotals(currentYear))
+
+	def getUSASingleYearTotals(self, year):
+
+		query = f"SELECT * FROM states{year} where statename = ''"
+
+
 
 	def getCombineSingleYearQueries(self, queries):
 		'''
@@ -394,7 +407,7 @@ def connect(user, password):
 def main():
 	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
-	results = dataSource.getUSASingleYearQuery(1999)
+	results = dataSource.getUSATotals(1999, 2000)
 	print(results)
 
 main()
