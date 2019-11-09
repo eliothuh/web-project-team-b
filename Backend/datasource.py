@@ -394,7 +394,7 @@ def connect(user, password):
 def main():
 	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
-	results = dataSource.getUSAQuery(1999, 2005)
+	results = dataSource.getUSASingleYearQuery(1999)
 	print(results)
 
 main()
