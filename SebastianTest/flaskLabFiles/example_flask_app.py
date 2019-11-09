@@ -11,10 +11,10 @@ import flask
 from flask import render_template
 import json
 import sys
-import datasource 
+import datasource
 
 connection = datasource.connect("huhe", "tree695eye")
-dataSource = datasource(connection)
+dataSource = DataSource(connection)
 
 app = flask.Flask(__name__)
 
