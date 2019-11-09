@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	<script src="HomePage.js"></script>
+	  
+	<link rel="stylesheet" href="HomePage.css">
+	 
+    <title>USHW</title>
+  </head>
+  <body>
+  <nav class="navbar">
+	<div class="theBar">
+		<a href="" class="logo">
+		  <img src="logo.png" alt="USHW logo">
+		</a>	
+		<ul class="navLinksList">
+		  <li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
+		  <li class="navLinks" onClick="toggleDropdownYearsVisibility()">By Years</li>
+		  <li class="navLinks"><a href="#">About the Data</a></li>
+		  <li class="navLinks"><a href="#">Cite</a></li>
+		</ul>
+	</div>
+	  
+	<div class="dropDownStates" id="dropDownStates" onmouseover="turnOnDropdownStatesVisibility()">
+		<div>
+		<h4>A</h4>
+		<li><a href="Results.html">Alabama</a></li>
+		<li><a href="Results.html">Alaska</a></li>
+		<li><a href="Results.html">Arizona</a></li>
+		<li><a href="Results.html">Arkansas</a></li>
+		</div>
+		<div>
+					<h4>C</h4>
+		<li><a href="Results.html">California</a></li>
+		<li><a href="Results.html">Colorado</a></li>
+		<li><a href="Results.html">Connecticut</a></li>
+		</div>
+				<h4>D</h4>
+		<li><a href="Results.html">Delaware</a></li>
+		<div>
+					<h4>F</h4>
+		<li><a href="Results.html">Florida</a></li>
+		</div>
+		<div>
+					<h4>G</h4>
+		<li><a href="Results.html">Georgia</a></li>
+		</div>
+		<div>
+					<h4>H</h4>
+		<li><a href="Results.html">Hawaii</a></li>
+		</div>
+		<div>
+					<h4>I</h4>
+		<li><a href="Results.html">Idaho</a></li>
+		<li><a href="Results.html">Illinois</a></li>
+		<li><a href="Results.html">Indiana</a></li>
+		<li><a href="Results.html">Iowa</a></li>
+		</div>
+		<div>
+					<h4>K</h4>
+		<li><a href="Results.html">Kansas</a></li>
+		<li><a href="Results.html">Kentucky</a></li>
+		</div>
+		<div>
+					<h4>L</h4>
+		<li><a href="Results.html">Louisiana</a></li>
+		</div>
+		<div>
+					<h4>M</h4>
+		<li><a href="Results.html">Maine</a></li>
+		<li><a href="Results.html">Maryland</a></li>
+		<li><a href="Results.html">Massachusett</a></li>
+		<li><a href="Results.html">Michigan</a></li>
+		<li><a href="Results.html">Minnesota</a></li>
+		<li><a href="Results.html">Mississippi</a></li>
+		<li><a href="Results.html">Missouri</a></li>
+		<li><a href="Results.html">Montana</a></li>
+		</div>
+		<div>
+					<h4>N</h4>
+		<li><a href="Results.html">Nebraska</a></li>
+		<li><a href="Results.html">Nevada</a></li>
+		<li><a href="Results.html">New Hampshire</a></li>
+		<li><a href="Results.html">New Jersey</a></li>
+		<li><a href="Results.html">New Mexico</a></li>
+		<li><a href="Results.html">New York</a></li>
+		<li><a href="Results.html">North Carolina</a></li>
+		<li><a href="Results.html">North Dakota</a></li>
+		</div>
+		<div>
+					<h4>O</h4>
+		<li><a href="Results.html">Ohio</a></li>
+		<li><a href="Results.html">Oklahoma</a></li>
+		<li><a href="Results.html">Oregon</a></li>
+		</div>
+		<div>
+					<h4>P</h4>
+		<li><a href="Results.html">Pennsylvania</a></li>
+		</div>
+		<div>
+					<h4>R</h4>
+		<li><a href="Results.html">Rhode Island</a></li>
+		</div>
+		<div>
+					<h4>S</h4>
+		<li><a href="Results.html">South Carolina</a></li>
+		<li><a href="Results.html">South Dakota</a></li>
+		</div>
+		<div>
+					<h4>T</h4>
+		<li><a href="Results.html">Tennessee</a></li>
+		<li><a href="Results.html">Texas</a></li>
+		</div>
+		<div>
+					<h4>U</h4>
+		<li><a href="Results.html">Utah</a></li>
+		</div>
+		<div>
+					<h4>V</h4>
+		<li><a href="Results.html">Vermont</a></li>
+		<li><a href="Results.html">Virginia</a></li>
+		</div>
+		<div>
+					<h4>W</h4>
+		<li><a href="Results.html">Washington</a></li>
+		<li><a href="Results.html">West Virginia</a></li>
+		<li><a href="Results.html">Wisconsin</a></li>
+		<li><a href="Results.html">Wyoming</a></li>
+		</div>
+		<div>
+			<h4>Regions</h4>
+		<li><a href="Results.html">District of Columbia</a></li>
+		<li><a href="Results.html">Puerto Rico</a></li>
+		<li><a href="Results.html">Guam</a></li>
+		<li><a href="Results.html">American Samoa</a></li>
+		<li><a href="Results.html">U.S. Virgin Islands</a></li>
+		<li><a href="Results.html">Northern Mariana Islands</a></li>
+		</div>
+	  </div>
+  </nav>
+	  <div class="MainContainer" id="mainContainer">
+			<div class="contentContainer">
+				<div class="mapAndInfo">
+					<div class="infoBlock">
+					  Info goes here
+					</div>
+					<div class="mapBlock">
+						<div class="interactiveMap">
+							<iframe src="https://createaclickablemap.com/map.php?&id=86362&maplocation=false&online=true" width="1000" height="600" style="border: none;"></iframe>
+						<script>
+							if (window.addEventListener)
+								{ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
+							else if 
+								(window.attachEvent){ window.attachEvent("message", function(event) { if( event.data.length >= 22) { if ( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
+						</script>
+						</div>
+				  		
+				</div>
+				</div>
+				<div class="aboutTheData">
+					        <h2>About The Data</h2>
+        <h3>What It Consists Of</h3>
+        <p>Our dataset reports homicide statistics for counties and states in the U.S. It covers the number of homicides annually from 1999 to 2017 and the means of homicide.</p>
+        <p>Data is grouped by region and cause of death.</p>
+        <h3>Where It Is From</h3>
+        <p>The data is from <a href="https://wonder.cdc.gov/"> The U.S.Center for Disease Control and Prevention WONDER database</a>, a reliable government-run public database.</p>
+        <p>We used the Underlying Cause of Death search and request form to access the specific data-set. We downloaded the data in multiple files, using the following search criteria:</p>
+
+        <p><button class="collapsible" type="button">Search Criteria Will Be Here</button></p>
+        <div class="content"> 
+          <p>search criteria will be added here</p>
+        </div>
+
+        <h3>Citation &amp; Download</h3>
+        <p>We offer citations of our data in numerous formats, and free downloads of our data in numerous formats.</p>
+
+        <p><button class="collapsible" type="button">Citations Will Be Accessible Here</button></p>
+        <div class="content">
+          <p>citations will be added</p>
+        </div>
+
+        <p><button class="collapsible" type="button">Download Links Here</button></p>
+
+        <div class="content">
+          <p>Download stuff here!</p>
+        </div>
+        <h3>How we Processed Our data</h3>
+        <p>The data was downloaded as plain text (.txt) files and converted to comma-separated value (.csv) files. Then, data values marked "unreliable" were replaced with null values for formatting purposes.</p>
+				</div>
+		  	</div>
+		  	
+	  </div>
+  </body>
+</html>
