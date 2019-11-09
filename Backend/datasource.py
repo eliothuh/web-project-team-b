@@ -394,3 +394,5 @@ def main():
 	dataSource = DataSource(connection)
 	results = dataSource.getUSAQuery(1999, 2005)
 	print(results)
+
+main()
