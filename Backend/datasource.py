@@ -168,14 +168,13 @@ class DataSource:
 
 		try:
 			self.checkValidYear(year)
-			raise ValueError
 
 		except Exception as e:
 			return None
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} WHERE statecode NOT BETWEEN 0.0 AND 60.0"
+			query = f"SELECT * FROM states{year} WHERE notes = 'total'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
