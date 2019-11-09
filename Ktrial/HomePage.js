@@ -1,22 +1,20 @@
 function toggleDropdownStatesVisibility() {
   var x = document.getElementById("dropDownStates");
-  var y = document.getElementById("mainContainer");
+  var y = document.getElementById("dropDownYears");
   if (x.style.display === "none") {
 	x.style.display = "flex";
-	y.style.marginTop = x.offsetHeight;
+	y.style.display = "none";
   } else {
 	x.style.display = "none";
-	y.style.marginTop = "-10px";
   }
 }
 function toggleDropdownYearsVisibility() {
+  var y = document.getElementById("dropDownStates");
   var x = document.getElementById("dropDownYears");
-  var y = document.getElementById("mainContainer");
   if (x.style.display === "none") {
 	x.style.display = "flex";
-	y.style.marginTop = x.offsetHeight;
+	y.style.display = "none";
   } else {
 	x.style.display = "none";
-	y.style.marginTop = "-10px";
   }
 }

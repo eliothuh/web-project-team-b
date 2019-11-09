@@ -9,6 +9,9 @@ html {
   margin: 0;
   padding: 0;
 }
+*{
+  font-family: 'Source Sans Pro', sans-serif;
+}
 body {
 	background:url("BGI.png");
 	background-repeat: no-repeat;
@@ -37,6 +40,48 @@ nav {
 	z-index:999;
 	order:1;
 }
+
+.dropDownYears{
+	color:#6f8bbb;
+	order:2;
+	z-index:999;
+	position:fixed;
+	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+	margin-top:60px;
+	list-style-type:none;
+	
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
+}
+.dropdownYearsButtons button{
+	display:block;
+	background-color:#050912;
+	border:none;
+	visibility: hidden;
+}
+.dropdownYearsButtons button:hover{
+	background-color:red;
+	
+}
+.dropdownYearsButtons input{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#050912;
+	border:none;
+}
+.dropdownYearsButtons input:hover{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#475a7a;
+	border:none;
+}
+
 .dropDownStates{
 	color:#6f8bbb;
 	order:2;
@@ -47,17 +92,38 @@ nav {
 	font-size: 18px;
 	margin-top:60px;
 	list-style-type:none;
-	max-height:30%;
+	max-height:210px;
 	
 	display:none;
 	flex-direction:column;
 	flex-wrap:wrap;
 	justify-content: space-evenly;
 }
-.dropDownStates a{
-	text-decoration: none;
-	color:white;
+.dropdownStatesButtons button{
+	display:block;
+	background-color:#050912;
+	border:none;
+	
 }
+.dropdownStatesButtons button:hover{
+	background-color:red;
+	
+}
+.dropdownStatesButtons input{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#050912;
+	border:none;
+}
+.dropdownStatesButtons input:hover{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#475a7a;
+	border:none;
+}
+
 
 .logo {
   	display: inline-block;
@@ -81,8 +147,7 @@ nav {
 	color:white;
 }
 .navLinks:hover {
-  	background-color: white;
-	color:black;
+  	background-color: #475a7a;
 }
 .navLinks:hover a {
   color: black;
