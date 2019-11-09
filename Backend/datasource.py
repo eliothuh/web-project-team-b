@@ -171,7 +171,7 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} where statename = ''"
+			query = f"SELECT * FROM states{year} where statename = {None}"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
