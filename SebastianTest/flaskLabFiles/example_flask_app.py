@@ -21,7 +21,7 @@ app = flask.Flask(__name__)
 
 @app.route('/state/<state>/<startYear>/<endYear>/')
 def getStateResults(state, startYear, endYear):
-	results = dataSource.getStateQuery(startYear, endYear, state)
+	results = dataSource.getStateQuery(int(startYear), int(endYear), state)
 	return render_template('results.html', results=results)
 
 @app.route('/state/<state>/')
