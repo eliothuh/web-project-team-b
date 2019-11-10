@@ -25,25 +25,26 @@ def getStateData(start, end, state):
 	
 	
 def getStateCrudeRate(list):
-	total = getStateTotal(list)
+	averageDeaths = getAverageDeaths(list)
 	averagePopulation = getAveragePopulation(list)
 	print("average population: ")
 	print(averagePopulation)
-	print("total: ")
+	print("average deaths: ")
 	print(total)
 	
 	return total*100000/averagePopulation
 		
 		
-def getStateTotal(list):
+def getAverageDeaths(list):
 	tupleIndex = 0;
 	stateTotal = 0;
+	numYears = len(list)
 	
 	for year in list: 
 		tupleIndex = len(year) - 2;
 		stateTotal += year[tupleIndex][5]
 		
-	return stateTotal
+	return stateTotal/numYears
 	
 	
 def getAveragePopulation(list):
