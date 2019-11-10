@@ -43,7 +43,8 @@ def getAverageDeaths(list):
 	
 	for year in list: 
 		tupleIndex = len(year) - 2;
-		stateTotal += year[tupleIndex][5]
+		if(tupleIndex > 0):
+			stateTotal += year[tupleIndex][5]
 		
 	return stateTotal/numYears
 	
