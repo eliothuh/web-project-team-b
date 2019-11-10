@@ -21,8 +21,8 @@ def getStateData(start, end, state):
 	nationTotals = dataSource.getUSATotals(start, end)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 	"""causesAndPercentages = getCausesAndPercentages(fullList)"""
-	print(stateCrudeRate)
-	print(nationalCrudeRate)
+	print(dataTable["stateCrudeRate"])
+	print(dataTable["nationalCrudeRate"])
 	return dataTable
 	
 	
