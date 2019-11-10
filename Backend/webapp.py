@@ -61,9 +61,11 @@ def getNationalCrudeRate(list):
 
 def getNationalTotal(list):
 	total = 0
+	tupleIndex = 0
 	
 	for year in list:
-		total += year[47][5]
+		tupleIndex = len(year) - 1
+		total += year[tupleIndex][5]
 		
 	return total 
 	
