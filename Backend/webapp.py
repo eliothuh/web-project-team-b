@@ -43,7 +43,7 @@ def getAverageStateDeaths(list):
 	
 	for year in list: 
 		tupleIndex = len(year) - 2
-		if(tupleIndex >= 0):
+		if(tupleIndex > 0):
 			stateTotal += year[tupleIndex][5]
 		
 	return stateTotal/numYears
@@ -54,8 +54,9 @@ def getAverageStatePopulation(list):
 	total = 0
 	
 	for year in list:
-		if(len(year) > 0):
+		if(len(year) > 1):
 			print(len(year))
+			print(len(year[0]))
 			total += year[0][2]
 		
 	return total/numYears 
@@ -78,7 +79,7 @@ def getNationalAverageDeaths(list):
 	
 	for year in list:
 		tupleIndex = len(year) - 1
-		if(tupleIndex >= 0):
+		if(tupleIndex > 0):
 			total += year[tupleIndex][5]
 		
 	return total/numYears
@@ -90,7 +91,7 @@ def getAverageNationalPopulation(list):
 	
 	for year in list:
 		tupleIndex = len(year) - 1 
-		if(tupleIndex >= 0):
+		if(tupleIndex > 0):
 			total += year[tupleIndex][6]
 		
 	return total/numYears 
