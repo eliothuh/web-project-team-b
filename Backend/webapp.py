@@ -17,9 +17,9 @@ dataSource = DataSource(connection)
 def getStateData(start, end, state):	
 	dataTable = {}	
 	fullList = dataSource.getStateQuery(start, end, state)
-	dataTable[stateCrudeRate] = getStateCrudeRate(fullList)
+	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	nationTotals = dataSource.getUSATotals(start, end)
-	dataTable[nationalCrudeRate] = getNationalCrudeRate(nationTotals)
+	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 	"""causesAndPercentages = getCausesAndPercentages(fullList)"""
 	print(stateCrudeRate)
 	print(nationalCrudeRate)
@@ -140,7 +140,7 @@ def getStateQueryResults():
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
 
-	return render_template("results.html", dataTable[stateCrudeRate], dataTable[nationalCrudeRate])
+	return render_template("results.html", dataTable["stateCrudeRate"], dataTable["nationalCrudeRate"])
 
 @app.route('/home/')
 def boring():
