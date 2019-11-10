@@ -71,11 +71,10 @@ def getNationalTotal(list):
 def getCausesAndPercentages(list):
 	lastIndex = len(list[0]) - 3 
 	
-	if(lastIndex < 0) {
+	if(lastIndex < 0):
 		causeAndPercent
 		causeAndPercent["Other"] = 100 
 		return causeAndPercent
-	}
 	
 	causeAndPercent = getStartingCauses(list, lastIndex)
 	causeAndPercent = addPercentages(causeAndPercent, list)
