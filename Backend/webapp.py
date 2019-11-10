@@ -19,7 +19,7 @@ def getStateData(start, end, state):
 	stateCrudeRate = getStateCrudeRate(fullList)
 	nationTotals = dataSource.getUSATotals(start, end)
 	nationalCrudeRate = getNationalCrudeRate(nationTotals)
-	causesAndPercentages = getCausesAndPercentages(fullList)
+	"""causesAndPercentages = getCausesAndPercentages(fullList)"""
 	print(stateCrudeRate)
 	print(nationalCrudeRate)
 	
