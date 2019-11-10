@@ -55,9 +55,7 @@ def getAverageStatePopulation(list):
 	
 	for year in list:
 		if(len(year) > 1):
-			print(len(year))
-			print(len(year[0]))
-			total += year[0][2]
+			total += year[0][6]
 		
 	return total/numYears 
 	
