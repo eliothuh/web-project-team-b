@@ -63,7 +63,7 @@ def getNationalTotal(list):
 	total = 0
 	
 	for year in list:
-		total += year[49][5]
+		total += year[39][5]
 		
 	return total 
 	
