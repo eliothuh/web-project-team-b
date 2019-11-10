@@ -433,8 +433,8 @@ def main():
 	results = dataSource.getUSATotals(1999, 2001)
 	for i in range(len(results)):
 		for k in range(len(results[i])):
-			print(i + ": ")
-			print(k + "; ")
+			print(str(i) + ": ")
+			print(str(k) + "; ")
 			print(results[i][k])
 
 main()
