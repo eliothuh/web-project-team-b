@@ -68,7 +68,7 @@ def getNationalTotal(list):
 	return total 
 	
 	
-def getCausesAndPercentages(list)
+def getCausesAndPercentages(list):
 	lastIndex = len(list[0]) - 3 
 	
 	if(lastIndex < 0) {
@@ -78,7 +78,8 @@ def getCausesAndPercentages(list)
 	}
 	
 	causeAndPercent = getStartingCauses(list, lastIndex)
-	causeAndPercent = addPercentages(causeAndPercent, list)	
+	causeAndPercent = addPercentages(causeAndPercent, list)
+	return None	
 	
 	
 def getStartingCauses(list, lastIndex):
@@ -89,20 +90,20 @@ def getStartingCauses(list, lastIndex):
 	
 	return causeAndPercent 
 
-def addPercentages(causeAndPercent, list): 
-	for cause in causeAndPercent
+"""def addPercentages(causeAndPercent, list): 
+	for cause in causeAndPercent"""
 		
 		 
 	
 	
-	add total homicides, divide by avg population, multiply by 100,000 
+""""	add total homicides, divide by avg population, multiply by 100,000 
 	Homicide average: total us homicides divide by avg population, multiply 100,000
 	
 	start w causes in first yr
 	boolean valid 
 	array of year arrays 
 	year array: tuples for each cause of death, tuple for total, then array containing 
-	tuples for each county with causes
+	tuples for each county with causes"""
 	
 
 @app.route('/')
@@ -153,14 +154,14 @@ def get_author(author):
         author_dictionary = {'last_name':'McBozo', 'first_name':'Bozo'}
     return json.dumps(author_dictionary)
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     if len(sys.argv) != 3:
         print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
         exit()
 
     host = sys.argv[1]
     port = sys.argv[2]
-    app.run(host=host, port=port)
+    app.run(host=host, port=port)"""
     
 def main():
 	getStateData(1999, 2016, Florida)
