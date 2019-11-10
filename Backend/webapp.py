@@ -111,7 +111,7 @@ def homepage():
 
 @app.route('/home/', methods=['GET', 'POST'])
 def getStateQueryResults():
-	if request.method == 'POST'
+	if (request.method == 'POST'):
 		start = request.form.get('startYear')
 		end = request.form.get('endYear')
 		state = request.form.get('state')
