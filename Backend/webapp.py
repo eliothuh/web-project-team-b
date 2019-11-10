@@ -115,8 +115,9 @@ def getStateQueryResults():
 		start = request.form.get('startYear')
 		end = request.form.get('endYear')
 		state = request.form.get('state')
-		list = getStateData(start, end, state)		
-    return render_template("results.html", start, end, state)
+		list = getStateData(start, end, state)
+
+	return render_template("results.html", start, end, state)
 
 @app.route('/home/')
 def boring():
