@@ -20,6 +20,8 @@ def getStateData(start, end, state):
 	nationTotals = dataSource.getUSATotals(start, end)
 	nationalCrudeRate = getNationalCrudeRate(nationTotals)
 	causesAndPercentages = getCausesAndPercentages(fullList)
+	print(stateCrudeRate)
+	print(nationalCrudeRate)
 	
 	
 def getStateCrudeRate(list):
@@ -159,3 +161,9 @@ if __name__ == '__main__':
     host = sys.argv[1]
     port = sys.argv[2]
     app.run(host=host, port=port)
+    
+def main():
+	getStateData(1999, 2016, Florida)
+	
+
+main()
