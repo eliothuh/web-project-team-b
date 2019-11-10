@@ -187,7 +187,7 @@ def get_author(author):
     app.run(host=host, port=port)"""
     
 def main():
-	getStateData(1999, 2017, "New York")
+	getStateData(1999, 2017, "District Of Columbia")
 	
 
 main()
