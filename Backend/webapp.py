@@ -74,7 +74,7 @@ def getNationalAverageDeaths(list):
 		
 	return total/numYears
 	
-def getAverageNationalPopulation
+def getAverageNationalPopulation(list):
 	numYears = len(list)
 	total = 0
 	tupleIndex = 0
