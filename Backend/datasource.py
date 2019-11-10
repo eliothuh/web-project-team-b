@@ -430,6 +430,6 @@ def connect(user, password):
 def main():
 	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
-	print(dataSource.checkValidCounty("Bob"))
+	print(dataSource.getUSATotals(1999,1999))
 
 main()
