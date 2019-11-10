@@ -59,7 +59,7 @@ def getNationalCrudeRate(list):
 	averageDeaths = getNationalAverageDeaths(list)
 	averagePopulation = getAveragePopulation(list)
 	
-	return total*100000/averagePopulation
+	return averageDeaths*100000/averagePopulation
 
 
 def getNationalAverageDeaths(list):
