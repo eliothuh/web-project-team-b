@@ -14,20 +14,25 @@ app = flask.Flask(__name__)
 connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye")
 dataSource = DataSource(connection)
 		
-def getStateData(start, end, state):		
+def getStateData(start, end, state):	
+	dataTable = {}	
 	fullList = dataSource.getStateQuery(start, end, state)
-	stateCrudeRate = getStateCrudeRate(fullList)
+	dataTable[stateCrudeRate] = getStateCrudeRate(fullList)
 	nationTotals = dataSource.getUSATotals(start, end)
-	nationalCrudeRate = getNationalCrudeRate(nationTotals)
+	dataTable[nationalCrudeRate] = getNationalCrudeRate(nationTotals)
 	"""causesAndPercentages = getCausesAndPercentages(fullList)"""
 	print(stateCrudeRate)
 	print(nationalCrudeRate)
+	return dataTable
 	
 	
 def getStateCrudeRate(list):
 	averageDeaths = getAverageDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
-	
+	print("average deaths (state): ")
+	print(averageDeaths)
+	print("average population (state): ")
+	print(averagePopulation)
 	return averageDeaths*100000/averagePopulation
 		
 		
@@ -55,9 +60,9 @@ def getAverageStatePopulation(list):
 def getNationalCrudeRate(list):
 	averageDeaths = getNationalAverageDeaths(list)
 	averagePopulation = getAverageNationalPopulation(list)
-	print("average deaths: ")
+	print("average deaths (nation): ")
 	print(averageDeaths)
-	print("average population: ")
+	print("average population (nation): ")
 	print(averagePopulation)
 	
 	return averageDeaths*100000/averagePopulation
@@ -133,9 +138,9 @@ def getStateQueryResults():
 		start = request.form.get('startYear')
 		end = request.form.get('endYear')
 		state = request.form.get('state')
-		list = getStateData(start, end, state)
+		dataTable = getStateData(start, end, state)
 
-	return render_template("results.html", start, end, state)
+	return render_template("results.html", dataTable[stateCrudeRate], dataTable[nationalCrudeRate])
 
 @app.route('/home/')
 def boring():
@@ -182,7 +187,7 @@ def get_author(author):
     app.run(host=host, port=port)"""
     
 def main():
-	getStateData(2010, 2010, "Florida")
+	getStateData(1999, 2017, "New York")
 	
 
 main()
