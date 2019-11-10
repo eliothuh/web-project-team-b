@@ -27,7 +27,7 @@ def getStateData(start, end, state):
 	
 	
 def getStateCrudeRate(list):
-	averageDeaths = getAverageDeaths(list)
+	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
 	print("average deaths (state): ")
 	print(averageDeaths)
@@ -36,14 +36,15 @@ def getStateCrudeRate(list):
 	return averageDeaths*100000/averagePopulation
 		
 		
-def getAverageDeaths(list):
+def getAverageStateDeaths(list):
 	tupleIndex = 0;
 	stateTotal = 0;
 	numYears = len(list)
 	
 	for year in list: 
-		tupleIndex = len(year) - 2;
-		stateTotal += year[tupleIndex][5]
+		tupleIndex = len(year) - 2
+		if(tupleIndex > 0):
+			stateTotal += year[tupleIndex][5]
 		
 	return stateTotal/numYears
 	
@@ -53,7 +54,8 @@ def getAverageStatePopulation(list):
 	total = 0
 	
 	for year in list:
-		total += year[0][6]
+		if(len(year) > 1):
+			total += year[0][6]
 		
 	return total/numYears 
 	
@@ -75,7 +77,8 @@ def getNationalAverageDeaths(list):
 	
 	for year in list:
 		tupleIndex = len(year) - 1
-		total += year[tupleIndex][5]
+		if(tupleIndex > 0):
+			total += year[tupleIndex][5]
 		
 	return total/numYears
 	
@@ -86,7 +89,8 @@ def getAverageNationalPopulation(list):
 	
 	for year in list:
 		tupleIndex = len(year) - 1 
-		total += year[tupleIndex][6]
+		if(tupleIndex > 0):
+			total += year[tupleIndex][6]
 		
 	return total/numYears 
 	
@@ -187,7 +191,7 @@ def get_author(author):
     app.run(host=host, port=port)"""
     
 def main():
-	getStateData(1999, 2017, "New York")
+	getStateData(1999, 2017, "New Hampshire")
 	
 
 main()
