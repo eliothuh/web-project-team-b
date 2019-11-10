@@ -54,7 +54,8 @@ def getAverageStatePopulation(list):
 	total = 0
 	
 	for year in list:
-		total += year[0][6]
+		if(len(year) > 0):
+			total += year[0][6]
 		
 	return total/numYears 
 	
@@ -76,7 +77,8 @@ def getNationalAverageDeaths(list):
 	
 	for year in list:
 		tupleIndex = len(year) - 1
-		total += year[tupleIndex][5]
+		if(tupleIndex > 0):
+			total += year[tupleIndex][5]
 		
 	return total/numYears
 	
