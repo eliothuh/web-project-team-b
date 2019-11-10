@@ -30,9 +30,9 @@ def getStateCrudeRate(list):
 	print("average population: ")
 	print(averagePopulation)
 	print("average deaths: ")
-	print(total)
+	print(averageDeaths)
 	
-	return total*100000/averagePopulation
+	return averageDeaths*100000/averagePopulation
 		
 		
 def getAverageDeaths(list):
