@@ -430,7 +430,7 @@ def connect(user, password):
 def main():
 	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
-	results = getUSATotals(1999, 2001)
+	results = dataSource.getUSATotals(1999, 2001)
 	for i in range(len(results)):
 		for k in range(len(results[i])):
 			print(i + ": ")
