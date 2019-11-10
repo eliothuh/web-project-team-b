@@ -27,7 +27,9 @@ def getStateData(start, end, state):
 def getStateCrudeRate(list):
 	total = getStateTotal(list)
 	averagePopulation = getAveragePopulation(list)
+	print("average population: ")
 	print(averagePopulation)
+	print("total: ")
 	print(total)
 	
 	return total*100000/averagePopulation
