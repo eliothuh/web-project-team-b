@@ -181,14 +181,14 @@ def get_author(author):
         author_dictionary = {'last_name':'McBozo', 'first_name':'Bozo'}
     return json.dumps(author_dictionary)
 
-"""if __name__ == '__main__':
+if __name__ == '__main__':
     if len(sys.argv) != 3:
         print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
         exit()
 
     host = sys.argv[1]
     port = sys.argv[2]
-    app.run(host=host, port=port)"""
+    app.run(host=host, port=port)
 
 '''
 def main():
