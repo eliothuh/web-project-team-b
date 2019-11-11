@@ -1,171 +1,228 @@
-.navbar {
-  overflow: hidden;
-  background-color: #00053D;
-  font-family: Arial;
+@charset "utf-8";
+/* CSS Document */
+html {
+  box-sizing: border-box;
 }
 
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: auto;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #1525D6;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.column{
-  float: left;
-  width: 50%;
-}
-img{
-  box-shadow: 10px 10px 5px grey;
-}
-
-
-.fullLine{
-  clear: both;
-}
-
-.fakeLink{
-  color: blue;
-}
-
-
-* {
- font-size: 100%;
- font-family: Verdana;
-}
-h1{
-  padding-top: 5;
-  padding-bottom: 15;
-  font-size: 30;
-
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: white;
-}
-main {
-  flex: 1;
-  display: flex;
-  background-color: #FFFFFF;
-}
-
-
-.middle {
-  margin: 15%;
-  margin-top: 5%;
-  background-color: white;
-
-}
-
-ul {
-  list-style-type: none;
+*, *::before, *::after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #07052b;
-  position: fixed;
-  top: 0;
-  width: 100%;
+}
+*{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+	background:url("BGI.png");
+	background-repeat: no-repeat;
+  	background-size: auto;
+	background-attachment: fixed;
+	color:white;
+	font-family: 'Source Sans Pro', sans-serif;
+	
 }
 
-li {
-  float: left;
+nav {
+	display:flex;
+	flex-direction:column;
 }
 
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.theBar {
+  	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+  	padding-left: 30px;
+  	padding-right: 10px;
+  	display: flex;
+  	justify-content: space-between;
+  	align-items: center;
+	position:fixed;
+	z-index:999;
+	order:1;
 }
 
-li a:hover {
-  background-color: #0e0861;
+.dropDownYears{
+	color:#6f8bbb;
+	order:2;
+	z-index:999;
+	position:fixed;
+	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+	margin-top:60px;
+	list-style-type:none;
+	
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
+}
+.dropdownYearsButtons button{
+	display:block;
+	background-color:#050912;
+	border:none;
+	visibility: hidden;
+}
+.dropdownYearsButtons button:hover{
+	background-color:red;
+	
+}
+.dropdownYearsButtons input{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#050912;
+	border:none;
+}
+.dropdownYearsButtons input:hover{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#475a7a;
+	border:none;
 }
 
-.active {
-  background-color: #e6c512;
+.dropDownStates{
+	color:#6f8bbb;
+	order:2;
+	z-index:999;
+	position:fixed;
+	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+	margin-top:60px;
+	list-style-type:none;
+	max-height:210px;
+	
+	display:none;
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
+}
+.dropdownStatesButtons button{
+	display:block;
+	background-color:#050912;
+	border:none;
+	
+}
+.dropdownStatesButtons button:hover{
+	background-color:red;
+	
+}
+.dropdownStatesButtons input{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#050912;
+	border:none;
+}
+.dropdownStatesButtons input:hover{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#475a7a;
+	border:none;
 }
 
+
+.logo {
+  	display: inline-block;
+}
+
+.navLinksList {
+  	list-style: none;
+  	display: flex;
+}
+
+.navLinks {
+	display: inline-block;
+  	padding: 10px 15px;
+  	text-decoration: none;
+  	color: white;
+	justify-content: center;
+	padding:20px;
+}
+.navLinks a{
+	text-decoration: none;
+	color:white;
+}
+.navLinks:hover {
+  	background-color: #475a7a;
+}
+.navLinks:hover a {
+  color: black;
+}
+.logo img {
+  	width: 175px;
+  	vertical-align: middle;
+}
+
+.MainContainer{
+	display:flex;
+	margin-top:100px;
+	flex-direction: column;
+	color:white;
+	padding:5px;
+	z-index:2;
+}
+
+.contentContainer{
+	display:flex;
+	flex-direction:column;
+	width:70%;
+	color:black;
+	Background-color:white;
+	margin-left:15%;
+}
+
+.mapAndInfo{
+	display:flex;
+	flex-direction:row;
+}
+
+.mapBlock{
+	flex:6;
+	order:1;
+	justify-content: center;
+}
+
+.interactiveMap{
+	margin-top:40px;
+	margin-left:60px;
+	z-index:1;
+}
+
+.infoBlock{
+	flex:2;
+	order:2;
+	background-color:#475a7a;
+	color:white;
+	z-index:3;
+}
+.lookForBlock{
+	display:flex;
+	flex-direction:row;
+	background-color: #ffffff;
+}
+.lookForText{
+	color:black;
+
+}
+.lookForSearcher{
+	color:black;
+}
+.filterSearchButton{
+}
+.resultsData{
+	flex:2;
+	background-color:white;
+	color:black;
+}
 .collapsible {
   background-color: #eee;
   color: #444;
   cursor: pointer;
   padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: #ccc;
+  width: 60%;
+  margin-left: 5%;
 }

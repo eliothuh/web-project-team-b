@@ -1,99 +1,206 @@
-* {
-	font-family: verdana;
-	font-size: 100%;
+@charset "utf-8";
+/* CSS Document */
+html {
+  box-sizing: border-box;
 }
 
-.navbar {
-  overflow: hidden;
-  background-color: #00053D;
-  font-family: Arial;
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+*{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+body {
+	background:url("BGI.png");
+	background-repeat: no-repeat;
+  	background-size: auto;
+	background-attachment: fixed;
+	color:white;
+	font-family: 'Source Sans Pro', sans-serif;
+	
 }
 
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+nav {
+	display:flex;
+	flex-direction:column;
 }
 
-/* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: auto;
+.theBar {
+  	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+  	padding-left: 30px;
+  	padding-right: 10px;
+  	display: flex;
+  	justify-content: space-between;
+  	align-items: center;
+	position:fixed;
+	z-index:999;
+	order:1;
+}
+.dropDownYears{
+	color:#6f8bbb;
+	order:2;
+	z-index:999;
+	position:fixed;
+	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+	margin-top:60px;
+	list-style-type:none;
+	max-height:40px;
+	
+	display:none;
+	background-color:#050912;
+	border:none;
+	padding:10px;
+}
+.dropdownYearsButtons button{
+	border:none;
+	
+}
+.dropdownYearsButtons button:hover{
+	background-color:red;
+	
+}
+.dropdownYearsButtons input{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#050912;
+	border:none;
+}
+.dropdownYearsButtons input:hover{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#475a7a;
+	border:none;
 }
 
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+.dropDownStates{
+	color:#6f8bbb;
+	order:2;
+	z-index:999;
+	position:fixed;
+	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+	margin-top:60px;
+	list-style-type:none;
+	max-height:210px;
+	
+	display:none;
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
+}
+.dropdownStatesButtons button{
+	display:block;
+	background-color:#050912;
+	border:none;
+	
+}
+.dropdownStatesButtons button:hover{
+	background-color:red;
+	
+}
+.dropdownStatesButtons input{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#050912;
+	border:none;
+}
+.dropdownStatesButtons input:hover{
+	font-size:18px;
+	display:block;
+	color:white;
+	background-color:#475a7a;
+	border:none;
 }
 
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #1525D6;
+
+.logo {
+  	display: inline-block;
 }
 
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.navLinksList {
+  	list-style: none;
+  	display: flex;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
+.navLinks {
+	display: inline-block;
+  	padding: 10px 15px;
+  	text-decoration: none;
+  	color: white;
+	justify-content: center;
+	padding:20px;
+}
+.navLinks a{
+	text-decoration: none;
+	color:white;
+}
+.navLinks:hover {
+  	background-color: #475a7a;
+}
+.navLinks:hover a {
   color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+}
+.logo img {
+  	width: 175px;
+  	vertical-align: middle;
 }
 
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
+.MainContainer{
+	display:flex;
+	margin-top:-10px;
+	flex-direction: column;
+	color:white;
+	padding:5px;
+	z-index:2;
 }
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
+.contentContainer{
+	display:flex;
+	flex-direction:column;
+	width:70%;
+	Background-color:#0b0e13;
+	margin-left:15%;
 }
-
-.websiteName {
-  margin-top: 20px;
-  font-size: 40px;
-  color: #00053D ;
+.mapAndInfo{
+	display:flex;
+	flex-direction:row;
 }
-
-.pageTitle {
-  font-size: 30px;
-  margin-top: 50px;
-
+.mapBlock{
+	flex:6;
+	order:1;
+	justify-content: center;
 }
-
-.left
-{
-  float:left;
-  width: 72%;
-  font-size: 17px;
+.interactiveMap{
+	margin-top:40px;
+	margin-left:60px;
+	z-index:1;
 }
-
-.right{
-  float:left;
-  width: 28%;
-  font-size: 17px;
+.infoBlock{
+	flex:2;
+	order:2;
+	background-color:#475a7a;
+	color:white;
+	z-index:3;
 }
-
-
+.aboutTheData{
+	flex:2;
+	background-color:white;
+	color:black;
+}
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 60%;
+  margin-left: 5%;
+}
