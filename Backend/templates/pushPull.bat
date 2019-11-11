@@ -1,7 +1,6 @@
 @echo off
-set /p commitMsg=Enter commit message.
 git pull
 git add .
-git commit -m %commitMsg%
+git commit -m "small bug fix"
 git push
 pause
