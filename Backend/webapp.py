@@ -149,10 +149,6 @@ def getStateQueryResults():
 	
 	return render_template('Results.html')
 
-@app.route('/home/')
-def boring():
-    return render_template('Homepage.html')
-
 @app.route('/greet/<person>/')
 def greet(person):
     return render_template('greet.html',
