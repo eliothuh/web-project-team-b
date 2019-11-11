@@ -40,7 +40,6 @@ nav {
 	z-index:999;
 	order:1;
 }
-
 .dropDownYears{
 	color:#6f8bbb;
 	order:2;
@@ -51,17 +50,16 @@ nav {
 	font-size: 18px;
 	margin-top:60px;
 	list-style-type:none;
+	max-height:40px;
 	
-	display:flex;
-	flex-direction:column;
-	flex-wrap:wrap;
-	justify-content: space-evenly;
-}
-.dropdownYearsButtons button{
 	display:block;
 	background-color:#050912;
 	border:none;
-	visibility: hidden;
+	padding:10px;
+}
+.dropdownYearsButtons button{
+	border:none;
+	
 }
 .dropdownYearsButtons button:hover{
 	background-color:red;
