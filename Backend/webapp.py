@@ -9,13 +9,13 @@ from datasource import *
 import psycopg2
 
 app = flask.Flask(__name__)
-	
-	
+
+
 connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye")
 dataSource = DataSource(connection)
-		
-def getStateData(start, end, state):	
-	dataTable = {}	
+
+def getStateData(start, end, state):
+	dataTable = {}
 	fullList = dataSource.getStateQuery(start, end, state)
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	nationTotals = dataSource.getUSATotals(start, end)
@@ -24,8 +24,8 @@ def getStateData(start, end, state):
 	print(dataTable["stateCrudeRate"])
 	print(dataTable["nationalCrudeRate"])
 	return dataTable
-	
-	
+
+
 def getStateCrudeRate(list):
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
@@ -34,31 +34,31 @@ def getStateCrudeRate(list):
 	print("average population (state): ")
 	print(averagePopulation)
 	return averageDeaths*100000/averagePopulation
-		
-		
+
+
 def getAverageStateDeaths(list):
 	tupleIndex = 0;
 	stateTotal = 0;
 	numYears = len(list)
-	
-	for year in list: 
+
+	for year in list:
 		tupleIndex = len(year) - 2
 		if(tupleIndex > 0):
 			stateTotal += year[tupleIndex][5]
-		
+
 	return stateTotal/numYears
-	
-	
+
+
 def getAverageStatePopulation(list):
 	numYears = len(list)
 	total = 0
-	
+
 	for year in list:
 		if(len(year) > 1):
 			total += year[0][6]
-		
-	return total/numYears 
-	
+
+	return total/numYears
+
 def getNationalCrudeRate(list):
 	averageDeaths = getNationalAverageDeaths(list)
 	averagePopulation = getAverageNationalPopulation(list)
@@ -66,7 +66,7 @@ def getNationalCrudeRate(list):
 	print(averageDeaths)
 	print("average population (nation): ")
 	print(averagePopulation)
-	
+
 	return averageDeaths*100000/averagePopulation
 
 
@@ -74,63 +74,63 @@ def getNationalAverageDeaths(list):
 	total = 0
 	tupleIndex = 0
 	numYears = len(list)
-	
+
 	for year in list:
 		tupleIndex = len(year) - 1
 		if(tupleIndex > 0):
 			total += year[tupleIndex][5]
-		
+
 	return total/numYears
-	
+
 def getAverageNationalPopulation(list):
 	numYears = len(list)
 	total = 0
 	tupleIndex = 0
-	
+
 	for year in list:
-		tupleIndex = len(year) - 1 
+		tupleIndex = len(year) - 1
 		if(tupleIndex > 0):
 			total += year[tupleIndex][6]
-		
-	return total/numYears 
-	
-	
+
+	return total/numYears
+
+
 def getCausesAndPercentages(list):
-	lastIndex = len(list[0]) - 3 
-	
+	lastIndex = len(list[0]) - 3
+
 	if(lastIndex < 0):
 		causeAndPercent
-		causeAndPercent["Other"] = 100 
+		causeAndPercent["Other"] = 100
 		return causeAndPercent
-	
+
 	causeAndPercent = getStartingCauses(list, lastIndex)
 	causeAndPercent = addPercentages(causeAndPercent, list)
-	return None	
-	
-	
+	return None
+
+
 def getStartingCauses(list, lastIndex):
 	causeAndPercent = {}
-	
+
 	for cause in range(lastIndex):
 		causeAndPercent[list[0][cause][3]] = list[0][cause][5]
-	
-	return causeAndPercent 
 
-"""def addPercentages(causeAndPercent, list): 
+	return causeAndPercent
+
+"""def addPercentages(causeAndPercent, list):
 	for cause in causeAndPercent"""
-		
-		 
-	
-	
-""""	add total homicides, divide by avg population, multiply by 100,000 
+
+
+
+
+""""	add total homicides, divide by avg population, multiply by 100,000
 	Homicide average: total us homicides divide by avg population, multiply 100,000
-	
+
 	start w causes in first yr
-	boolean valid 
-	array of year arrays 
-	year array: tuples for each cause of death, tuple for total, then array containing 
+	boolean valid
+	array of year arrays
+	year array: tuples for each cause of death, tuple for total, then array containing
 	tuples for each county with causes"""
-	
+
 
 @app.route('/')
 def homepage():
@@ -189,9 +189,11 @@ def get_author(author):
     host = sys.argv[1]
     port = sys.argv[2]
     app.run(host=host, port=port)"""
-    
+
+'''
 def main():
 	getStateData(1999, 2017, "New Hampshire")
-	
+
 
 main()
+'''
