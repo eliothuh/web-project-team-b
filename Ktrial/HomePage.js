@@ -18,7 +18,7 @@ function toggleDropdownYearsVisibility() {
   var y = document.getElementById("dropDownStates");
   var x = document.getElementById("dropDownYears");
   if (x.style.display === "none") {
-	x.style.display = "flex";
+	x.style.display = "block";
 	y.style.display = "none";
   } else {
 	x.style.display = "none";
