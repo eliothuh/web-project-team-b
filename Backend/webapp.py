@@ -143,11 +143,22 @@ def getStateQueryResults():
 		end = request.form.get('endYear')
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
+		person = "person"
+		
+		return render_template('greet.html', person=person)
 
-		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"], 
-											nationalCrudeRate = dataTable["nationalCrudeRate"])
+		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"], 
+											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
 	
-	return render_template('Results.html')
+	else: 
+		myFruit = [
+			{'name': 'apple', 'rating': 7},
+			{'name': 'banana', 'rating': 5},
+			{'name': 'pear', 'rating': 4}
+		]
+    
+		return render_template('fruit.html')
+
 
 @app.route('/greet/<person>/')
 def greet(person):
