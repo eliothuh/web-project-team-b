@@ -52,7 +52,7 @@ nav {
 	list-style-type:none;
 	max-height:40px;
 	
-	display:block;
+	display:none;
 	background-color:#050912;
 	border:none;
 	padding:10px;
