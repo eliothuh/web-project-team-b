@@ -427,6 +427,7 @@ def connect(user, password):
 
 	return connection
 
+'''
 def main():
 	connection = connect("huhe", "tree695eye")
 	dataSource = DataSource(connection)
@@ -438,3 +439,4 @@ def main():
 			print(results[i][k])
 
 main()
+'''
