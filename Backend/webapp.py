@@ -145,6 +145,8 @@ def getStateQueryResults():
 		dataTable = getStateData(start, end, state)
 
 		return render_template("results.html", dataTable["stateCrudeRate"], dataTable["nationalCrudeRate"])
+	
+	return render_template("results.html")
 
 @app.route('/home/')
 def boring():
