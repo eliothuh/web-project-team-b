@@ -148,7 +148,7 @@ nav {
   	background-color: #475a7a;
 }
 .navLinks:hover a {
-  color: black;
+  color: white;
 }
 .logo img {
   	width: 175px;
@@ -175,6 +175,7 @@ nav {
 .mapAndInfo{
 	display:flex;
 	flex-direction:row;
+	flex-wrap:wrap;
 }
 .mapBlock{
 	flex:6;
