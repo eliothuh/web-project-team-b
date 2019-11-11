@@ -152,7 +152,7 @@ def getStateQueryResults():
 	
 	else: 
     
-		return render_template('HomePage.html')
+		return render_template('Homepage.html')
 
 
 @app.route('/greet/<person>/')
