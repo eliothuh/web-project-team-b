@@ -151,13 +151,8 @@ def getStateQueryResults():
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
 	
 	else: 
-		myFruit = [
-			{'name': 'apple', 'rating': 7},
-			{'name': 'banana', 'rating': 5},
-			{'name': 'pear', 'rating': 4}
-		]
     
-		return render_template('fruit.html', fruits = myFruit)
+		return render_template('HomePage.html')
 
 
 @app.route('/greet/<person>/')
