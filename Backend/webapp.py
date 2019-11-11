@@ -157,7 +157,7 @@ def getStateQueryResults():
 			{'name': 'pear', 'rating': 4}
 		]
     
-		return render_template('fruit.html', myFruit)
+		return render_template('fruit.html', fruits = myFruit)
 
 
 @app.route('/greet/<person>/')
