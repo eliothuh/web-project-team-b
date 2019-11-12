@@ -148,9 +148,12 @@ def getStateQueryResults():
 		end = int(request.form.get('endYear'))
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
+		dictionary = {"brute force": 33, "blunt object": 33, "Other": 34}
+		
 
 		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
-											nationalCrudeRate = dataTable["nationalCrudeRate"])
+											nationalCrudeRate = dataTable["nationalCrudeRate"], 
+											dictionary = dictionary)
 
 		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
