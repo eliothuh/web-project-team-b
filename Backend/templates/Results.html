@@ -188,7 +188,10 @@
 				<div class="resultsData">
 					<h1> Search Results:
 					<p>State rate: {{stateCrudeRate}}</p>
-					<p>National rate: {{nationalCrudeRate}}</p>					
+					<p>National rate: {{nationalCrudeRate}}</p>
+					{% for key, value in dictionary.iteritems() %}
+    					<li>{{ key }}: {{value}}%</li> 
+					{% endfor %}					
 		  		</div>
 		  	</div>
 	  </div>
