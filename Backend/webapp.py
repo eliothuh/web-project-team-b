@@ -143,6 +143,9 @@ def getStateQueryResults():
 		end = request.form.get('endYear')
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
+		print(start)
+		print(end)
+		print(state)
 		person = "person"
 		
 		return render_template('greet.html', person=person)
