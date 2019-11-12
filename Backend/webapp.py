@@ -144,12 +144,9 @@ def homepage():
 @app.route('/home/', methods=['GET', 'POST'])
 def getStateQueryResults():
 	if (request.method == 'POST'):
-		start = request.form.get('startYear')
-		end = request.form.get('endYear')
+		start = int(request.form.get('startYear'))
+		end = int(request.form.get('endYear'))
 		state = request.form.get('state')
-		print(start)
-		print(end)
-		print(state)
 		dataTable = getStateData(start, end, state)
 		person = "person"
 
