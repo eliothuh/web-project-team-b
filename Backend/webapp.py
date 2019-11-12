@@ -144,15 +144,15 @@ def getStateQueryResults():
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
 		person = "person"
-		
+
 		return render_template('greet.html', person=person)
 
-		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"], 
+		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
-	
-	else: 
-    
-		return render_template('HomePage2.html')
+
+	else:
+
+		return render_template('test.html')
 
 
 @app.route('/greet/<person>/')
