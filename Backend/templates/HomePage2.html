@@ -5,9 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-	<script src="HomePage.js"></script>
-	  
-	<link rel="stylesheet" href="HomePage2.css">
+	{% block javascript %}
+		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
+	{% endblock %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
 	 
     <title>USHW</title>
   </head>
@@ -15,7 +16,7 @@
   <nav class="navbar">
 	<div class="theBar">
 		<a href="" class="logo">
-		  <img src="logo.png" alt="USHW logo">
+		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
 		</a>	
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
@@ -169,8 +170,7 @@
 					</div>
 					<div class="mapBlock">
 						<div class="interactiveMap">
-						
-							<iframe src="mainMap.html" width="1000" height="600" style="border: none;"></iframe>
+							<iframe src="{{ url_for('static', filename='mainMap.html') }}" width="1000" height="600" style="border: none;"></iframe>
 						<script>
 							if (window.addEventListener)
 								{ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
@@ -179,10 +179,19 @@
 						</script>
 						</div>
 				  		
+					</div>
 				</div>
+				<div class="searchInfo">
+				<!-- <form action="{{ url_for('handle_data') }}" method="post"> -->
+					<form>
+    					<input type="text" name="searchStartYear">
+    					<input type="text" name="searchEndYear">
+    					<input type="text" name="searchState">
+    					<input type="submit">
+					</form>
 				</div>
 				<div class="aboutTheData">
-					        <h2>About The Data</h2>
+		<h2>About The Data</h2>
         <h3>What It Consists Of</h3>
         <p>Our dataset reports homicide statistics for counties and states in the U.S. It covers the number of homicides annually from 1999 to 2017 and the means of homicide.</p>
         <p>Data is grouped by region and cause of death.</p>
