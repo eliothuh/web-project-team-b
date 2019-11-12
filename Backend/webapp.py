@@ -95,7 +95,7 @@ def getAverageNationalPopulation(list):
 	return total/numYears
 
 
-def getCausesAndPercentages(list):
+"""def getCausesAndPercentages(list):
 	lastIndex = len(list[0]) - 3
 
 	if(lastIndex < 0):
@@ -104,7 +104,7 @@ def getCausesAndPercentages(list):
 		return causeAndPercent
 
 	causeAndPercent = getStartingCauses(list, lastIndex)
-	causeAndPercent = addPercentages(causeAndPercent, list)
+	causeAndPercent = addPerc(causeAndPercent, list)
 	return None
 
 
@@ -116,8 +116,13 @@ def getStartingCauses(list, lastIndex):
 
 	return causeAndPercent
 
-"""def addPercentages(causeAndPercent, list):
-	for cause in causeAndPercent"""
+
+def addPercentages(causeAndPercent, list):
+	for cause in causeAndPercent:
+		addCause(cause, cause, causeAndPercent, )
+
+
+def addCause()"""
 
 
 
@@ -139,22 +144,26 @@ def homepage():
 @app.route('/home/', methods=['GET', 'POST'])
 def getStateQueryResults():
 	if (request.method == 'POST'):
-		start = request.form.get('startYear')
-		end = request.form.get('endYear')
+		start = int(request.form.get('startYear'))
+		end = int(request.form.get('endYear'))
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
 		print(start)
 		print(end)
 		print(state)
 		person = "person"
-		
+
+		print(start)
+		print(end)
+		print(state)
+		print(dataTable)
 		return render_template('greet.html', person=person)
 
-		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"], 
+		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
-	
-	else: 
-    
+
+	else:
+
 		return render_template('HomePage2.html')
 
 
