@@ -168,12 +168,12 @@
 						Search for data of specific state and years here.
 					</div>
 					<div class="lookForSearcher">
- 						<form action="{{ url_for('login') }}" method=post>
+ 						<form method=post>
  						<dl>
       						<dt>Beginning Year:
-      						<dd><input type=text placeholder="1999" name=BeginYear>
+      						<dd><input type=text placeholder="1999" name=startYear>
       						<dt>Ending Year:
-      						<dd><input type=text placeholder="2017" name=EndYear>
+      						<dd><input type=text placeholder="2017" name=endYear>
       						<dt>State:
       						<dd><input type=text placeholder="Minnesota" name=state>
       						<dd><input type=submit value=Search>
