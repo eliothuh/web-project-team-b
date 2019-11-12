@@ -148,16 +148,9 @@ def getStateQueryResults():
 		end = int(request.form.get('endYear'))
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
-		print(start)
-		print(end)
-		print(state)
-		person = "person"
 
-		print(start)
-		print(end)
-		print(state)
-		print(dataTable)
-		return render_template('greet.html', person=person)
+		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
+											nationalCrudeRate = dataTable["nationalCrudeRate"])
 
 		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
