@@ -165,9 +165,11 @@
 	  <div class="MainContainer" id="mainContainer" onclick="turnOffAllCollapsibles()">
 			<div class="contentContainer">
 				<div class="mapAndInfo">
+				
 					<div class="infoBlock">
 					  Info goes here
 					</div>
+					
 					<div class="mapBlock">
 						<div class="interactiveMap">
 							<iframe src="{{ url_for('static', filename='mainMap.html') }}" width="1000" height="600" style="border: none;"></iframe>
@@ -178,24 +180,28 @@
 								(window.attachEvent){ window.attachEvent("message", function(event) { if( event.data.length >= 22) { if ( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
 						</script>
 						</div>
-				  		
 					</div>
+					
 				</div>
+				
+				
 					<div class="lookForSearcher">
+					
  						<form method=post>
- 						<dl>
-      						<dt>Beginning Year:
-      						<dd><input type=text placeholder="1999" name=startYear>
-      						<dt>Ending Year:
-      						<dd><input type=text placeholder="2017" name=endYear>
-      						<dt>State:
-      						<dd><input type=text placeholder="Minnesota" name=state>
-      						<dd><input type=submit value=Search>
-    					</dl>
-  					</form>
+ 							<dl>
+      							<dt>Beginning Year:
+      							<dd><input type=text placeholder="1999" name=startYear>
+      							<dt>Ending Year:
+      							<dd><input type=text placeholder="2017" name=endYear>
+      							<dt>State:
+      							<dd><input type=text placeholder="Minnesota" name=state>
+      							<dd><input type=submit value=Search>
+    						</dl>
+  						</form>
+  						
 					</div>
-				</div>
-				<div class="aboutTheData">
+					
+		<div class="aboutTheData">
 		<h2>About The Data</h2>
         <h3>What It Consists Of</h3>
         <p>Our dataset reports homicide statistics for counties and states in the U.S. It covers the number of homicides annually from 1999 to 2017 and the means of homicide.</p>
