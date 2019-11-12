@@ -170,8 +170,6 @@
 					</div>
 					<div class="mapBlock">
 						<div class="interactiveMap">
-						
-							<iframe src="mainMap.html" width="1000" height="600" style="border: none;"></iframe>
 							<iframe src="{{ url_for('static', filename='mainMap.html') }}" width="1000" height="600" style="border: none;"></iframe>
 						<script>
 							if (window.addEventListener)
@@ -181,10 +179,18 @@
 						</script>
 						</div>
 				  		
+					</div>
 				</div>
+				<div class="searchInfo">
+					<form method="post">
+    					Start Year: <input type="text" name="startYear">
+    					End Year: <input type="text" name="endYear">
+    					State: <input type="text" name="state">
+    					<input type="submit">
+					</form>
 				</div>
 				<div class="aboutTheData">
-					        <h2>About The Data</h2>
+		<h2>About The Data</h2>
         <h3>What It Consists Of</h3>
         <p>Our dataset reports homicide statistics for counties and states in the U.S. It covers the number of homicides annually from 1999 to 2017 and the means of homicide.</p>
         <p>Data is grouped by region and cause of death.</p>
