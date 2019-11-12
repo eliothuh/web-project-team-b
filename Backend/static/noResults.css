@@ -170,27 +170,6 @@ nav {
 	Background-color:#0b0e13;
 	margin-left:15%;
 }
-.mapAndInfo{
-	display:flex;
-	flex-direction:row;
-}
-.mapBlock{
-	flex:6;
-	order:1;
-	justify-content: center;
-}
-.interactiveMap{
-	margin-top:40px;
-	margin-left:60px;
-	z-index:1;
-}
-.infoBlock{
-	flex:2;
-	order:2;
-	background-color:#475a7a;
-	color:white;
-	z-index:3;
-}
 .searchData{
 }
 .aboutTheData{
