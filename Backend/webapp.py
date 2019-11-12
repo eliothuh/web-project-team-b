@@ -97,7 +97,7 @@ def getAverageNationalPopulation(list):
 
 """def getCausesAndPercentages(list):
 	lastIndex = len(list[0]) - 3
-	
+
 	if(lastIndex < 0):
 		causeAndPercent
 		causeAndPercent["Other"] = 100
@@ -120,8 +120,8 @@ def getStartingCauses(list, lastIndex):
 def addPercentages(causeAndPercent, list):
 	for cause in causeAndPercent:
 		addCause(cause, cause, causeAndPercent, )
-		
-		
+
+
 def addCause()"""
 
 
@@ -152,17 +152,18 @@ def getStateQueryResults():
 		print(state)
 		dataTable = getStateData(start, end, state)
 		person = "person"
+
 		print(start)
 		print(end)
 		print(state)
 		print(dataTable)
 		return render_template('greet.html', person=person)
 
-		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"], 
+		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
-	
-	else: 
-    
+
+	else:
+
 		return render_template('HomePage2.html')
 
 
