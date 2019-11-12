@@ -20,7 +20,7 @@ def getStateData(start, end, state):
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	nationTotals = dataSource.getUSATotals(start, end)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
-	"""causesAndPercentages = getCausesAndPercentages(fullList)"""
+	causesAndPercentages = getCausesAndPercentages(fullList)
 	print(dataTable["stateCrudeRate"])
 	print(dataTable["nationalCrudeRate"])
 	return dataTable
@@ -95,7 +95,7 @@ def getAverageNationalPopulation(list):
 	return total/numYears
 
 
-def getCausesAndPercentages(list):
+"""def getCausesAndPercentages(list):
 	lastIndex = len(list[0]) - 3
 
 	if(lastIndex < 0):
@@ -104,7 +104,7 @@ def getCausesAndPercentages(list):
 		return causeAndPercent
 
 	causeAndPercent = getStartingCauses(list, lastIndex)
-	causeAndPercent = addPercentages(causeAndPercent, list)
+	causeAndPercent = addPerc(causeAndPercent, list)
 	return None
 
 
@@ -116,8 +116,13 @@ def getStartingCauses(list, lastIndex):
 
 	return causeAndPercent
 
-"""def addPercentages(causeAndPercent, list):
-	for cause in causeAndPercent"""
+
+def addPercentages(causeAndPercent, list):
+	for cause in causeAndPercent:
+		addCause(cause, cause, causeAndPercent, )
+
+
+def addCause()"""
 
 
 
@@ -145,6 +150,10 @@ def getStateQueryResults():
 		dataTable = getStateData(start, end, state)
 		person = "person"
 
+		print(start)
+		print(end)
+		print(state)
+		print(dataTable)
 		return render_template('greet.html', person=person)
 
 		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
