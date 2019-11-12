@@ -150,11 +150,8 @@ def getStateQueryResults():
 		dataTable = getStateData(start, end, state)
 		person = "person"
 
-		print(start)
-		print(end)
-		print(state)
-		print(dataTable)
-		return render_template('greet.html', person=person)
+		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
+											nationalCrudeRate = dataTable["nationalCrudeRate"])
 
 		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
