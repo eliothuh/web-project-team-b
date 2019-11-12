@@ -11,7 +11,7 @@ import psycopg2
 app = flask.Flask(__name__)
 
 
-connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye")
+connection = psycopg2.connect(database="knights3", user="knights3", password="seal894puppy")
 dataSource = DataSource(connection)
 
 def getStateData(start, end, state):
@@ -144,14 +144,14 @@ def getStateQueryResults():
 		state = request.form.get('state')
 		dataTable = getStateData(start, end, state)
 		person = "person"
-		
+
 		return render_template('greet.html', person=person)
 
-		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"], 
+		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
-	
-	else: 
-    
+
+	else:
+
 		return render_template('HomePage2.html')
 
 
