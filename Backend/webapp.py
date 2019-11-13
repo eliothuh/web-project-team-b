@@ -187,19 +187,16 @@ def homepage():
 @app.route('/home/', methods=['GET', 'POST'])
 def getStateQueryResults():
 	if (request.method == 'POST'):
-		start = int(request.form.get('startYear'))
-		end = int(request.form.get('endYear'))
-		state = request.form.get('state')
-		dataTable = getStateData(start, end, state)
-		dictionary = {"brute force": 33, "blunt object": 33, "Other": 34}
+		if(request.form.get('startYear') != None and request.form.get('endYear') != None
+													and request.form.get('state')!= None):
+			start = int(request.form.get('startYear'))
+			end = int(request.form.get('endYear'))
+			state = request.form.get('state')
+			dataTable = getStateData(start, end, state)
 		
-
-		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
+			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 											nationalCrudeRate = dataTable["nationalCrudeRate"], 
-											dictionary = dictionary)
-
-		"""return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
-											nationalCrudeRate = dataTable["nationalCrudeRate"])"""
+											causesAndPercentages = dataTable["causesAndPercentages"])
 
 	else:
 
