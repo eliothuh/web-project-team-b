@@ -160,7 +160,7 @@ def getTotalDeathsByCause(cause, list):
 def getPercentOther(causeList, list):
 	percentageKnown = 0
 
-	for(cause in causesList):
+	for cause in causesList:
 		percentageKnown += causesList[cause]
 	
 	return 100 - percentageKnown
