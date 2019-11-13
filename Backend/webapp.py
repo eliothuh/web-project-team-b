@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-	'''
-	webapp.py sends queries from the frontend to the backend. 
-	It loads and updates pages and processes data in a form easy
-	for the html to present. 
-	'''
+'''
+webapp.py sends queries from the frontend to the backend. 
+It loads and updates pages and processes data in a form easy
+for the html to present. 
+'''
 
 import flask
 from flask import render_template, request
