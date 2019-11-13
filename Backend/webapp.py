@@ -43,7 +43,7 @@ def getStateQueryData(startYear, endYear, state):
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 	
-	nationTotals = dataSource.getUSATotals(startYear, end)
+	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 		
 	return dataTable
