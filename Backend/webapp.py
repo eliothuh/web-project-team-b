@@ -3,6 +3,8 @@
 webapp.py sends queries from the frontend to the backend. 
 It loads and updates pages and processes data in a form easy
 for the html to present. 
+
+***We have only implemented the text field inputs! The buttons at the top do not work!***
 '''
 
 import flask
@@ -55,10 +57,11 @@ def getStateCrudeRate(list):
 	specified year range
 
 	PARAMETERS:
-		list - an array of data for each year the user queried 
+		list - an array of state homicide data for each year in the range the user queried
 			
 	RETURN:
-		The average annual number of homicides in the user's requested state (per 100,000)
+		A String representing the average annual number of homicides in the user's 
+		requested state (per 100,000)
 
 	Calls getAverageStateDeaths, getAverageStatePopulation
 	'''
@@ -75,7 +78,7 @@ def getAverageStateDeaths(list):
 	Returns the average annual number of homicides in a state (per 100,000 people)
 
 	PARAMETERS:
-		list - an array of data for each year the user queried 
+		list - an array of state homicide data for each year in the range the user queried
 			
 	RETURN:
 		The average annual number of homicides in the user's requested state (per 100,000)
@@ -99,7 +102,7 @@ def getAverageStatePopulation(list):
 	Returns the average annual population of the state over user's queried year range
 
 	PARAMETERS:
-		list - an array of data for each year the user queried 
+		list - an array of state homicide data for each year in the range the user queried
 			
 	RETURN:
 		The average annual population of the user's specified state over the user's
@@ -120,7 +123,7 @@ def getNationalCrudeRate(list):
 	Returns the national average annual rate of homicide per 100,000 people 
 
 	PARAMETERS:
-		list - an array of data for each year in the range the user queried 
+		list - an array of state homicide data for each year in the range the user queried
 			
 	RETURN:
 		The national average annual rate of homicide per 100,000 people over the 
@@ -139,7 +142,7 @@ def getNationalAverageDeaths(list):
 	Returns the average annual number of homicides across the nation
 
 	PARAMETERS:
-		list - an array of data for each year in the range the user queried 
+		list - an array of state homicide data for each year in the range the user queried
 			
 	RETURN:
 		The national average annual number of homicides
@@ -161,7 +164,7 @@ def getAverageNationalPopulation(list):
 	Returns the nation's average population over the user's specified year range
 
 	PARAMETERS:
-		list - an array of data for each year in the range the user queried 
+		list - an array of state homicide data for each year in the range the user queried
 			
 	RETURN:
 		The national average population over the specified year range
@@ -241,8 +244,8 @@ def getPercent(cause, list):
 		list - an array of state homicide data for each year in the range the user queried 
 			
 	RETURN:
-		A number with at most 3 decimal places representing the percentage of deaths the 
-		specified cause was responsible for 
+		A String representing a number with at most 3 decimal places representing the percentage 
+		of deaths the specified cause was responsible for 
 	'''
 	totalDeathsByCause = getTotalDeathsByCause(cause, list)
 	numberOfYears = len(list)
