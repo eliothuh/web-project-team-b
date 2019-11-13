@@ -61,7 +61,7 @@ def getStateCrudeRate(list):
 			
 	RETURN:
 		A String representing the average annual number of homicides in the user's 
-		requested state (per 100,000)
+		requested state (per 100,000) rounded to 3 decimal places
 
 	Calls getAverageStateDeaths, getAverageStatePopulation
 	'''
