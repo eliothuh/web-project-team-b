@@ -5,18 +5,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-	{% block javascript %}
-		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
-	{% endblock %}
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
+	<script src="HomePage.js"></script>
+	  
+	<link rel="stylesheet" href="Results.css">
 	 
-    <title>USHW</title>
+    <title>::USHW</title>
   </head>
   <body>
   <nav class="navbar">
 	<div class="theBar">
 		<a href="" class="logo">
-		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
+		  <img src="logo.png" alt="USHW logo">
 		</a>	
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
@@ -26,7 +25,7 @@
 		</ul>
 	</div>
 	<div class="dropDownYears" id="dropDownYears" onmouseover="turnOnDropdownYearsVisibility()">
-		<div class="dropdownYearsButtons">
+		<div class="dropDownYearsButtons">
 			<button><input type="submit" name="submit_button" value="1999"></button>
 			<button><input type="submit" name="submit_button" value="2000"></button>
 			<button><input type="submit" name="submit_button" value="2001"></button>
@@ -45,26 +44,25 @@
 			<button><input type="submit" name="submit_button" value="2014"></button>
 			<button><input type="submit" name="submit_button" value="2015"></button>
 			<button><input type="submit" name="submit_button" value="2016"></button>
-			<button><input type="submit" name="submit_button" value="2017"></button>
 		</div>
-	</div>
+	  </div>
 	<div class="dropDownStates" id="dropDownStates" onmouseover="turnOnDropdownStatesVisibility()">
 		<div class="dropdownStatesButtons">
-			<h4>A</h4>
-			<button><input type="submit" name="submit_button" value="Alabama"></button>
-			<button><input type="submit" name="submit_button" value="Alaska"></button>
-			<button><input type="submit" name="submit_button" value="Arizona"></button>
-			<button><input type="submit" name="submit_button" value="Arkansas"></button>
+		<h4>A</h4>
+		<button><input type="submit" name="submit_button" value="Alabama"></button>
+		<button><input type="submit" name="submit_button" value="Alaska"></button>
+		<button><input type="submit" name="submit_button" value="Arizona"></button>
+		<button><input type="submit" name="submit_button" value="Arkansas"></button>
 		</div>
 		<div class="dropdownStatesButtons">
-			<h4>C</h4>
-			<button><input type="submit" name="submit_button" value="California"></button>
-			<button><input type="submit" name="submit_button" value="Colorado"></button>
-			<button><input type="submit" name="submit_button" value="Connecticut"></button>
+		<h4>C</h4>
+		<button><input type="submit" name="submit_button" value="California"></button>
+		<button><input type="submit" name="submit_button" value="Colorado"></button>
+		<button><input type="submit" name="submit_button" value="Connecticut"></button>
 		</div>
 		<div class="dropdownStatesButtons">
-			<h4>D</h4>
-			<button><input type="submit" name="submit_button" value="Delaware"></button>
+		<h4>D</h4>
+		<button><input type="submit" name="submit_button" value="Delaware"></button>
 		</div>
 		<div class="dropdownStatesButtons">
 		<h4>F</h4>
@@ -162,74 +160,32 @@
 		</div>
 		</div>
   </nav>
-	  <div class="MainContainer" id="mainContainer" onclick="turnOffAllCollapsibles()">
+	  <div class="MainContainer">
 			<div class="contentContainer">
-			
-				<div class="mapAndInfo">
-				
-					<div class="infoBlock">
-					  Info goes here
+				<div class="lookForBlock">
+					<div class="lookForText">
+						<h1>Let's Look for...</h1>
+						Search for data of specific state and years here.
 					</div>
-					
-					<div class="mapBlock">
-						<div class="interactiveMap">
-							<iframe src="{{ url_for('static', filename='mainMap.html') }}" width="1000" height="600" style="border: none;"></iframe>
-						<script>
-							if (window.addEventListener)
-								{ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
-							else if 
-								(window.attachEvent){ window.attachEvent("message", function(event) { if( event.data.length >= 22) { if ( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
-						</script>
-						</div>
-					</div>
-					
-				</div>
-				
-				
-				<div class="lookForSearcher">
- 					<form method=post>
-      						Beginning Year:
-      						<input type=text placeholder="1999" name=startYear>
-      						Ending Year:
-      						<input type=text placeholder="2017" name=endYear>
-      						State:
-      						<input type=text placeholder="Minnesota" name=state>
-      						<input type=submit value=Search>
+					<div class="lookForSearcher">
+ 						<form action="{{ url_for('login') }}" method=post>
+ 						<dl>
+      						<dt>Beginning Year:
+      						<dd><input type=text placeholder="1999" name=BeginYear>
+      						<dt>Ending Year:
+      						<dd><input type=text placeholder="2017" name=EndYear>
+      						<dt>State:
+      						<dd><input type=text placeholder="Minnesota" name=state>
+      						<dd><input type=submit value=Search>
+    					</dl>
   					</form>
+					</div>
 				</div>
-					
-		<div class="aboutTheData">
-		<h2>About The Data</h2>
-        <h3>What It Consists Of</h3>
-        <p>Our dataset reports homicide statistics for counties and states in the U.S. It covers the number of homicides annually from 1999 to 2017 and the means of homicide.</p>
-        <p>Data is grouped by region and cause of death.</p>
-        <h3>Where It Is From</h3>
-        <p>The data is from <a href="https://wonder.cdc.gov/"> The U.S.Center for Disease Control and Prevention WONDER database</a>, a reliable government-run public database.</p>
-        <p>We used the Underlying Cause of Death search and request form to access the specific data-set. We downloaded the data in multiple files, using the following search criteria:</p>
-
-        <p><button class="collapsible" type="button">Search Criteria Will Be Here</button></p>
-        <div class="content"> 
-          <p>search criteria will be added here</p>
-        </div>
-
-        <h3>Citation &amp; Download</h3>
-        <p>We offer citations of our data in numerous formats, and free downloads of our data in numerous formats.</p>
-
-        <p><button class="collapsible" type="button">Citations Will Be Accessible Here</button></p>
-        <div class="content">
-          <p>citations will be added</p>
-        </div>
-
-        <p><button class="collapsible" type="button">Download Links Here</button></p>
-
-        <div class="content">
-          <p>Download stuff here!</p>
-        </div>
-        <h3>How we Processed Our data</h3>
-        <p>The data was downloaded as plain text (.txt) files and converted to comma-separated value (.csv) files. Then, data values marked "unreliable" were replaced with null values for formatting purposes.</p>
-				</div>
+				<div class="resultsData">
+					<p>State rate: {{stateCrudeRate}}</p>
+					<p>National rate: {{nationalCrudeRate}}</p>					
+		  		</div>
 		  	</div>
-		  	
 	  </div>
   </body>
-</html>00
+</html>

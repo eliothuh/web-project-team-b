@@ -40,6 +40,7 @@ nav {
 	z-index:999;
 	order:1;
 }
+
 .dropDownYears{
 	color:#6f8bbb;
 	order:2;
@@ -50,16 +51,17 @@ nav {
 	font-size: 18px;
 	margin-top:60px;
 	list-style-type:none;
-	max-height:40px;
 	
-	display:none;
-	background-color:#050912;
-	border:none;
-	padding:10px;
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content: space-evenly;
 }
 .dropdownYearsButtons button{
+	display:block;
+	background-color:#050912;
 	border:none;
-	
+	visibility: hidden;
 }
 .dropdownYearsButtons button:hover{
 	background-color:red;
@@ -157,33 +159,39 @@ nav {
 
 .MainContainer{
 	display:flex;
-	margin-top:-10px;
+	margin-top:100px;
 	flex-direction: column;
 	color:white;
 	padding:5px;
 	z-index:2;
 }
+
 .contentContainer{
 	display:flex;
 	flex-direction:column;
 	width:70%;
-	Background-color:#0b0e13;
+	color:black;
+	Background-color:white;
 	margin-left:15%;
 }
+
 .mapAndInfo{
 	display:flex;
 	flex-direction:row;
 }
+
 .mapBlock{
 	flex:6;
 	order:1;
 	justify-content: center;
 }
+
 .interactiveMap{
 	margin-top:40px;
 	margin-left:60px;
 	z-index:1;
 }
+
 .infoBlock{
 	flex:2;
 	order:2;
@@ -191,7 +199,21 @@ nav {
 	color:white;
 	z-index:3;
 }
-.aboutTheData{
+.lookForBlock{
+	display:flex;
+	flex-direction:row;
+	background-color: #ffffff;
+}
+.lookForText{
+	color:black;
+
+}
+.lookForSearcher{
+	color:black;
+}
+.filterSearchButton{
+}
+.resultsData{
 	flex:2;
 	background-color:white;
 	color:black;

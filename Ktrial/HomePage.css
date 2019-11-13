@@ -196,6 +196,13 @@ nav {
 	background-color:white;
 	color:black;
 }
+.lookForSearcher {
+	background-color:#475a7a;
+}
+.lookForSearcher input[type=text]{
+	background-color: white;
+  	color: black;
+}
 .collapsible {
   background-color: #eee;
   color: #444;
