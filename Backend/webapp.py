@@ -14,6 +14,7 @@ def getStateData(start, end, state):
 	dataTable = {}
 	
 	fullList = dataSource.getStateQuery(start, end, state)
+	print(fullList)
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 	
