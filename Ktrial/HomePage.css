@@ -53,17 +53,16 @@ nav {
 	max-height:40px;
 	
 	display:none;
+	flex-direction: row;
+	justify-content: center;
 	background-color:#050912;
 	border:none;
 	padding:10px;
 }
 .dropdownYearsButtons button{
 	border:none;
-	
 }
-.dropdownYearsButtons button:hover{
-	background-color:red;
-	
+.dropdownYearsButtons button:hover{	
 }
 .dropdownYearsButtons input{
 	font-size:18px;
@@ -71,6 +70,8 @@ nav {
 	color:white;
 	background-color:#050912;
 	border:none;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 .dropdownYearsButtons input:hover{
 	font-size:18px;
@@ -91,6 +92,7 @@ nav {
 	margin-top:60px;
 	list-style-type:none;
 	max-height:210px;
+	padding-bottom:15px;
 	
 	display:none;
 	flex-direction:column;
@@ -192,16 +194,36 @@ nav {
 	z-index:3;
 }
 .aboutTheData{
+	order:3;
 	flex:2;
 	background-color:white;
 	color:black;
 }
 .lookForSearcher {
+	order:2;
+	padding: 20px;
 	background-color:#475a7a;
+	display:flex;
+	flex-direction:column;
+	padding-bottom:40px;
 }
+.lookForSearcher h1{line-height: 40px;}
+.lookForSearcher p{line-height: 20px;}
 .lookForSearcher input[type=text]{
 	background-color: white;
   	color: black;
+}
+.lookForSearcher form{
+	margin-top:30px;
+	margin-bottom:20px;
+	
+	display:flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap:wrap;
+	width:100%;
+	
+	font-size:18px;
 }
 .collapsible {
   background-color: #eee;
