@@ -142,7 +142,7 @@ def getPercent(cause, list):
 	numberOfYears = len(list)
 	totalDeaths = getAverageStateDeaths(list)*numberOfYears
 	
-	return totalDeathsByCause/totalDeaths
+	return totalDeathsByCause * 100/totalDeaths
 		
 
 def getTotalDeathsByCause(cause, list):
