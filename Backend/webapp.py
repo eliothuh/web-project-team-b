@@ -261,7 +261,7 @@ def getStateQueryResults():
 										causesAndPercentages = dataTable["causesAndPercentages"])
 		except Exception as e:
 			
-			return render_template('Error.html', Error = e)
+			return render_template('Error.html', error = e)
 	else:
 
 		return render_template('HomePage2.html')
