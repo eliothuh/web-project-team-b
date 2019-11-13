@@ -129,8 +129,8 @@ nav {
   	display: inline-block;
 }
 
-.navLinksList {
-  	list-style: none;
+.navLinksList {	
+	list-style: none;
   	display: flex;
 }
 
@@ -193,12 +193,7 @@ nav {
 	color:white;
 	z-index:3;
 }
-.aboutTheData{
-	order:3;
-	flex:2;
-	background-color:white;
-	color:black;
-}
+
 .lookForSearcher {
 	order:2;
 	padding: 20px;
@@ -212,18 +207,25 @@ nav {
 .lookForSearcher input[type=text]{
 	background-color: white;
   	color: black;
+	width:200px;
 }
 .lookForSearcher form{
 	margin-top:30px;
 	margin-bottom:20px;
-	
 	display:flex;
 	flex-direction: row;
 	justify-content: space-around;
 	flex-wrap:wrap;
 	width:100%;
 	
-	font-size:18px;
+	font-size:19px;
+}
+
+.aboutTheData{
+	order:3;
+	flex:2;
+	background-color:white;
+	color:black;
 }
 .collapsible {
   background-color: #eee;
