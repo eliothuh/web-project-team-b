@@ -15,7 +15,7 @@ from datasource import *
 import psycopg2
 
 app = flask.Flask(__name__)
-connection = psycopg2.connect(database="knights3", user="knighs3", password="seal894puppy")
+connection = psycopg2.connect(database="knights3", user="knights3", password="seal894puppy")
 dataSource = DataSource(connection)
 
 
