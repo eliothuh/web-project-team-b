@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	  
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-	{% block javascript %}
-		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
-	{% endblock %}
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
+		<script src="HomePage.js"></script>
+	<link rel="stylesheet" type="text/css" href="HomePage.css"/>
 	 
     <title>USHW</title>
   </head>
@@ -16,7 +32,7 @@
   <nav class="navbar">
 	<div class="theBar">
 		<a href="" class="logo">
-		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
+		  <img alt = "USHW logo" src="logo.png" />
 		</a>	
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
@@ -164,16 +180,11 @@
   </nav>
 	  <div class="MainContainer" id="mainContainer" onclick="turnOffAllCollapsibles()">
 			<div class="contentContainer">
-			
+
 				<div class="mapAndInfo">
-				
-					<div class="infoBlock">
-					  Info goes here
-					</div>
-					
 					<div class="mapBlock">
 						<div class="interactiveMap">
-							<iframe src="{{ url_for('static', filename='mainMap.html') }}" width="1000" height="600" style="border: none;"></iframe>
+							<iframe src="mainMap.html" width="900" height="600" style="border: none;"></iframe>
 						<script>
 							if (window.addEventListener)
 								{ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
@@ -187,7 +198,9 @@
 				
 				
 				<div class="lookForSearcher">
- 					<form method=post>
+					<h1>Search for Data Here.</h1>
+					<p>Select a year range and state.</p>
+					<form method="post">
       						Beginning Year:
       						<input type=text placeholder="1999" name=startYear>
       						Ending Year:
@@ -195,17 +208,18 @@
       						State:
       						<input type=text placeholder="Minnesota" name=state>
       						<input type=submit value=Search>
-  					</form>
+				  </form>
 				</div>
 					
 		<div class="aboutTheData">
-		<h2>About The Data</h2>
-        <h3>What It Consists Of</h3>
-        <p>Our dataset reports homicide statistics for counties and states in the U.S. It covers the number of homicides annually from 1999 to 2017 and the means of homicide.</p>
-        <p>Data is grouped by region and cause of death.</p>
+		<h1>About The Data</h1>
+<h3>What It Consists Of</h3>
+        <p>Our dataset reports homicide statistics for counties and states of the United States.</p>
+		<p>Our data summarizes, processes, and categorizes all officially recorded cases of homicides from the years of 1999 to 2017.</p>
+        <p>The data is grouped by region, time, and underlying cause.</p>
         <h3>Where It Is From</h3>
-        <p>The data is from <a href="https://wonder.cdc.gov/"> The U.S.Center for Disease Control and Prevention WONDER database</a>, a reliable government-run public database.</p>
-        <p>We used the Underlying Cause of Death search and request form to access the specific data-set. We downloaded the data in multiple files, using the following search criteria:</p>
+        <p>The data is from <a href="https://wonder.cdc.gov/"> The U.S.Center for Disease Control and Prevention WONDER database</a>, a reliable government-run database.</p>
+        <p>We used the "Underlying Cause of Death Search and Request Form" to access the specific data-set. Then, we downloaded the data in multiple files, using the following search criteria:</p>
 
         <p><button class="collapsible" type="button">Search Criteria Will Be Here</button></p>
         <div class="content"> 
@@ -232,4 +246,4 @@
 		  	
 	  </div>
   </body>
-</html>00
+</html>
