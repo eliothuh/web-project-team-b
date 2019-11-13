@@ -134,10 +134,11 @@ def getTotalDeathsByCause(cause, list):
 	totalDeaths = 0 
 	
 	for year in list:
+		lastIndex = len(year) - 3
 		
-		for causeData in year:
-			if(causeData[3] == cause):
-				totalDeaths += causeData[5]
+		for index in range(lastIndex):
+			if(year[index][3] == cause):
+				totalDeaths += year[index][5]
 		
 	return totalDeaths
 
