@@ -15,13 +15,6 @@ connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye
 dataSource = DataSource(connection)
 
 def getStateData(start, end, state):
-
-	for index in range(-1):
-		print("IT WORKS FOR NEGATIVES!")
-		print("IT WORKS FOR NEGATIVES!")
-		print("IT WORKS FOR NEGATIVES!")
-		print("IT WORKS FOR NEGATIVES!")
-		
 	dataTable = {}
 	
 	fullList = dataSource.getStateQuery(start, end, state)
@@ -47,7 +40,7 @@ def getStateCrudeRate(list):
 	print(averageDeaths)
 	print("average population (state): ")
 	print(averagePopulation)
-	return averageDeaths*100000/averagePopulation
+	return round(averageDeaths*100000/averagePopulation, 3)
 
 
 def getAverageStateDeaths(list):
@@ -81,7 +74,7 @@ def getNationalCrudeRate(list):
 	print("average population (nation): ")
 	print(averagePopulation)
 
-	return averageDeaths*100000/averagePopulation
+	return round(averageDeaths*100000/averagePopulation, 3)
 
 
 def getNationalAverageDeaths(list):
@@ -142,7 +135,7 @@ def getPercent(cause, list):
 	numberOfYears = len(list)
 	totalDeaths = getAverageStateDeaths(list)*numberOfYears
 	
-	return totalDeathsByCause * 100/totalDeaths
+	return round(totalDeathsByCause * 100/totalDeaths, 3)
 		
 
 def getTotalDeathsByCause(cause, list):
