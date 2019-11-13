@@ -111,9 +111,10 @@ def isValidCause(cause, list):
 	
 	for year in list:
 		foundThisYear = False
+		lastIndex = len(year) - 3
 		
-		for causeData in year:
-			if(causeData[3] == cause):
+		for index in range(lastIndex):
+			if(year[index][3] == cause):
 				foundThisYear = True
 		
 		foundAllYears = foundAllYears and foundThisYear
