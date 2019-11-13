@@ -15,14 +15,28 @@ connection = psycopg2.connect(database="huhe", user="huhe", password="tree695eye
 dataSource = DataSource(connection)
 
 def getStateData(start, end, state):
+
+	for index in range(-1):
+		print("IT WORKS FOR NEGATIVES!")
+		print("IT WORKS FOR NEGATIVES!")
+		print("IT WORKS FOR NEGATIVES!")
+		print("IT WORKS FOR NEGATIVES!")
+		
 	dataTable = {}
+	
 	fullList = dataSource.getStateQuery(start, end, state)
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
+	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
+	
 	nationTotals = dataSource.getUSATotals(start, end)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
-	"""causesAndPercentages = getCausesAndPercentages(fullList)"""
+	
 	print(dataTable["stateCrudeRate"])
 	print(dataTable["nationalCrudeRate"])
+	print(dataTable["causesAndPercentages"])
+	
+
+		
 	return dataTable
 
 
@@ -95,39 +109,68 @@ def getAverageNationalPopulation(list):
 	return total/numYears
 
 
-"""def getCausesAndPercentages(list):
+def getCausesAndPercentages(list):
 	lastIndex = len(list[0]) - 3
+	causesList = {}
 
-	if(lastIndex < 0):
-		causeAndPercent
-		causeAndPercent["Other"] = 100
-		return causeAndPercent
+	for index in range(lastIndex):
+		cause = list[0][index][3]
+		if(isValidCause(cause, list)):
+			causeList[cause] = getPercent(cause, list)
+	
+	causeList["Other"] = getPercentOther(causeList, list)
+	
+	return causesList
 
-	causeAndPercent = getStartingCauses(list, lastIndex)
-	causeAndPercent = addPerc(causeAndPercent, list)
-	return None
-
-
-def getStartingCauses(list, lastIndex):
-	causeAndPercent = {}
-
-	for cause in range(lastIndex):
-		causeAndPercent[list[0][cause][3]] = list[0][cause][5]
-
-	return causeAndPercent
-
-
-def addPercentages(causeAndPercent, list):
-	for cause in causeAndPercent:
-		addCause(cause, cause, causeAndPercent, )
-
-
-def addCause()"""
+def isValidCause(cause, list):
+	foundAllYears = True
+	
+	for year in list:
+		foundThisYear = False
+		
+		for causeData in year:
+			if(causeData[3] == cause):
+				foundThisYear = True
+		
+		foundAllYears = foundAllYears and foundThisYear
+	
+	return foundAllYears
 
 
+def getPercent(cause, list):
+	totalDeathsByCause = getTotalDeathsByCause(cause, list)
+	numberOfYears = len(list)
+	totalDeaths = getAverageStateDeaths(list)*numberOfYears
+	
+	return totalDeathsByCause/totalDeaths
+		
+
+def getTotalDeathsByCause(cause, list):
+	totalDeaths = 0 
+	
+	for year in list:
+		
+		for causeData in year:
+			if(causeData[3] == cause):
+				totalDeaths += causeData[5]
+		
+	return totalDeaths
 
 
-""""	add total homicides, divide by avg population, multiply by 100,000
+def getPercentOther(causeList, list)
+	percentageKnown = 0
+
+	for(cause in causesList):
+		percentageKnown += causesList[cause]
+	
+	return 100 - percentageKnown
+	
+"""
+
+
+
+
+	add total homicides, divide by avg population, multiply by 100,000
 	Homicide average: total us homicides divide by avg population, multiply 100,000
 
 	start w causes in first yr
