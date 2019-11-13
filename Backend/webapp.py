@@ -19,18 +19,18 @@ dataSource = DataSource(connection)
 
 def getStateQueryData(startYear, endYear, state):
 	'''
-	Returns the average annual number of homicides in a state (per 100,000 people),
-	the national average annual number of homicides (per 100,000 people), and 
-	The causes of homicide along with their percentages, if accurate
-	data for each said cause is provided.
-
+	Returns the average annual rate of homicide in a state (per 100,000 people),
+	the national average annual rate of homicide (per 100,000 people), and 
+	the causes of homicide along with the percentage of total homicides they
+	contributed, if accurate data for each said cause is provided.
+	
 	PARAMETERS:
 		startYear - the first year of data to draw from
 		endYear - the last year of data to draw from
 		state - the name of the state to draw data from
 
 	RETURN:
-		A dictionary with the average annual number of homicides in the nation and
+		A dictionary with the average annual rate homicide in the nation and
 		state, as well as another dictionary storing each cause and the percentage of
 		homicides it was responsible for
 
@@ -51,7 +51,8 @@ def getStateQueryData(startYear, endYear, state):
 
 def getStateCrudeRate(list):
 	'''
-	Returns the average annual number of homicides in a state (per 100,000 people)
+	Returns the average annual rate of homicide in a state (per 100,000 people) over the 
+	specified year range
 
 	PARAMETERS:
 		list - an array of data for each year the user queried 
@@ -179,13 +180,17 @@ def getAverageNationalPopulation(list):
 
 def getCausesAndPercentages(list):
 	'''
-	Returns the nation's average population over the user's specified year range
+	Returns a dictionary with each key being a cause of homicide and each value being the
+	percentage of homicides the associated cause was responsible for
 
 	PARAMETERS:
-		list - an array of data for each year in the range the user queried 
+		list - an array of state homicide data for each year in the range the user queried 
 			
 	RETURN:
-		The national average population over the specified year range
+		A dictionary with each key being a cause of homicide and each value being the
+		percentage of homicides the associated cause was responsible for
+	
+	Calls isValidCause, getPercent, and getPercentOther	
 	'''
 	lastIndex = len(list[0]) - 3
 	causesList = {}
@@ -201,6 +206,17 @@ def getCausesAndPercentages(list):
 	
 
 def isValidCause(cause, list):
+	'''
+	Determines whether the inputted cause has valid data. More specifically, this method
+	checks whether the data for this cause was omitted in any of the specified years
+	and does not regard it as valid in this case.
+
+	PARAMETERS:
+		list - an array of state homicide data for each year in the range the user queried 
+			
+	RETURN:
+		A True value if there was data for this cause every year and a False value otherwise
+	'''
 	foundAllYears = True
 	
 	for year in list:
@@ -217,6 +233,17 @@ def isValidCause(cause, list):
 
 
 def getPercent(cause, list):
+	'''
+	Returns the percentage of total homicides the specified cause of homicide was responsible 
+	for 
+
+	PARAMETERS:
+		list - an array of state homicide data for each year in the range the user queried 
+			
+	RETURN:
+		A number with at most 3 decimal places representing the percentage of deaths the 
+		specified cause was responsible for 
+	'''
 	totalDeathsByCause = getTotalDeathsByCause(cause, list)
 	numberOfYears = len(list)
 	totalDeaths = getAverageStateDeaths(list)*numberOfYears
@@ -225,6 +252,16 @@ def getPercent(cause, list):
 		
 
 def getTotalDeathsByCause(cause, list):
+	'''
+	Returns the total number of deaths the specified cause was responsible for 
+	over the user's queried year range in the specified state
+
+	PARAMETERS:
+		list - an array of state homicide data for each year in the range the user queried 
+			
+	RETURN:
+		An integer representing the total number of homicides the specified cause contributed
+	'''
 	totalDeaths = 0 
 	
 	for year in list:
@@ -238,6 +275,17 @@ def getTotalDeathsByCause(cause, list):
 
 
 def getPercentOther(causesList, list):
+	'''
+	Returns the percentage of homicides over the user's queried year range and specified state 
+	not caused by any of the valid causes already found
+
+	PARAMETERS:
+		list - an array of state homicide data for each year in the range the user queried 
+			
+	RETURN:
+		A String representation of a float rounded to 3 decimal places representing the 
+		percentage of homicides not caused by any of the specified causes
+	'''
 	percentageKnown = 0
 
 	for cause in causesList:
@@ -248,6 +296,10 @@ def getPercentOther(causesList, list):
 
 @app.route('/', methods=['GET', 'POST'])
 def getStateQueryResults():
+	'''
+	Loads the homepage and returns a results page corresponding to the user's query. Directs
+	user to an error page if the query was not formatted properly   
+	'''
 	if (request.method == 'POST'):
 	
 		try:
