@@ -156,7 +156,7 @@ def getPercentOther(causesList, list):
 	for cause in causesList:
 		percentageKnown += causesList[cause]
 	
-	return 100 - percentageKnown
+	return round(100 - percentageKnown, 3)
 	
 """
 
