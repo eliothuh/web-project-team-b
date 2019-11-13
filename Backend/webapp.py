@@ -155,17 +155,17 @@ def getPercentOther(causesList, list):
 @app.route('/', methods=['GET', 'POST'])
 def getStateQueryResults():
 	if (request.method == 'POST'):
-		if(request.form.get('startYear') != None and request.form.get('endYear') != None
-													and request.form.get('state')!= None):
-			start = int(request.form.get('startYear'))
-			end = int(request.form.get('endYear'))
-			state = request.form.get('state')
-			dataTable = getStateData(start, end, state)
-		
-			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
-											nationalCrudeRate = dataTable["nationalCrudeRate"], 
-											causesAndPercentages = dataTable["causesAndPercentages"])
 
+		start = int(request.form.get('startYear'))
+		end = int(request.form.get('endYear'))
+		state = request.form.get('state')
+		dataTable = getStateData(start, end, state)
+		try:
+			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
+										nationalCrudeRate = dataTable["nationalCrudeRate"], 
+										causesAndPercentages = dataTable["causesAndPercentages"])
+		except Exception as e:
+			return render_template('HomePage2.html')
 	else:
 
 		return render_template('HomePage2.html')
