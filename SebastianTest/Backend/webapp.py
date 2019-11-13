@@ -296,6 +296,20 @@ def getPercentOther(causesList, list):
 
 	return round(100 - percentageKnown, 3)
 
+def checkStartYear(startYear):
+	if startYear == "":
+		startYear = "1999"
+	return startYear
+
+def checkEndYear(endYear):
+	if endYear == "":
+		endYear = "2017"
+	return endYear
+
+def checkState(state):
+	if state == "":
+		state = "Alabama"
+	return state
 
 @app.route('/', methods=['GET', 'POST'])
 def getStateQueryResults():
@@ -306,20 +320,16 @@ def getStateQueryResults():
 	if (request.method == 'POST'):
 
 		try:
-			try:
-				start = int(request.form.get('startYear'))
-			except Exception as e:
-				start = 1999
+			start = request.form.get('startYear')
+			start = checkStartYear(start)
+			start = int(start)
 
-			try:
-				end = int(request.form.get('endYear'))
-			except Exception as e:
-				end = 2017
+			end = request.form.get('endYear')
+			end = checkEndYear(end)
+			end = int(end)
 
-			try:
-				state = request.form.get('state')
-			except Exception as e:
-				state = "Alabama"
+			state = request.form.get('state')
+			state = checkState(state)
 
 			dataTable = getStateQueryData(start, end, state)
 
