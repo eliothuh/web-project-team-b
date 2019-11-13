@@ -116,9 +116,9 @@ def getCausesAndPercentages(list):
 	for index in range(lastIndex):
 		cause = list[0][index][3]
 		if(isValidCause(cause, list)):
-			causeList[cause] = getPercent(cause, list)
+			causesList[cause] = getPercent(cause, list)
 	
-	causeList["Other"] = getPercentOther(causeList, list)
+	causesList["Other"] = getPercentOther(causesList, list)
 	
 	return causesList
 
@@ -157,7 +157,7 @@ def getTotalDeathsByCause(cause, list):
 	return totalDeaths
 
 
-def getPercentOther(causeList, list):
+def getPercentOther(causesList, list):
 	percentageKnown = 0
 
 	for cause in causesList:
