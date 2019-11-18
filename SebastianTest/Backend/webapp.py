@@ -41,7 +41,6 @@ def getStateQueryData(startYear, endYear, state):
 	dataTable = {}
 
 	fullList = dataSource.getStateQuery(startYear, endYear, state)
-	print(fullList)
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -67,8 +66,7 @@ def getStateCrudeRate(list):
 	'''
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
-	print(averageDeaths)
-	print(averagePopulation)
+
 
 	return round(averageDeaths*100000/averagePopulation, 3)
 
@@ -297,16 +295,25 @@ def getPercentOther(causesList, list):
 	return round(100 - percentageKnown, 3)
 
 def checkStartYear(startYear):
+	'''
+	if no startYear is provided, sets it to 1999
+	'''
 	if startYear == "":
 		startYear = "1999"
 	return startYear
 
 def checkEndYear(endYear):
+	'''
+	if no endYear is provided, sets it to 2017
+	'''
 	if endYear == "":
 		endYear = "2017"
 	return endYear
 
 def checkState(state):
+	'''
+	if no state is provided, sets it to Alabama
+	'''
 	if state == "":
 		state = "Alabama"
 	return state
@@ -338,7 +345,7 @@ def getStateQueryResults():
 										causesAndPercentages = dataTable["causesAndPercentages"],
 										state = state,
 										startYear = start,
-										endYear = end) 
+										endYear = end)
 		except Exception as e:
 
 			return render_template('Error.html', error = e)
