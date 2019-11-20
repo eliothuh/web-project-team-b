@@ -9,16 +9,16 @@
 		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
 	{% endblock %}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
-	 
+
     <title>USHW Search Results</title>
   </head>
   <body>
-  
+
   <nav class="navbar">
 	<div class="theBar">
 		<a href="" class="logo">
 		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
-		</a>	
+		</a>
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
 			<li class="navLinks" onClick="toggleDropdownYearsVisibility()">By Years</li>
@@ -163,7 +163,7 @@
 		</div>
 		</div>
   </nav>
-  
+
 	  <div class="MainContainer">
 			<div class="contentContainer">
 				<div class="lookForBlock">
@@ -186,13 +186,13 @@
 					</div>
 				</div>
 				<div class="resultsData">
-					<h1> Search Results:
+					<h1> Search Results: {{state}} {{startYear}} to {{endYear}} </h1>
 					<p>State Average Annual Homicides Per 100,000: {{stateCrudeRate}}</p>
 					<p>National Average Annual Homicides Per 100,000: {{nationalCrudeRate}}</p>
 					<p>Means of Homicide:</p>
 					{% for key, value in causesAndPercentages.items() %}
-    					<li>{{ key }}: {{value}}%</li> 
-					{% endfor %}					
+    					<li>{{ key }}: {{value}}%</li>
+					{% endfor %}
 		  		</div>
 		  	</div>
 	  </div>
