@@ -352,7 +352,10 @@ def getStateQueryResults():
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
-										causesAndPercentages = dataTable["causesAndPercentages"])
+										causesAndPercentages = dataTable["causesAndPercentages"],
+										state = state,
+										startYear = startYear,
+										endYear = endYear)
 		except Exception as e:
 			print(e)
 			return render_template('Error.html', error = e)
