@@ -41,7 +41,6 @@ def getStateQueryData(startYear, endYear, state):
 	dataTable = {}
 
 	fullList = dataSource.getStateQuery(startYear, endYear, state)
-	print(fullList)
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -67,8 +66,6 @@ def getStateCrudeRate(list):
 	'''
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
-	print(averageDeaths)
-	print(averagePopulation)
 
 	return round(averageDeaths*100000/averagePopulation, 3)
 
@@ -297,6 +294,39 @@ def getPercentOther(causesList, list):
 	return round(100 - percentageKnown, 3)
 
 
+def checkStartYear(startYear):
+	'''
+	if no startYear is provided, sets it to 1999
+	'''
+	if startYear == "":
+		startYear = "1999"
+	return startYear
+
+def checkEndYear(endYear):
+	'''
+	if no endYear is provided, sets it to 2017
+	'''
+	if endYear == "":
+		endYear = "2017"
+	return endYear
+
+def checkState(state):
+	'''
+	if no state is provided, sets it to Alabama
+	if the state starts with a lowercase letter, makes it a capital letter.
+	'''
+	if state == "":
+		state = "Alabama"
+	elif isLowerCase(state[0]):
+		state = state[0].capitalize() + state[1:]
+	return state
+
+def isLowerCase(character):
+	if character in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
+		return True
+	return False
+
+
 @app.route('/', methods=['GET', 'POST'])
 def getStateQueryResults():
 	'''
@@ -306,9 +336,17 @@ def getStateQueryResults():
 	if (request.method == 'POST'):
 
 		try:
-			start = int(request.form.get('startYear'))
-			end = int(request.form.get('endYear'))
+			start = request.form.get('startYear')
+			start = checkStartYear(start)
+			start = int(start)
+
+			end = request.form.get('endYear')
+			end = checkEndYear(end)
+			end = int(end)
+
 			state = request.form.get('state')
+
+
 			dataTable = getStateQueryData(start, end, state)
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
