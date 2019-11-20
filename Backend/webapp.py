@@ -345,6 +345,7 @@ def getStateQueryResults():
 			end = int(end)
 
 			state = request.form.get('state')
+			state = checkState(state)
 
 
 			dataTable = getStateQueryData(start, end, state)
