@@ -187,12 +187,13 @@
 				</div>
 				<div class="resultsData">
 					<h1> Search Results: {{state}} {{startYear}} to {{endYear}} </h1>
-					<p>State Average Annual Homicides Per 100,000: {{stateCrudeRate}}</p>
+					<h2><p>State Average Annual Homicides Per 100,000: {{stateCrudeRate}}</p>
 					<p>National Average Annual Homicides Per 100,000: {{nationalCrudeRate}}</p>
 					<p>Means of Homicide:</p>
 					{% for key, value in causesAndPercentages.items() %}
     					<li>{{ key }}: {{value}}%</li>
 					{% endfor %}
+				</h2>
 		  		</div>
 		  	</div>
 	  </div>
