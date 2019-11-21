@@ -383,12 +383,10 @@ class DataSource:
 		'''
 
 		if not (isinstance(startYear, int) and isinstance(endYear, int)):
-			print("Years must be integers")
-			raise TypeError
+			raise TypeError("Years must be integers")
 
 		if (startYear < 1999 or endYear > 2017 or startYear > endYear):
-			print("Invalid year range")
-			raise ValueError
+			raise ValueError("Invalid year range")
 
 		return True
 
