@@ -42,7 +42,7 @@ def getStateQueryData(startYear, endYear, state):
 
 	fullList = dataSource.getStateQuery(startYear, endYear, state)
 	
-	if isInstance(fullList, Exception):
+	if isinstance(fullList, Exception):
 		raise fullList
 		
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
