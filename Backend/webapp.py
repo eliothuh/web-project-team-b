@@ -304,9 +304,9 @@ def checkStartYear(startYear):
 	'''
 	if startYear == "":
 		startYear = "1999"
-	elif not 1999 <= int(startYear) <= 2017:
-		return None
+		
 	return startYear
+
 
 def checkEndYear(endYear):
 	'''
@@ -316,6 +316,7 @@ def checkEndYear(endYear):
 		endYear = "2017"
 	
 	return endYear
+
 
 def cleanStateInput(state):
 	'''
@@ -337,7 +338,6 @@ def cleanStateInput(state):
 	correctedState = correctedState.strip()
 	
 	return correctedState
-		
 		
 		
 def cleanIndividualWord(word):
