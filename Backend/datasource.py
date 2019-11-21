@@ -201,10 +201,10 @@ class DataSource:
 
 		try:
 			self.checkValidRange(startYear, endYear)
-			"""self.checkValidState(state)"""
+			self.checkValidState(state)
 
 		except Exception as e:
-			return None
+			return e
 
 		results = []
 		yearDifference = endYear - startYear
@@ -232,23 +232,22 @@ class DataSource:
 
 		try:
 			self.checkValidYear(year)
-			"""self.checkValidState(state)"""
+			self.checkValidState(state)
 
 		except Exception as e:
-			return None
+			return e
 
 		results = []
 		print(state)
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} WHERE lower(statename) = lower('{state}')"
+			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
 		except Exception as e:
 			print("Something when wrong when excecuting the query (state)")
-
 		
 		print("query length is")
 		print(results)
@@ -324,7 +323,7 @@ class DataSource:
 			self.checkValidCounty(county)
 
 		except Exception as e:
-			return None
+			return None 
 
 		results = []
 
@@ -347,11 +346,11 @@ class DataSource:
 
 		if not isinstance(state, str):
 			print("State must be a string")
-			raise TypeError
+			raise TypeError("State must be a string")
 
 		if not state in self.stateDictionary:
 			print("State not found")
-			raise ValueError
+			raise ValueError("State not found")
 
 		return True
 
@@ -367,11 +366,11 @@ class DataSource:
 
 		if not isinstance(year, int):
 			print("Year must be an integer")
-			raise TypeError
+			raise TypeError("Year must be an integer")
 
 		if(year < 1999 or year > 2017):
 			print("Invalid year")
-			raise ValueError
+			raise ValueError("Invalid year")
 
 		return True
 

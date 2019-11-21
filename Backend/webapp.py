@@ -41,6 +41,10 @@ def getStateQueryData(startYear, endYear, state):
 	dataTable = {}
 
 	fullList = dataSource.getStateQuery(startYear, endYear, state)
+	
+	if isInstance(fullList, Exception):
+		raise fullList
+		
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -300,6 +304,8 @@ def checkStartYear(startYear):
 	'''
 	if startYear == "":
 		startYear = "1999"
+	elif not 1999 <= int(startYear) <= 2017:
+		return None
 	return startYear
 
 def checkEndYear(endYear):
@@ -308,20 +314,39 @@ def checkEndYear(endYear):
 	'''
 	if endYear == "":
 		endYear = "2017"
+	
 	return endYear
 
-def checkState(state):
+def cleanStateInput(state):
 	'''
 	if no state is provided, sets it to Alabama
 	if the state starts with a lowercase letter, makes it a capital letter.
 	'''
+	state = state.strip()
+	
 	if state == "":
 		state = "Alabama"
 	
-	return state
+	correctedState = "" 
+	wordList = state.split(" ")
 	
-	"""elif isLowerCase(state[0]):
-		state = state[0].capitalize() + state[1:]"""
+	for word in wordList:
+		correctedWord = cleanIndividualWord(word)
+		correctedState = correctedState + correctedWord + " "
+		
+	correctedState = correctedState.strip()
+	
+	return correctedState
+		
+		
+		
+def cleanIndividualWord(word):
+	word = word.lower()
+	word = word[0].capitalize() + word[1:]
+	
+	return word
+	
+	
 """def isLowerCase(character):
 	if character in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
 		return True
@@ -346,7 +371,7 @@ def getStateQueryResults():
 			end = int(end)
 
 			state = request.form.get('state')
-			state = checkState(state)
+			state = cleanStateInput(state)
 
 
 			dataTable = getStateQueryData(start, end, state)
@@ -357,9 +382,11 @@ def getStateQueryResults():
 										state = state,
 										startYear = start,
 										endYear = end)
+		
 		except Exception as e:
-			print(e)
+
 			return render_template('Error.html', error = e)
+	
 	else:
 
 		return render_template('HomePage2.html')
