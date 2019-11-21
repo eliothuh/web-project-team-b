@@ -241,7 +241,7 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} WHERE lower(statename) = '{state}'"
+			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
