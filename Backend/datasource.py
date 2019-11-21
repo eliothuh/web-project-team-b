@@ -250,7 +250,7 @@ class DataSource:
 
 		
 		print("query length is")
-		print(len(query))
+		print(results)
 		countyPattern = self.getCountyPatternForState(state)
 		countyData = self.getCountySingleYearQuery(year, countyPattern)
 		results.append(countyData)
