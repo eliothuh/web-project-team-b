@@ -67,7 +67,6 @@ def getStateCrudeRate(list):
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
 
-
 	return round(averageDeaths*100000/averagePopulation, 3)
 
 
@@ -294,6 +293,7 @@ def getPercentOther(causesList, list):
 
 	return round(100 - percentageKnown, 3)
 
+
 def checkStartYear(startYear):
 	'''
 	if no startYear is provided, sets it to 1999
@@ -313,10 +313,19 @@ def checkEndYear(endYear):
 def checkState(state):
 	'''
 	if no state is provided, sets it to Alabama
+	if the state starts with a lowercase letter, makes it a capital letter.
 	'''
 	if state == "":
 		state = "Alabama"
+	elif isLowerCase(state[0]):
+		state = state[0].capitalize() + state[1:]
 	return state
+
+def isLowerCase(character):
+	if character in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
+		return True
+	return False
+
 
 @app.route('/', methods=['GET', 'POST'])
 def getStateQueryResults():
@@ -336,6 +345,8 @@ def getStateQueryResults():
 			end = int(end)
 
 			state = request.form.get('state')
+			state = checkState(state)
+
 
 			dataTable = getStateQueryData(start, end, state)
 
@@ -346,7 +357,7 @@ def getStateQueryResults():
 										startYear = start,
 										endYear = end)
 		except Exception as e:
-
+			print(e)
 			return render_template('Error.html', error = e)
 	else:
 
