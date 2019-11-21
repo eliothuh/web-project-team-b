@@ -317,8 +317,6 @@ def checkState(state):
 	'''
 	if state == "":
 		state = "Alabama"
-		 
-	state = state.lower()
 	
 	return state
 	
