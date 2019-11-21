@@ -238,6 +238,7 @@ class DataSource:
 			return None
 
 		results = []
+		print(state)
 
 		try:
 			cursor = self.connection.cursor()
