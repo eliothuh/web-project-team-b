@@ -241,14 +241,16 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
+			query = f"SELECT * FROM states{year} WHERE lower(statename) = '{state}'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
 		except Exception as e:
 			print("Something when wrong when excecuting the query (state)")
 
-
+		
+		print("query length is")
+		print(len(query))
 		countyPattern = self.getCountyPatternForState(state)
 		countyData = self.getCountySingleYearQuery(year, countyPattern)
 		results.append(countyData)
