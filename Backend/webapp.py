@@ -317,14 +317,17 @@ def checkState(state):
 	'''
 	if state == "":
 		state = "Alabama"
-	elif isLowerCase(state[0]):
-		state = state[0].capitalize() + state[1:]
+		 
+	state.lower()
+	
 	return state
-
-def isLowerCase(character):
+	
+	"""elif isLowerCase(state[0]):
+		state = state[0].capitalize() + state[1:]"""
+"""def isLowerCase(character):
 	if character in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
 		return True
-	return False
+	return False"""
 
 
 @app.route('/', methods=['GET', 'POST'])

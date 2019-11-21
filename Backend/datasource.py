@@ -201,7 +201,7 @@ class DataSource:
 
 		try:
 			self.checkValidRange(startYear, endYear)
-			self.checkValidState(state)
+			"""self.checkValidState(state)""""
 
 		except Exception as e:
 			return None
@@ -232,7 +232,7 @@ class DataSource:
 
 		try:
 			self.checkValidYear(year)
-			self.checkValidState(state)
+			"""self.checkValidState(state)"""
 
 		except Exception as e:
 			return None
@@ -241,7 +241,7 @@ class DataSource:
 
 		try:
 			cursor = self.connection.cursor()
-			query = f"SELECT * FROM states{year} WHERE statename = '{state}'"
+			query = f"SELECT * FROM states{year} WHERE lower(statename) = '{state}'"
 			cursor.execute(query)
 			results = cursor.fetchall()
 
