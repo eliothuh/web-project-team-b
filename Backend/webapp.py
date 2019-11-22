@@ -389,6 +389,10 @@ def getStateQueryResults():
 		try:
 			start = request.form.get('startYear')
 			end = request.form.get('endYear')
+			print(start)
+			print(end)
+			print(type(start))
+			print(type(end))
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
 
