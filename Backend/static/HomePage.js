@@ -26,6 +26,29 @@ function toggleDropdownYearsVisibility() {
 	x.style.display = "none";
   }
 }
+function submit(startY, endY, s) {
+	var form = document.createElement("form");
+    	var element1 = document.createElement("input"); 
+    	var element2 = document.createElement("input");  
+	var element2 = document.createElement("input");  
+    	
+	form.method = "POST"; 
+
+	element1.value=startY;
+	element1.name="startYear";
+	form.appendChild(element1);  
+
+	element2.value=endY;
+	element2.name="endYear";
+	form.appendChild(element2);
+	element3.value=s;
+	element3.name="state";
+	form.appendChild(element3);
+
+    document.body.appendChild(form);
+
+    form.submit();
+}
 $(document).ready(function () {
 toggleDropdownStatesVisibility()	
 turnOffAllCollapsibles()
