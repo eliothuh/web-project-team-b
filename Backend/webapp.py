@@ -41,10 +41,10 @@ def getStateQueryData(startYear, endYear, state):
 	dataTable = {}
 
 	fullList = dataSource.getStateQuery(startYear, endYear, state)
-	
+
 	if isinstance(fullList, Exception):
 		raise fullList
-		
+
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -297,33 +297,17 @@ def getPercentOther(causesList, list):
 
 	return round(100 - percentageKnown, 3)
 
-"""def checkYearRange(startYear, endYear):
-	'''
-	checks if the user has only entered one year and sets both the start and end year 
-	to that year if this is the case. Otherwise, if the user has not entered either year,
-	we set the year range from 1999 to 2017 by default. 
-	'''
-	return None"""
-	
 
-def checkStartYear(startYear):
-	'''
-	if no startYear is provided, sets it to 1999
-	'''
-	if startYear == "":
+
+def checkYears(startYear, endYear):
+	if startYear == "" and endYear == "":
 		startYear = "1999"
-		
-	return startYear
-
-
-def checkEndYear(endYear):
-	'''
-	if no endYear is provided, sets it to 2017
-	'''
-	if endYear == "":
 		endYear = "2017"
-	
-	return endYear
+	elif startYear == "" and endYear != "":
+		startYear = endYear
+	elif startYear != "" and endYear == "":
+		endYear = startYear
+	return startYear, endYear
 
 
 def cleanStateInput(state):
@@ -332,29 +316,29 @@ def cleanStateInput(state):
 	if the state starts with a lowercase letter, makes it a capital letter.
 	'''
 	state = state.strip()
-	
+
 	if state == "":
 		state = "Alabama"
-	
-	correctedState = "" 
+
+	correctedState = ""
 	wordList = state.split(" ")
-	
+
 	for word in wordList:
 		correctedWord = cleanIndividualWord(word)
 		correctedState = correctedState + correctedWord + " "
-		
+
 	correctedState = correctedState.strip()
-	
+
 	return correctedState
-		
-		
+
+
 def cleanIndividualWord(word):
 	word = word.lower()
 	word = word[0].capitalize() + word[1:]
-	
+
 	return word
-	
-	
+
+
 """def isLowerCase(character):
 	if character in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
 		return True
@@ -371,11 +355,11 @@ def getStateQueryResults():
 
 		try:
 			start = request.form.get('startYear')
-			start = checkStartYear(start)
-			start = int(start)
-
 			end = request.form.get('endYear')
-			end = checkEndYear(end)
+
+			start, end = checkYears(start, end)
+
+			start = int(start)
 			end = int(end)
 
 			state = request.form.get('state')
@@ -390,11 +374,11 @@ def getStateQueryResults():
 										state = state,
 										startYear = start,
 										endYear = end)
-		
+
 		except Exception as e:
 
 			return render_template('Error.html', error = e)
-	
+
 	else:
 
 		return render_template('HomePage2.html')
