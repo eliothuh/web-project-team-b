@@ -56,9 +56,9 @@ class DataSource:
 				"Texas" : "TX",
 				"Utah" : "UT",
 				"Vermont" : "VT",
-				"Virgina" : "VA",
+				"Virginia" : "VA",
 				"Washington" : "WA",
-				"West Virgina" : "WV",
+				"West Virginia" : "WV",
 				"Wisconsin" : "WI",
 				"Wyoming" : "WY",
 				"District of Columbia" : "DC"
