@@ -10,7 +10,9 @@ html {
   padding: 0;
 }
 *{
-  font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: none;
+    margin-bottom: 0px;
 }
 
 body {
@@ -178,9 +180,11 @@ nav {
 	justify-content: center;
 }
 .interactiveMap{
-	margin-top:40px;
-	margin-left:60px;
-	z-index:1;
+    margin-top: 40px;
+    margin-left: 60px;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
 }
 .infoBlock{
 	flex:2;
@@ -217,9 +221,6 @@ nav {
 	font-size:19px;
 }
 
-.aboutContentBlocks{
-	
-}
 #citationAndDownload{
 	padding: 20px;
 	display:flex;
@@ -227,21 +228,19 @@ nav {
 	order:3;
 	background-color:#475a7a;
 }
-#aboutTheData{
-	padding: 20px;
-	display:flex;
-	flex-direction:column;
-	order:3;
-	background-color:white;
-	color:black;
+
+.aboutContentBlocks{
+	line-height:28px;
+	padding-left:40px;
+	padding:15px;
 }
 .collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 60%;
-  margin-left: 5%;
+    background-color: white;
+    color: #444;
+    cursor: pointer;
+    padding: 20px;
+    width: 60%;
+    margin: 20px;
 }
 /*
 Map Styles
@@ -249,7 +248,7 @@ Map Styles
 #states a path { transition: fill .5s ease; 
 	-moz-transition: fill .5s ease; 
 	-webkit-transition: fill .5s ease; 
-	fill: #475A7A;}
+	fill: #475A7A;z-index: 99;}
 #states a:hover path { 
 	transition: fill .5s ease; 
 	-moz-transition: fill .5s ease; 
@@ -280,4 +279,61 @@ Map Styles
 }
 #states a text { 
 	font-size: 12px;
+}
+
+#aboutTitle {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-right: 20px;
+    order: 4;
+    color: black;
+    color-profile: white;
+    background-color: white;
+}
+#consistBlock {
+    margin: 10px;
+    padding: 20px;
+	width: auto;
+	max-width:50%;
+    background-color: #DFEAFF;
+    border-radius: 1em;
+    color: black;
+
+}
+#fromBlock {
+    margin: 10px;
+	width: auto;
+    padding: 20px;
+	max-width:50%;
+    background-color: #DFEAFF;
+    border-radius: 1em;
+    color: #000000;
+}
+#processBlock {
+    margin: 10px;
+    padding: 20px;
+	max-width:50%;
+	width:auto;
+    border-radius: 1em;
+    background-color: #DFEAFF;
+}
+.AboutTheDataBlock {
+    background-color: white;
+    order: 3;
+}
+#aboutTheData{
+    display: flex;
+	min-height: 300px;
+    flex-direction: row;
+    order: 3;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    margin-top: 10px;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+#searchButton {
+    background-color: white;
 }
