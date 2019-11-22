@@ -314,6 +314,7 @@ def adjustYears(startYear, endYear):
 	if(startYear is None or (startYear == "" and endYear == "")):
 		startYear = "1999"
 		endYear = "2017"
+		print("converted!")
 	
 	elif(startYear == ""):
 		startYear = endYear
