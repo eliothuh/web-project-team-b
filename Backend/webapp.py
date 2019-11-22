@@ -47,7 +47,6 @@ def getStateQueryData(startYear, endYear, state):
 
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
-	print("no errors YET!")
 
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
@@ -371,8 +370,11 @@ def cleanIndividualWord(word):
 	'''
 	makes the first letter of the word a capital letter
 	'''
+	nonCapitalizedWords = ["a", "an", "for", "and", "or", "nor", "but", "yet", "so", "at",
+	 "around", "by", "after", "along", "from", "of", "on", "to", "with", "without"]
 	word = word.lower()
-	word = word[0].capitalize() + word[1:]
+	if word not in nonCapitalizedWords:
+		word = word[0].capitalize() + word[1:]
 
 	return word
 
@@ -396,8 +398,7 @@ def getStateQueryResults():
 
 			state = request.form.get('state')
 			state = cleanStateInput(state)
-			print(state)
-
+			
 			dataTable = getStateQueryData(start, end, state)
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
