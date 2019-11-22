@@ -297,6 +297,14 @@ def getPercentOther(causesList, list):
 
 	return round(100 - percentageKnown, 3)
 
+"""def checkYearRange(startYear, endYear):
+	'''
+	checks if the user has only entered one year and sets both the start and end year 
+	to that year if this is the case. Otherwise, if the user has not entered either year,
+	we set the year range from 1999 to 2017 by default. 
+	'''
+	return None"""
+	
 
 def checkStartYear(startYear):
 	'''
