@@ -300,6 +300,9 @@ def getPercentOther(causesList, list):
 
 
 def checkYears(startYear, endYear):
+	'''
+	sets default start and end years if one or both are not provided
+	'''
 	if startYear == "" and endYear == "":
 		startYear = "1999"
 		endYear = "2017"
@@ -333,16 +336,15 @@ def cleanStateInput(state):
 
 
 def cleanIndividualWord(word):
+	'''
+	makes the first letter of the word a capital letter
+	'''
 	word = word.lower()
 	word = word[0].capitalize() + word[1:]
 
 	return word
 
 
-"""def isLowerCase(character):
-	if character in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
-		return True
-	return False"""
 
 
 @app.route('/', methods=['GET', 'POST'])
