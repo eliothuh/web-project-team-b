@@ -41,6 +41,7 @@ function submit(startY, endY, s) {
 	element2.value=endY;
 	element2.name="endYear";
 	form.appendChild(element2);
+
 	element3.value=s;
 	element3.name="state";
 	form.appendChild(element3);
