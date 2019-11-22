@@ -311,7 +311,7 @@ def adjustYears(startYear, endYear):
 		An array of Strings, each specifying the start and end year
 	'''
 	
-	if(isinstance(startYear, None) or (startYear == "" and endYear == "")):
+	if(isinstance(startYear, NoneType) or (startYear == "" and endYear == "")):
 		startYear = "1999"
 		endYear = "2017"
 	
