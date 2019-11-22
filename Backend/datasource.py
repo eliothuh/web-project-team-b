@@ -238,7 +238,6 @@ class DataSource:
 			return e
 
 		results = []
-		print(state)
 
 		try:
 			cursor = self.connection.cursor()
@@ -249,8 +248,6 @@ class DataSource:
 		except Exception as e:
 			print("Something when wrong when excecuting the query (state)")
 		
-		print("query length is")
-		print(results)
 		countyPattern = self.getCountyPatternForState(state)
 		countyData = self.getCountySingleYearQuery(year, countyPattern)
 		results.append(countyData)
