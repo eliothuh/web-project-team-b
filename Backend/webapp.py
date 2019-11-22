@@ -389,15 +389,13 @@ def getStateQueryResults():
 		try:
 			start = request.form.get('startYear')
 			end = request.form.get('endYear')
-			print(start)
-			print(end)
-			print(type(start))
-			print(type(end))
+
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
 
 			state = request.form.get('state')
 			state = cleanStateInput(state)
+			print(state)
 
 			dataTable = getStateQueryData(start, end, state)
 
