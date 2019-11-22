@@ -46,7 +46,8 @@ function submitForm(startY, endY, s) {
 	element3.name="state";
 	form.appendChild(element3);
 
-    document.body.appendChild(form);
+    	
+	document.body.appendChild(form);
 
     form.submit();
 }
