@@ -296,14 +296,51 @@ def getPercentOther(causesList, list):
 		percentageKnown += causesList[cause]
 
 	return round(100 - percentageKnown, 3)
+	
+	
+def adjustYears(startYear, endYear):
+	'''
+	Adjusts the start and end years to be the same year if only one is specified
+	and sets the start to 1999 and end to 2017 if neither is specified.    
+	
+	PARAMETERS:
+		startYear- the start year specified by the user
+		endYear- the ending year specified by the user
 
-"""def checkYearRange(startYear, endYear):
+	RETURN:
+		An array of Strings, each specifying the start and end year
+	''''
+	
+	if(startYear == "" and endYear == ""):
+		startYear = "1999"
+		endYear = "2017"
+	
+	elif(startYear == ""):
+		startYear = endYear
+	
+	elif(endYear == ""):
+		endYear = startYear
+		
+	return startYear, endYear
+	
+		
+def setYearsToInts(startYear, endYear)
 	'''
-	checks if the user has only entered one year and sets both the start and end year 
-	to that year if this is the case. Otherwise, if the user has not entered either year,
-	we set the year range from 1999 to 2017 by default. 
+	Converts the inputted start year and end year to ints. 
+	
+	PARAMETERS:
+		startYear- the starting year for the query passed as a String
+		endYear- the ending year for the query passed as a String
+
+	RETURN:
+		the start year String converted into and int and the end year String 
+		converted into an int
 	'''
-	return None"""
+	
+	startYear = int(startYear)
+	endYear = int(endYear)
+	
+	return startYear, endYear
 	
 
 def checkStartYear(startYear):
@@ -371,16 +408,12 @@ def getStateQueryResults():
 
 		try:
 			start = request.form.get('startYear')
-			start = checkStartYear(start)
-			start = int(start)
-
 			end = request.form.get('endYear')
-			end = checkEndYear(end)
-			end = int(end)
+			start, end = adjustYears(start, end)
+			start, end = setYearsToInts(start, end)
 
 			state = request.form.get('state')
 			state = cleanStateInput(state)
-
 
 			dataTable = getStateQueryData(start, end, state)
 
