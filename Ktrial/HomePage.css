@@ -13,6 +13,7 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
     background: none;
     margin-bottom: 0px;
+    max-width: none;
 }
 
 body {
@@ -20,6 +21,9 @@ body {
 	background-repeat: no-repeat;
   	background-size: auto;
 	background-attachment: fixed;
+	background-position: 50% 50%;
+	width:100%;
+	height:100%;
 	color:white;
 	font-family: 'Source Sans Pro', sans-serif;
 	
@@ -28,6 +32,7 @@ body {
 nav {
 	display:flex;
 	flex-direction:column;
+	user-select: none;
 }
 
 .theBar {
@@ -158,10 +163,10 @@ nav {
 .MainContainer{
 	display:flex;
 	margin-top:-10px;
-	flex-direction: column;
+	flex-direction: row;
 	color:white;
-	padding:5px;
 	z-index:2;
+	justify-content: space-between;
 }
 .contentContainer{
 	display:flex;
@@ -171,6 +176,7 @@ nav {
 	margin-left:15%;
 }
 .mapAndInfo{
+	order:1;
 	display:flex;
 	flex-direction:column;
 }
@@ -194,6 +200,10 @@ nav {
 	z-index:3;
 }
 
+.genericP{
+	margin-bottom: 25px;
+}
+
 .lookForSearcher {
 	order:2;
 	padding: 20px;
@@ -202,37 +212,49 @@ nav {
 	flex-direction:column;
 	padding-bottom:40px;
 }
-.lookForSearcher h1{line-height: 40px;}
-.lookForSearcher p{line-height: 20px;}
-.lookForSearcher select[type=text]{
-	background-color: white;
-  	color: black;
-	width:200px;
-}
 .lookForSearcher form{
-	margin-top:30px;
-	margin-bottom:20px;
+	margin-top:20px;
 	display:flex;
 	flex-direction: row;
-	justify-content: space-around;
-	flex-wrap:wrap;
-	width:100%;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 	
-	font-size:19px;
 }
-
-#citationAndDownload{
-	padding: 20px;
+.lookForSearcher form div{
 	display:flex;
-	flex-direction:column;
-	order:3;
-	background-color:#475a7a;
+	flex-direction: column;
+	font-size: 110%;
+
 }
+.lookForSearcher select[type=text]{
+	font-size: 120%;
+	margin-top:5px;
+    background-color: #D6E0F5;
+    color: black;
+    width: 250px;
+}
+.lookForSearcher button{
+	border:none;
+	background-color:#B5C8ED;
+}
+.lookForSearcher input{
+	background-color:transparent;
+	width:200px;
+	border: none;
+	color:black;
+	font-size:150%
+}
+.lookForSearcher h1{line-height: 40px;}
+.lookForSearcher p{line-height: 20px;}
+
+
+
 
 .aboutContentBlocks{
-	line-height:28px;
-	padding-left:40px;
-	padding:15px;
+    line-height: 28px;
+    padding-left: 40px;
+    padding: 15px;
+    max-width: none;
 }
 .collapsible {
     background-color: white;
@@ -245,6 +267,9 @@ nav {
 /*
 Map Styles
 */
+#map{
+	user-select: none;
+}
 #states a path { transition: fill .5s ease; 
 	-moz-transition: fill .5s ease; 
 	-webkit-transition: fill .5s ease; 
@@ -281,52 +306,36 @@ Map Styles
 	font-size: 12px;
 }
 
-#aboutTitle {
+.sectionalBlock {
+    background-color: white;
+}
+.sectionalTitle {
     padding-left: 20px;
     padding-bottom: 10px;
     padding-top: 20px;
     padding-right: 20px;
-    order: 4;
-    color: black;
-    color-profile: white;
-    background-color: white;
+    order: 1;
 }
-#consistBlock {
-    margin: 10px;
+.sectionalInnerBlocks {
+	margin: 10px;
+    width: auto;
     padding: 20px;
-	width: auto;
-	max-width:50%;
     background-color: #DFEAFF;
-    border-radius: 1em;
-    color: black;
+    border-radius: 1em;	
+}
 
-}
-#fromBlock {
-    margin: 10px;
-	width: auto;
-    padding: 20px;
-	max-width:50%;
-    background-color: #DFEAFF;
-    border-radius: 1em;
-    color: #000000;
-}
-#processBlock {
-    margin: 10px;
-    padding: 20px;
-	max-width:50%;
-	width:auto;
-    border-radius: 1em;
-    background-color: #DFEAFF;
-}
-.AboutTheDataBlock {
+#aboutTheDataTitle{
+	color: black;
     background-color: white;
-    order: 3;
+}
+#aboutTheDataBlock{
+	order:4;
 }
 #aboutTheData{
     display: flex;
 	min-height: 300px;
     flex-direction: row;
-    order: 3;
+    order: 4;
     background-color: white;
     color: black;
     padding: 10px;
@@ -334,6 +343,31 @@ Map Styles
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
-#searchButton {
-    background-color: white;
+#consistBlock {
+    max-width: 600px;
+    background-color: #DFEAFF;
+
+}
+#fromBlock {
+    max-width: 600px;
+    background-color: #DFEAFF;
+}
+#processBlock {
+    max-width: 500px;
+    background-color: #DFEAFF;
+}
+
+#nationalData{
+	order:3;
+	background-color:#0B0E13;
+}
+#nationalDataTitle{
+	color:white;
+}
+#citationAndDownload{
+	padding: 20px;
+	display:flex;
+	flex-direction:column;
+	order:5;
+	background-color:#475a7a;
 }
