@@ -324,7 +324,7 @@ def adjustYears(startYear, endYear):
 	return startYear, endYear
 	
 		
-def setYearsToInts(startYear, endYear)
+def setYearsToInts(startYear, endYear):
 	'''
 	Converts the inputted start year and end year to ints. 
 	
