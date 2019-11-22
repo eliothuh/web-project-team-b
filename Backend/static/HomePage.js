@@ -26,7 +26,7 @@ function toggleDropdownYearsVisibility() {
 	x.style.display = "none";
   }
 }
-function submit(startY, endY, s) {
+function submitForm(startY, endY, s) {
 	var form = document.createElement("form");
     	var element1 = document.createElement("input"); 
     	var element2 = document.createElement("input");  
