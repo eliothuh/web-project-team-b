@@ -309,7 +309,7 @@ def adjustYears(startYear, endYear):
 
 	RETURN:
 		An array of Strings, each specifying the start and end year
-	''''
+	'''
 	
 	if(startYear == "" and endYear == ""):
 		startYear = "1999"
