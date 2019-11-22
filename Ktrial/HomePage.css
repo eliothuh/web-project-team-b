@@ -12,6 +12,7 @@ html {
 *{
   font-family: 'Source Sans Pro', sans-serif;
 }
+
 body {
 	background:url("BGI.png");
 	background-repeat: no-repeat;
@@ -40,6 +41,7 @@ nav {
 	z-index:999;
 	order:1;
 }
+
 .dropDownYears{
 	color:#6f8bbb;
 	order:2;
@@ -61,8 +63,6 @@ nav {
 }
 .dropdownYearsButtons button{
 	border:none;
-}
-.dropdownYearsButtons button:hover{	
 }
 .dropdownYearsButtons input{
 	font-size:18px;
@@ -103,10 +103,6 @@ nav {
 	display:block;
 	background-color:#050912;
 	border:none;
-	
-}
-.dropdownStatesButtons button:hover{
-	background-color:red;
 	
 }
 .dropdownStatesButtons input{
@@ -204,7 +200,7 @@ nav {
 }
 .lookForSearcher h1{line-height: 40px;}
 .lookForSearcher p{line-height: 20px;}
-.lookForSearcher input[type=text]{
+.lookForSearcher select[type=text]{
 	background-color: white;
   	color: black;
 	width:200px;
@@ -222,6 +218,7 @@ nav {
 }
 
 .aboutTheData{
+	
 	order:3;
 	flex:2;
 	background-color:white;
@@ -234,4 +231,42 @@ nav {
   padding: 18px;
   width: 60%;
   margin-left: 5%;
+}
+/*
+Map Styles
+*/
+#states a path { transition: fill .5s ease; 
+	-moz-transition: fill .5s ease; 
+	-webkit-transition: fill .5s ease; 
+	fill: #475A7A;}
+#states a:hover path { 
+	transition: fill .5s ease; 
+	-moz-transition: fill .5s ease; 
+	-webkit-transition: fill .5s ease; 
+	fill: #718FC2 !important;
+}
+#states a:hover path { 
+	cursor: pointer; 
+	fill: #718FC2;
+}
+#states a text { 
+	cursor: pointer; 
+	fill: #FFFFFF; 
+	display: initial;
+}
+#states a:hover text { 
+	fill: #FFFFFF; 
+	color: #FFFFFF;
+}
+#states a.inverse text:hover { 
+	fill: #FFFFFF;
+}
+#states a.inverse text { 
+	fill: #FFFFFF;
+}
+.CCMcredit a { 
+	color: #475A7A;
+}
+#states a text { 
+	font-size: 12px;
 }
