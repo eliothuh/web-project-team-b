@@ -41,10 +41,10 @@ def getStateQueryData(startYear, endYear, state):
 	dataTable = {}
 
 	fullList = dataSource.getStateQuery(startYear, endYear, state)
-	
+
 	if isinstance(fullList, Exception):
 		raise fullList
-		
+
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -341,26 +341,6 @@ def setYearsToInts(startYear, endYear)
 	endYear = int(endYear)
 	
 	return startYear, endYear
-	
-
-def checkStartYear(startYear):
-	'''
-	if no startYear is provided, sets it to 1999
-	'''
-	if startYear == "":
-		startYear = "1999"
-		
-	return startYear
-
-
-def checkEndYear(endYear):
-	'''
-	if no endYear is provided, sets it to 2017
-	'''
-	if endYear == "":
-		endYear = "2017"
-	
-	return endYear
 
 
 def cleanStateInput(state):
@@ -369,33 +349,32 @@ def cleanStateInput(state):
 	if the state starts with a lowercase letter, makes it a capital letter.
 	'''
 	state = state.strip()
-	
+
 	if state == "":
 		state = "Alabama"
-	
-	correctedState = "" 
+
+	correctedState = ""
 	wordList = state.split(" ")
-	
+
 	for word in wordList:
 		correctedWord = cleanIndividualWord(word)
 		correctedState = correctedState + correctedWord + " "
-		
+
 	correctedState = correctedState.strip()
-	
+
 	return correctedState
-		
-		
+
+
 def cleanIndividualWord(word):
+	'''
+	makes the first letter of the word a capital letter
+	'''
 	word = word.lower()
 	word = word[0].capitalize() + word[1:]
-	
+
 	return word
-	
-	
-"""def isLowerCase(character):
-	if character in ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']:
-		return True
-	return False"""
+
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -423,11 +402,11 @@ def getStateQueryResults():
 										state = state,
 										startYear = start,
 										endYear = end)
-		
+
 		except Exception as e:
 
 			return render_template('Error.html', error = e)
-	
+
 	else:
 
 		return render_template('HomePage2.html')
