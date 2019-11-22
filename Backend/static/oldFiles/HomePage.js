@@ -8,26 +8,19 @@ function toggleDropdownStatesVisibility() {
 	x.style.display = "none";
   }
 }
-
 function turnOffAllCollapsibles() {
 	var y = document.getElementById("dropDownStates");
 	var x = document.getElementById("dropDownYears");
 	x.style.display="none";
 	y.style.display="none";
 }
-
 function toggleDropdownYearsVisibility() {
   var y = document.getElementById("dropDownStates");
   var x = document.getElementById("dropDownYears");
   if (x.style.display === "none") {
-	x.style.display = "flex";
+	x.style.display = "block";
 	y.style.display = "none";
   } else {
 	x.style.display = "none";
   }
 }
-$(document).ready(function () {
-toggleDropdownStatesVisibility()	
-turnOffAllCollapsibles()
-toggleDropdownYearsVisibility()
- }) ;
