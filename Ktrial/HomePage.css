@@ -217,10 +217,21 @@ nav {
 	font-size:19px;
 }
 
-.aboutTheData{
+.aboutContentBlocks{
 	
+}
+#citationAndDownload{
+	padding: 20px;
+	display:flex;
+	flex-direction:column;
 	order:3;
-	flex:2;
+	background-color:#475a7a;
+}
+#aboutTheData{
+	padding: 20px;
+	display:flex;
+	flex-direction:column;
+	order:3;
 	background-color:white;
 	color:black;
 }

@@ -26,7 +26,8 @@ function toggleDropdownYearsVisibility() {
 	x.style.display = "none";
   }
 }
-
+$(document).ready(function () {
 toggleDropdownStatesVisibility()	
 turnOffAllCollapsibles()
 toggleDropdownYearsVisibility()
+ }) ;
