@@ -5,19 +5,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-	{% block javascript %}
-		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
-	{% endblock %}
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
+	<script src="HomePage.js"></script>
+	  
+	<link rel="stylesheet" href="Results.css">
 	 
-    <title>USHW Search Results</title>
+    <title>::USHW</title>
   </head>
   <body>
-  
   <nav class="navbar">
 	<div class="theBar">
 		<a href="" class="logo">
-		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
+		  <img src="logo.png" alt="USHW logo">
 		</a>	
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
@@ -27,7 +25,7 @@
 		</ul>
 	</div>
 	<div class="dropDownYears" id="dropDownYears" onmouseover="turnOnDropdownYearsVisibility()">
-		<div class="dropdownYearsButtons">
+		<div class="dropDownYearsButtons">
 			<button><input type="submit" name="submit_button" value="1999"></button>
 			<button><input type="submit" name="submit_button" value="2000"></button>
 			<button><input type="submit" name="submit_button" value="2001"></button>
@@ -46,26 +44,25 @@
 			<button><input type="submit" name="submit_button" value="2014"></button>
 			<button><input type="submit" name="submit_button" value="2015"></button>
 			<button><input type="submit" name="submit_button" value="2016"></button>
-			<button><input type="submit" name="submit_button" value="2017"></button>
 		</div>
-	</div>
+	  </div>
 	<div class="dropDownStates" id="dropDownStates" onmouseover="turnOnDropdownStatesVisibility()">
 		<div class="dropdownStatesButtons">
-			<h4>A</h4>
-			<button><input type="submit" name="submit_button" value="Alabama"></button>
-			<button><input type="submit" name="submit_button" value="Alaska"></button>
-			<button><input type="submit" name="submit_button" value="Arizona"></button>
-			<button><input type="submit" name="submit_button" value="Arkansas"></button>
+		<h4>A</h4>
+		<button><input type="submit" name="submit_button" value="Alabama"></button>
+		<button><input type="submit" name="submit_button" value="Alaska"></button>
+		<button><input type="submit" name="submit_button" value="Arizona"></button>
+		<button><input type="submit" name="submit_button" value="Arkansas"></button>
 		</div>
 		<div class="dropdownStatesButtons">
-			<h4>C</h4>
-			<button><input type="submit" name="submit_button" value="California"></button>
-			<button><input type="submit" name="submit_button" value="Colorado"></button>
-			<button><input type="submit" name="submit_button" value="Connecticut"></button>
+		<h4>C</h4>
+		<button><input type="submit" name="submit_button" value="California"></button>
+		<button><input type="submit" name="submit_button" value="Colorado"></button>
+		<button><input type="submit" name="submit_button" value="Connecticut"></button>
 		</div>
 		<div class="dropdownStatesButtons">
-			<h4>D</h4>
-			<button><input type="submit" name="submit_button" value="Delaware"></button>
+		<h4>D</h4>
+		<button><input type="submit" name="submit_button" value="Delaware"></button>
 		</div>
 		<div class="dropdownStatesButtons">
 		<h4>F</h4>
@@ -163,7 +160,6 @@
 		</div>
 		</div>
   </nav>
-  
 	  <div class="MainContainer">
 			<div class="contentContainer">
 				<div class="lookForBlock">
@@ -172,27 +168,22 @@
 						Search for data of specific state and years here.
 					</div>
 					<div class="lookForSearcher">
- 						<form method=post>
- 							<dl>
-      							<dt>Beginning Year:
-      							<dd><input type=text placeholder="1999" name=startYear>
-      							<dt>Ending Year:
-      							<dd><input type=text placeholder="2017" name=endYear>
-      							<dt>State:
-      							<dd><input type=text placeholder="Minnesota" name=state>
-      							<dd><input type=submit value=Search>
-    						</dl>
-  						</form>
+ 						<form action="{{ url_for('login') }}" method=post>
+ 						<dl>
+      						<dt>Beginning Year:
+      						<dd><input type=text placeholder="1999" name=BeginYear>
+      						<dt>Ending Year:
+      						<dd><input type=text placeholder="2017" name=EndYear>
+      						<dt>State:
+      						<dd><input type=text placeholder="Minnesota" name=state>
+      						<dd><input type=submit value=Search>
+    					</dl>
+  					</form>
 					</div>
 				</div>
 				<div class="resultsData">
-					<h1> Search Results:
-					<p>State Average Annual Homicides Per 100,000: {{stateCrudeRate}}</p>
-					<p>National Average Annual Homicides Per 100,000: {{nationalCrudeRate}}</p>
-					<p>Means of Homicide:</p>
-					{% for key, value in causesAndPercentages.items() %}
-    					<li>{{ key }}: {{value}}%</li> 
-					{% endfor %}					
+					<p>State rate: {{stateCrudeRate}}</p>
+					<p>National rate: {{nationalCrudeRate}}</p>					
 		  		</div>
 		  	</div>
 	  </div>

@@ -5,19 +5,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-	{% block javascript %}
-		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
-	{% endblock %}
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
+	<script src="HomePage.js"></script>
+	  
+	<link rel="stylesheet" href="HomePage.css">
 	 
-    <title>USHW Search Results</title>
+    <title>USHW</title>
   </head>
   <body>
-  
   <nav class="navbar">
 	<div class="theBar">
 		<a href="" class="logo">
-		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
+		  <img src="logo.png" alt="USHW logo">
 		</a>	
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
@@ -163,38 +161,58 @@
 		</div>
 		</div>
   </nav>
-  
-	  <div class="MainContainer">
-			<div class="contentContainer">
-				<div class="lookForBlock">
-					<div class="lookForText">
-						<h1>Let's Look for...</h1>
-						Search for data of specific state and years here.
+	  <div class="MainContainer" id="mainContainer" onclick="turnOffAllCollapsibles()">
+			
+		  <div class="contentContainer">
+				<div class="mapAndInfo">
+					<div class="infoBlock">
+					  Info goes here
 					</div>
-					<div class="lookForSearcher">
- 						<form method=post>
- 							<dl>
-      							<dt>Beginning Year:
-      							<dd><input type=text placeholder="1999" name=startYear>
-      							<dt>Ending Year:
-      							<dd><input type=text placeholder="2017" name=endYear>
-      							<dt>State:
-      							<dd><input type=text placeholder="Minnesota" name=state>
-      							<dd><input type=submit value=Search>
-    						</dl>
-  						</form>
-					</div>
+					<div class="mapBlock">
+						<div class="interactiveMap">
+						
+							<iframe src="mainMap.html" width="1000" height="600" style="border: none;"></iframe>
+						<script>
+							if (window.addEventListener)
+								{ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
+							else if 
+								(window.attachEvent){ window.attachEvent("message", function(event) { if( event.data.length >= 22) { if ( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } 
+						</script>
+						</div>
+				  		
 				</div>
-				<div class="resultsData">
-					<h1> Search Results:
-					<p>State Average Annual Homicides Per 100,000: {{stateCrudeRate}}</p>
-					<p>National Average Annual Homicides Per 100,000: {{nationalCrudeRate}}</p>
-					<p>Means of Homicide:</p>
-					{% for key, value in causesAndPercentages.items() %}
-    					<li>{{ key }}: {{value}}%</li> 
-					{% endfor %}					
-		  		</div>
+				</div>
+				<div class="aboutTheData">
+					        <h2>About The Data</h2>
+        <h3>What It Consists Of</h3>
+        <p>Our dataset reports homicide statistics for counties and states in the U.S. It covers the number of homicides annually from 1999 to 2017 and the means of homicide.</p>
+        <p>Data is grouped by region and cause of death.</p>
+        <h3>Where It Is From</h3>
+        <p>The data is from <a href="https://wonder.cdc.gov/"> The U.S.Center for Disease Control and Prevention WONDER database</a>, a reliable government-run public database.</p>
+        <p>We used the Underlying Cause of Death search and request form to access the specific data-set. We downloaded the data in multiple files, using the following search criteria:</p>
+
+        <p><button class="collapsible" type="button">Search Criteria Will Be Here</button></p>
+        <div class="content"> 
+          <p>search criteria will be added here</p>
+        </div>
+
+        <h3>Citation &amp; Download</h3>
+        <p>We offer citations of our data in numerous formats, and free downloads of our data in numerous formats.</p>
+
+        <p><button class="collapsible" type="button">Citations Will Be Accessible Here</button></p>
+        <div class="content">
+          <p>citations will be added</p>
+        </div>
+
+        <p><button class="collapsible" type="button">Download Links Here</button></p>
+
+        <div class="content">
+          <p>Download stuff here!</p>
+        </div>
+        <h3>How we Processed Our data</h3>
+        <p>The data was downloaded as plain text (.txt) files and converted to comma-separated value (.csv) files. Then, data values marked "unreliable" were replaced with null values for formatting purposes.</p>
+				</div>
 		  	</div>
 	  </div>
   </body>
-</html>
+</html>00
