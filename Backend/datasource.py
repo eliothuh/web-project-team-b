@@ -106,10 +106,10 @@ class DataSource:
 	def getUSASingleYearQuery(self, year):
 		'''
 		returns a list of all states and thier associated homicide data
-
+		
 		PARAMETERS:
 			year: the year of data to draw from
-
+		
 		RETURN:
 			a list of all states and associated data
 		'''

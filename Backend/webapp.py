@@ -377,9 +377,31 @@ def cleanIndividualWord(word):
 		word = word[0].capitalize() + word[1:]
 
 	return word
+	
+
+def getNationalQuery(startYear, endYear):
+	nationTotals = dataSource.getUSATotals(startYear, endYear)
+	nationalCrudeRate = getNationalCrudeRate(nationTotals)
+	
+	mostDangerousState, mostDangerousStateRate = getMostDangerousStateAndData(startYear, endYear)
+	
+	return nationalCrudeRate, mostDangerousState, mostDangerousStateRate
 
 
+def getMostDangerousStateAndData(startYear, endYear)
+	crudeRate = 0
+	currentStateRate = 0
+	mostDangerousState = ""
 
+	for state in dataSource.stateDictionary: 
+		currentStateRate = getStateCrudeRate(dataSource.getStateQuery(startYear, endYear, state))
+		
+		if (currentStateRate > crudeRate):
+			crudeRate = currentStateRate
+			mostDangerousState = state
+	
+	return mostDangerousState, crudeRate
+		
 
 @app.route('/', methods=['GET', 'POST'])
 def getStateQueryResults():
@@ -413,7 +435,7 @@ def getStateQueryResults():
 			return render_template('Error.html', error = e)
 
 	else:
-
+		
 		return render_template('HomePage2.html')
 
 
