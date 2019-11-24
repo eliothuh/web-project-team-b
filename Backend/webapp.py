@@ -403,13 +403,13 @@ def getMostDangerousStateAndData(startYear, endYear):
 	return mostDangerousState, crudeRate
 		
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods= ['GET', 'POST'])
 def getStateQueryResults():
 	'''
 	Loads the homepage and returns a results page corresponding to the user's query. Directs
 	user to an error page if the query was not formatted properly
 	'''
-	if (request.method == 'GET'):
+	if (request.method == 'POST'):
 
 		try:
 			start = request.args.get('start')
