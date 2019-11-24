@@ -409,7 +409,7 @@ def getStateQueryResults():
 	Loads the homepage and returns a results page corresponding to the user's query. Directs
 	user to an error page if the query was not formatted properly
 	'''
-	if (request.method == 'POST'):
+	if (request.method == 'GET'):
 		return render_template('DataInfo.html')
 			
 	else:
