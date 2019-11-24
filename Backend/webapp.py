@@ -411,6 +411,7 @@ def getStateQueryResults():
 	'''
 	if (request.method == 'POST'):
 		
+		print("It worked!")
 		try:
 			start = request.args.get('start')
 			end = request.args.get('end')
