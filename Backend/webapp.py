@@ -445,7 +445,7 @@ def getStateQueryResults():
 	return render_template('DataInfo.html')
 		
 
-@app.route('/mapResult/<state>', methods=['GET', 'POST'])
+@app.route('/mapResult/<state>')
 def getMapQueryResults():
 	'''
 	Loads a resulting state query page if the user clicks on one of the states in the 
