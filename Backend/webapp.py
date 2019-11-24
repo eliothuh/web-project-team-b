@@ -473,6 +473,8 @@ def getMapQueryResults(state):
 	else: 
 		
 		dataTable = getStateQueryData(1999, 2017, state)
+		start = 1999
+		end = 2017
 		
 		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
