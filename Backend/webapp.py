@@ -403,13 +403,13 @@ def getMostDangerousStateAndData(startYear, endYear):
 	return mostDangerousState, crudeRate
 		
 
-@app.route('/', methods = 'GET')
+@app.route('/', methods = ['GET'])
 def getStateQueryResults():
 	'''
 	Loads the homepage and returns a results page corresponding to the user's query. Directs
 	user to an error page if the query was not formatted properly
 	'''
-	if (request.method == ['GET']):
+	if (request.method == 'GET'):
 		start = request.args.get('start')
 		end = request.args.get('end')
 		print(start)
@@ -443,7 +443,7 @@ def getStateQueryResults():
 		return render_template('DataInfo.html')
 		
 
-@app.route('/mapResult/?', methods=['GET', 'POST'])
+@app.route('/mapResult/', methods=['GET', 'POST'])
 def getMapQueryResults(state):
 	'''
 	Loads a resulting state query page if the user clicks on one of the states in the 
