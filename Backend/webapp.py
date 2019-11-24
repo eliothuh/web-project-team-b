@@ -410,8 +410,9 @@ def getStateQueryResults():
 	user to an error page if the query was not formatted properly
 	'''
 	if (request.method == 'POST'):
-		
-		print("It worked!")
+
+	else:
+	
 		try:
 			start = request.args.get('start')
 			end = request.args.get('end')
@@ -434,8 +435,6 @@ def getStateQueryResults():
 		except Exception as e:
 
 			return render_template('Error.html', error = e)
-
-	else:
 		
 		return render_template('DataInfo.html')
 		
