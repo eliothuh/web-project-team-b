@@ -413,6 +413,7 @@ def getStateQueryResults():
 		start = request.args.get('start')
 		end = request.args.get('end')
 		print("it worked!")
+		print(start)
 		return render_template('DataInfo.html')	
 	"""else:
 	
