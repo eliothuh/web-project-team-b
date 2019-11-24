@@ -410,7 +410,7 @@ def getStateQueryResults():
 	user to an error page if the query was not formatted properly
 	'''
 	if (request.method == 'POST'):
-
+		
 		try:
 			start = request.args.get('start')
 			end = request.args.get('end')
@@ -445,16 +445,16 @@ def getMapQueryResults(state):
 	Loads a resulting state query page if the user clicks on one of the states in the 
 	interactive map 
 	'''
-	if(request.method == 'POST'):
+	if(request.method == 'GET'):
 	
 		try:
-			start = request.form.get('startYear')
-			end = request.form.get('endYear')
+			start = request.args.get('start')
+			end = request.args.get('end')
 
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
 
-			state = request.form.get('state')
+			state = request.args.get('state')
 			state = cleanStateInput(state)
 			
 			dataTable = getStateQueryData(start, end, state)
