@@ -388,7 +388,7 @@ def getNationalQuery(startYear, endYear):
 	return nationalCrudeRate, mostDangerousState, mostDangerousStateRate
 
 
-def getMostDangerousStateAndData(startYear, endYear)
+def getMostDangerousStateAndData(startYear, endYear):
 	crudeRate = 0
 	currentStateRate = 0
 	mostDangerousState = ""
@@ -437,6 +437,49 @@ def getStateQueryResults():
 	else:
 		
 		return render_template('HomePage2.html')
+		
+
+@app.route('/mapResult/<state>', methods=['GET', 'POST'])
+def getMapQueryResults(state):
+	'''
+	Loads a resulting state query page if the user clicks on one of the states in the 
+	interactive map 
+	'''
+	if(request.method == 'POST'):
+	
+		try:
+			start = request.form.get('startYear')
+			end = request.form.get('endYear')
+
+			start, end = adjustYears(start, end)
+			start, end = setYearsToInts(start, end)
+
+			state = request.form.get('state')
+			state = cleanStateInput(state)
+			
+			dataTable = getStateQueryData(start, end, state)
+
+			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
+										nationalCrudeRate = dataTable["nationalCrudeRate"],
+										causesAndPercentages = dataTable["causesAndPercentages"],
+										state = state,
+										startYear = start,
+										endYear = end)
+
+		except Exception as e:
+
+			return render_template('Error.html', error = e)
+		
+	else: 
+		
+		dataTable = getStateQueryData(1999, 2017, state)
+		
+		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
+										nationalCrudeRate = dataTable["nationalCrudeRate"],
+										causesAndPercentages = dataTable["causesAndPercentages"],
+										state = state,
+										startYear = start,
+										endYear = end) 
 
 
 if __name__ == '__main__':
