@@ -423,10 +423,16 @@ def getMapQueryResults():
 	
 		try:
 			start = request.args.get('start')
+			print(start)
 			end = request.args.get('end')
-
+			print(end)	
+				
 			start, end = adjustYears(start, end)
+			print(start)
+			print(end)	
 			start, end = setYearsToInts(start, end)
+			print(start)
+			print(end)
 
 			state = request.args.get('state')
 			state = cleanStateInput(state)
