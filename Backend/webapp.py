@@ -409,7 +409,7 @@ def getStateQueryResults():
 	Loads the homepage and returns a results page corresponding to the user's query. Directs
 	user to an error page if the query was not formatted properly
 	'''
-	if (request.method == 'GET'):
+	if (request.method == ['GET']):
 		start = request.args.get('start')
 		end = request.args.get('end')
 		print(start)
