@@ -435,7 +435,6 @@ def getMapQueryResults():
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
 										causesAndPercentages = dataTable["causesAndPercentages"],
-										state = state,
 										startYear = start,
 										endYear = end)
 
