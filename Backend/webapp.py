@@ -410,7 +410,7 @@ def getStateQueryResults():
 	user to an error page if the query was not formatted properly
 	'''
 
-	return render_template('DataInfo.html')
+	return render_template('HomePage2.html')
 		
 
 @app.route('/stateQuery/')
