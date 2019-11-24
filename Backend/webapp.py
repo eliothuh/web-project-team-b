@@ -413,11 +413,10 @@ def getStateQueryResults():
 		start = request.args.get('start')
 		end = request.args.get('end')
 		print("it worked!")
-		return render_template('DataInfo.html')
-			
-	else:
+		return render_template('DataInfo.html')	
+	"""else:
 	
-		"""try:
+		try:
 			start = request.args.get('start')
 			end = request.args.get('end')
 
@@ -434,14 +433,14 @@ def getStateQueryResults():
 										causesAndPercentages = dataTable["causesAndPercentages"],
 										state = state,
 										startYear = start,
-										endYear = end)"""
+										endYear = end)
 			
 			return render_template('DataInfo.html')
 
 		except Exception as e:
 
-			return render_template('Error.html', error = e)
-		
+			return render_template('Error.html', error = e)"""
+
 	return render_template('DataInfo.html')
 		
 
