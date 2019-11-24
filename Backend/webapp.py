@@ -409,16 +409,16 @@ def getStateQueryResults():
 	Loads the homepage and returns a results page corresponding to the user's query. Directs
 	user to an error page if the query was not formatted properly
 	'''
-	if (request.method == 'POST'):
+	if (request.method == 'GET'):
 
 		try:
-			start = request.form.get('startYear')
-			end = request.form.get('endYear')
+			start = request.args.get('start')
+			end = request.args.get('end')
 
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
 
-			state = request.form.get('state')
+			state = request.args.get('state')
 			state = cleanStateInput(state)
 			
 			dataTable = getStateQueryData(start, end, state)
@@ -436,7 +436,7 @@ def getStateQueryResults():
 
 	else:
 		
-		return render_template('HomePage2.html')
+		return render_template('DataInfo.html')
 		
 
 @app.route('/mapResult/<state>', methods=['GET', 'POST'])
@@ -472,9 +472,11 @@ def getMapQueryResults(state):
 		
 	else: 
 		
-		dataTable = getStateQueryData(1999, 2017, state)
+		state = cleanStateInput(state)
 		start = 1999
 		end = 2017
+		dataTable = getStateQueryData(start, end, state)
+
 		
 		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
