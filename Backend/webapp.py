@@ -435,6 +435,7 @@ def getStateQueryResults():
 										state = state,
 										startYear = start,
 										endYear = end)"""
+			
 			return render_template('DataInfo.html')
 
 		except Exception as e:
