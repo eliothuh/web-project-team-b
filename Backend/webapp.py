@@ -422,9 +422,9 @@ def getMapQueryResults():
 	if(request.method == 'GET'):
 	
 		try:
-			start = request.args.get('start')
+			start = request.args.get('startYear')
 			print(start)
-			end = request.args.get('end')
+			end = request.args.get('endYear')
 			print(end)	
 				
 			start, end = adjustYears(start, end)
