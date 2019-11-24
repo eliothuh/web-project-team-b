@@ -417,7 +417,7 @@ def getStateQueryResults():
 			
 	else:
 	
-		try:
+		"""try:
 			start = request.args.get('start')
 			end = request.args.get('end')
 
@@ -434,13 +434,14 @@ def getStateQueryResults():
 										causesAndPercentages = dataTable["causesAndPercentages"],
 										state = state,
 										startYear = start,
-										endYear = end)
+										endYear = end)"""
+			return render_template('DataInfo.html')
 
 		except Exception as e:
 
 			return render_template('Error.html', error = e)
 		
-		return render_template('DataInfo.html')
+	return render_template('DataInfo.html')
 		
 
 @app.route('/mapResult/<state>', methods=['GET', 'POST'])
