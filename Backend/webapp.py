@@ -409,43 +409,11 @@ def getStateQueryResults():
 	Loads the homepage and returns a results page corresponding to the user's query. Directs
 	user to an error page if the query was not formatted properly
 	'''
-	if (request.method == 'POST'):
-		start = request.args.get('start')
-		end = request.args.get('end')
-		print("it worked!")
-		print(start)
-		return render_template('DataInfo.html')	
-	"""else:
-	
-		try:
-			start = request.args.get('start')
-			end = request.args.get('end')
-
-			start, end = adjustYears(start, end)
-			start, end = setYearsToInts(start, end)
-
-			state = request.args.get('state')
-			state = cleanStateInput(state)
-			
-			dataTable = getStateQueryData(start, end, state)
-
-			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
-										nationalCrudeRate = dataTable["nationalCrudeRate"],
-										causesAndPercentages = dataTable["causesAndPercentages"],
-										state = state,
-										startYear = start,
-										endYear = end)
-			
-			return render_template('DataInfo.html')
-
-		except Exception as e:
-
-			return render_template('Error.html', error = e)"""
 
 	return render_template('DataInfo.html')
 		
 
-@app.route('/mapResult/')
+@app.route('/stateQuery/')
 def getMapQueryResults():
 	'''
 	Loads a resulting state query page if the user clicks on one of the states in the 
@@ -478,7 +446,7 @@ def getMapQueryResults():
 		
 	else: 
 		
-		state = cleanStateInput(state)
+		state = Alabama
 		start = 1999
 		end = 2017
 		dataTable = getStateQueryData(start, end, state)
