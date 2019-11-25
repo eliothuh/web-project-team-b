@@ -502,7 +502,8 @@ def getNationalQueryResults():
 		start, end = setYearsToInts(start, end)
 
 		dataTable = getNationalQueryData(start, end)
-		print(dataTable)
+
+		print(dataTable["singleYearCrudeRates"])
 
 		return render_template('HomePage2.html',
 									inputData = dataTable["singleYearCrudeRates"],
@@ -541,8 +542,6 @@ def getMapQueryResults():
 
 			dataTable = getStateQueryData(start, end, state)
 
-			print("getStateQueryData")
-
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
 										causesAndPercentages = dataTable["causesAndPercentages"],
@@ -563,7 +562,6 @@ def getMapQueryResults():
 		start = 1999
 		end = 2017
 		dataTable = getStateQueryData(start, end, state)
-
 
 		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
