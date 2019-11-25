@@ -456,7 +456,10 @@
                                     window.myScatter = new Chart(context, {
                                         type: 'line',
                                         data: {
-                                            labels: labels,
+                                            labels: {
+                                                labels,
+                                                fontColor:"rgb(255,255,255)"
+                                            },
                                             datasets: [{
                                                 label: "Homicide Rate Through the Years",
                                                 pointBackgroundColor: 'rgba(255, 0, 0, 1)',

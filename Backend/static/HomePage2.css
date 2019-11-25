@@ -276,19 +276,19 @@ nav {
     width:50%;
 }
 #mission{
-  background-color:#475a7a;
-  color:white;
+  background-color:#DFEAFF;
+  color:black;
 }
 #workCited{
-  background-color:#475a7a;
-  color:white;
+  background-color:#DFEAFF;
+  color:black;
 }
 .nationalDataInnerBlocks {
   margin: 10px;
   width: auto;
   padding: 20px;
-  color:black;
-  background-color: white;
+  color:white;
+  background-color: #050912;
   border-radius: 1em;
   display:flex;
   justify-content: space-between;
