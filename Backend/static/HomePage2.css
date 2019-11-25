@@ -327,7 +327,10 @@ Map Styles
 #states a.inverse text {
 	fill: #FFFFFF;
 }
-
+#oneLiner{
+  color:#475a7a;
+  background-color: #050912;
+}
 #states a text {
 	font-size: 12px;
 }
