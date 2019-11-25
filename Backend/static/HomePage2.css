@@ -375,5 +375,6 @@ Map Styles
 }
 
 #resultsBlock{
+	margin-top:80px;
 	order:1;
 }
