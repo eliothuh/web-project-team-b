@@ -484,7 +484,7 @@
 
                         <div class="visual" id="homePageVisualsPie">
                             <canvas id="canvas2"></canvas>
-                            <!---script>
+                            <script>
                                 var data2 = {{inputdata|tojson}};
                                 var labels2 = {{inputlabels|tojson}};
                                 var label2 = {{inputtitle|tojson}};
@@ -531,7 +531,7 @@
 
 
                                 window.onload = function() {
-                                    var context = document.getElementById('canvas').getContext('2d');
+                                    var context = document.getElementById('canvas2').getContext('2d');
                                     var baseColors = getRandomColors(labels.length);
                                     var outlineColors = adjustColors(baseColors, 1.0);
                                     var backgroundColors = adjustColors(baseColors, 0.3);
@@ -560,7 +560,7 @@
                                 };
 
 
-                            </script--->
+                            </script>
                         </div>
 
                     </div>
