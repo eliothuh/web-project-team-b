@@ -166,7 +166,7 @@ nav {
 	flex-direction: row;
 	color:white;
 	z-index:2;
-	justify-content: space-between;
+	justify-content: center;
 }
 .contentContainer{
   margin-top:75px;
@@ -174,7 +174,6 @@ nav {
 	flex-direction:column;
 	width:80%;
 	Background-color:#0b0e13;
-	margin-left:15%;
 }
 .mapAndInfo{
 	order:1;
