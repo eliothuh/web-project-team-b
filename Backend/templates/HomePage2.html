@@ -431,19 +431,23 @@
                             <div style="width:75%">
                                 <canvas id="canvas"></canvas>
                                 <script>
+                                    
+                                    eval({{inputdata|tojson}});
+                                    eval({{inputlabels|tojson}});
+                                    eval({{inputtitle|tojson}});
 
                                 window.onload = function() {
                                     var context = document.getElementById('canvas').getContext('2d');
                                     window.myScatter = new Chart(context, {
                                         type: 'line',
                                         data: {
-                                            labels: ["1999","2000","2001"],
+                                            labels: labels,
                                             datasets: [{
-                                                label: "example",
+                                                label: label,
                                                 pointBackgroundColor: 'rgba(255, 0, 0, 1)',
                                                 backgroundColor: 'rgba(0, 0, 100, 0.2)',
                                                 borderColor: 'rgba(0, 0, 100, 0.9)',
-                                                data: [20, 30, 25]
+                                                data: data
                                                 },
                                                 ]
                                         },
