@@ -42,7 +42,7 @@ def getStateQueryData(startYear, endYear, state):
 	Calls getStateCrudeRate, getCausesAndPercentages, getSingleYearCrudeRates, getYearRange, 
 	and getNationalCrudeRate
 	'''
-    dataTable = {}
+	dataTable = {}
     fullList = dataSource.getStateQuery(startYear, endYear, state)
     
     if isinstance(fullList, Exception):
