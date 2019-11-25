@@ -44,7 +44,7 @@ def getStateQueryData(startYear, endYear, state):
 	'''
     dataTable = {}
     fullList = dataSource.getStateQuery(startYear, endYear, state)
-	
+    
     if isinstance(fullList, Exception):
         raise fullList
     
