@@ -127,7 +127,6 @@ nav {
 	border:none;
 }
 
-
 .logo {
   	display: inline-block;
 }
@@ -247,9 +246,6 @@ nav {
 .lookForSearcher h1{line-height: 40px;}
 .lookForSearcher p{line-height: 20px;}
 
-
-
-
 .aboutContentBlocks{
     line-height: 28px;
     padding-left: 40px;
@@ -298,9 +294,6 @@ Map Styles
 }
 #states a.inverse text { 
 	fill: #FFFFFF;
-}
-.CCMcredit a { 
-	color: #475A7A;
 }
 #states a text { 
 	font-size: 12px;
