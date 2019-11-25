@@ -190,24 +190,122 @@
 
 	  <div class="MainContainer">
 			<div class="contentContainer">
-				<div class="lookForBlock">
-					<div class="lookForText">
-						<h1>Let's Look for...</h1>
-						Search for data of specific state and years here.
-					</div>
-					<div class="lookForSearcher">
- 						<form method = "get" action = "/stateQuery/">
- 							<dl>
-      							<dt>Beginning Year:
-      							<dd><input type=text placeholder={{startYear}} name=startYear>
-      							<dt>Ending Year:
-      							<dd><input type=text placeholder={{endYear}} name=endYear>
-      							<dt>State:
-      							<dd><input type=text placeholder={{state}} name=state>
-      							<dd><input type=submit value=Search>
-    						</dl>
-  						</form>
-					</div>
+				<div class="lookForSearcher">
+					<h1>Search for Data Here.</h1>
+					<p>Select a year range and state.</p>
+					<form method = "get" action = "/stateQuery/">
+						<div>
+							Beginning Year:
+							<select type=text name="startYear">
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+  							</select>
+						</div>
+
+						<div>
+							Ending Year:
+							<select type=text name="endYear">
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+  							</select>
+						</div>
+					<div>
+							State:
+							<select type=text name="state">
+								<option value="	Alabama">Alabama</option>
+								<option value="	Alaska">Alaska</option>
+								<option value="	Arizona">Arizona</option>
+								<option value="	Arkansas">Arkansas</option>
+								<option value="	California">California</option>
+								<option value="	Colorado">Colorado</option>
+								<option value="	Connecticut">Connecticut</option>
+								<option value="	Delaware">Delaware</option>
+								<option value="	Florida">Florida</option>
+								<option value="	Georgia">Georgia</option>
+								<option value="	Hawaii">Hawaii</option>
+								<option value="	Idaho">Idaho</option>
+								<option value="	Illinois">Illinois</option>
+								<option value="	Indiana">Indiana</option>
+								<option value="	Iowa">Iowa</option>
+								<option value="	Kansas">Kansas</option>
+								<option value="	Kentucky">Kentucky</option>
+								<option value="	Louisiana">Louisiana</option>
+								<option value="	Maine">Maine</option>
+								<option value="	Maryland">Maryland</option>
+								<option value="	Massachusetts">Massachusetts</option>
+								<option value="	Michigan">Michigan</option>
+								<option value="Minnesota">Minnesota</option>
+								<option value="	Mississippi">Mississippi</option>
+								<option value="	Missouri">Missouri</option>
+								<option value="	Montana">Montana</option>
+								<option value="	Nebraska">Nebraska</option>
+								<option value="	Nevada">Nevada</option>
+								<option value="	New Hampshire">New Hampshire</option>
+								<option value="	New Jersey">New Jersey</option>
+								<option value="	New Mexico">New Mexico</option>
+								<option value="	New York">New York</option>
+								<option value="	North Carolina">North Carolina</option>
+								<option value="	North Dakota">North Dakota</option>
+								<option value="	Ohio">Ohio</option>
+								<option value="	Oklahoma">Oklahoma</option>
+								<option value="	Oregon">Oregon</option>
+								<option value="	Pennsylvania">Pennsylvania</option>
+								<option value="	Rhode Island">Rhode Island</option>
+								<option value="	South Carolina">South Carolina</option>
+								<option value="	South Dakota">South Dakota</option>
+								<option value="	Tennessee">Tennessee</option>
+								<option value="	Texas">Texas</option>
+								<option value="	Utah">Utah</option>
+								<option value="	Vermont">Vermont</option>
+								<option value="	Virginia">Virginia</option>
+								<option value="	Washington">Washington</option>
+								<option value="	West Virginia">West Virginia</option>
+								<option value="	Wisconsin">Wisconsin</option>
+								<option value="	Wyoming">Wyoming</option>
+								<option value="	District of Columbia">District of Columbia</option>
+							</select>
+					  </div>
+						<button><input type=submit id="searchButton" value=Search></button>
+				  </form>
+		  </div>
+				<div id="nationalData" class="sectionalBlock">
+				<div class="sectionalTitle" id="nationalDataTitle">
+					<h1>Search Results.</h1>
+                	<p>Here are the results for {{state}} data, from year {{startYear}} to {{endYear}}.</p>
 				</div>
 				<div class="resultsData">
 					<h1> Search Results: {{state}} {{startYear}} to {{endYear}} </h1>
@@ -217,8 +315,9 @@
 					{% for key, value in causesAndPercentages.items() %}
     					<li>{{ key }}: {{value}}%</li>
 					{% endfor %}
-				</h2>
+					</h2>
 		  		</div>
+			</div>
 		  	</div>
 	  </div>
   </body>
