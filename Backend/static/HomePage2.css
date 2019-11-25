@@ -284,19 +284,16 @@ nav {
 
 .lookForSearcherN {
 	order:3;
-	padding: 20px;
 	background-color:#050912;
 	display:flex;
 	flex-direction:column;
-	padding-bottom:40px;
   flex-grow:2;
 }
 .lookForSearcherN form{
-	margin-top:20px;
 	display:flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: flex-end;
 
 }
 .lookForSearcherN form div{
@@ -307,9 +304,10 @@ nav {
 .lookForSearcherN select[type=text]{
 	font-size: 100%;
 	margin-top:5px;
-    background-color: #D6E0F5;
-    color: black;
-    width: 200px;
+  margin-right:40px;
+  background-color: #D6E0F5;
+  color: black;
+  width: 200px;
 }
 .lookForSearcherN button{
 	border:none;
@@ -318,9 +316,10 @@ nav {
 .lookForSearcherN input{
 	background-color:transparent;
 	width:100px;
+  height:40px;
 	border: none;
 	color:black;
-	font-size:100%
+	font-size:120%
 }
 .lookForSearcherN h1{line-height: 30px;}
 .lookForSearcherN p{line-height: 15px;}
