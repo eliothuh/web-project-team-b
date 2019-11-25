@@ -49,8 +49,10 @@ def getStateQueryData(startYear, endYear, state):
 		raise fullList
 
 	dataTable["yearRange"] = getYearRange(startYear, endYear)
+	print("Single Year Crude Rates")
 	dataTable["singleYearCrudeRates"] = getStateSingleYearCrudeRates(startYear, endYear, state)
 
+	print("Big Crude Rate")
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
