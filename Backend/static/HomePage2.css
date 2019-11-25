@@ -499,18 +499,20 @@ Map Styles
     margin-top: 10px;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: stretch;
+    align-content: stretch;
 }
 #consistBlock {
-    max-width: 600px;
+    flex-basis: 500px;
     background-color: #DFEAFF;
 
 }
 #fromBlock {
-    max-width: 600px;
+    flex-basis: 500px;
     background-color: #DFEAFF;
 }
 #processBlock {
-    max-width: 500px;
+    flex-basis: 500px;
     background-color: #DFEAFF;
 }
 
