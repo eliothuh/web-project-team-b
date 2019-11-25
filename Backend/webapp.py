@@ -22,8 +22,10 @@ dataSource = DataSource(connection)
 def getStateQueryData(startYear, endYear, state):
 	'''
 	Returns the average annual rate of homicide in a state (per 100,000 people),
-	the national average annual rate of homicide (per 100,000 people), and
-	the causes of homicide along with the percentage of total homicides they
+	the national average annual rate of homicide (per 100,000 people), 
+	a line of Javascript code that stores the average annual rate of homicide during each year within the specified 
+	range in the state (per 100,000), another line of Javascript code storing a list of years within the 
+	specified range, and the causes of homicide along with the percentage of total homicides they
 	contributed, if accurate data for each said cause is provided.
 
 	PARAMETERS:
@@ -32,27 +34,29 @@ def getStateQueryData(startYear, endYear, state):
 		state - the name of the state to draw data from
 
 	RETURN:
-		A dictionary with the average annual rate homicide in the nation and
-		state, as well as another dictionary storing each cause and the percentage of
+		A dictionary containing the average annual rate homicide in the nation and
+		state, Strings representing Javascript code to store the annual rate of homicide each year and 
+		a list of the years in the specified range, and another dictionary storing each cause and the percentage of
 		homicides it was responsible for
 
-	Calls getStateCrudeRate, getCausesAndPercentages, and getNationalCrudeRate
+	Calls getStateCrudeRate, getCausesAndPercentages, getSingleYearCrudeRates, getYearRange, 
+	and getNationalCrudeRate
 	'''
-	dataTable = {}
-
-	fullList = dataSource.getStateQuery(startYear, endYear, state)
-
-	if isinstance(fullList, Exception):
-		raise fullList
-
-	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
+    dataTable = {}
+    fullList = dataSource.getStateQuery(startYear, endYear, state)
+	
+    if isinstance(fullList, Exception):
+        raise fullList
+    
+    dataTable["yearRange"] = getYearRange(startYear, endYear)
+    dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
+		
+    dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
-
+    
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
-    dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
-    print(getSingleYearCrudeRates(startYear, endYear, state))
-    dataTable["yearRange"] = getYearRange(startYear, endYear)
+    
 
 	return dataTable
 
