@@ -126,7 +126,7 @@ def formatJavascriptString(list, variableName):
 	'''
 	javascriptString = "var " + variableName + " = "
 	javascriptString += "[" + ', '.join(list) + "]"
-	print("no errors yet
+	print("no errors yet")
 	print(javascriptString)
 	return javascriptString
 
