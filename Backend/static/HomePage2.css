@@ -178,10 +178,11 @@ nav {
 .mapAndInfo{
 	order:1;
 	display:flex;
-	flex-direction:column;
+	flex-direction:row;
 }
 #info{
   min-width:30%;
+  order:0;
 }
 .mapBlock{
 	flex:6;
