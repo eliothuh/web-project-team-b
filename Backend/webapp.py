@@ -535,8 +535,10 @@ def getMapQueryResults():
 			end = request.args.get('endYear')
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
+			print("NO ERRORS YET!!")
 			print(start)
 			print(end)
+			print("STATES GO HERE!!")
 
 			state = request.args.get('state')
 			state = cleanStateInput(state)
@@ -544,6 +546,7 @@ def getMapQueryResults():
 			"""(inputlabels, inputdata, inputtitle)"""
 
 			dataTable = getStateQueryData(start, end, state)
+			print("NO ERRORS YET 2!!!")
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
