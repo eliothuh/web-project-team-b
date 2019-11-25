@@ -426,8 +426,11 @@
                             <h2>National Trend of Homicide Data</h2>
                             <p>&nbsp;</p>
                         </div>
+                        
                         <div class="visual" id="homePageVisuals">
-                            <script>
+                            <div style="width:75%">
+                                <canvas id="canvas"></canvas>
+                                <script>
 
                                 window.onload = function() {
                                     var context = document.getElementById('canvas').getContext('2d');
@@ -455,6 +458,8 @@
 
 
                             </script>
+                            </div>
+                            
                         </div>
                         
                     </div>
