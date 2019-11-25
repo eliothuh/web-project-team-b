@@ -24,6 +24,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 	{% block javascript %}
+        <script src="{{ url_for('static',filename='Chart.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='utils.js') }}"></script>
 		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
 	{% endblock %}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
@@ -47,27 +49,27 @@
 	  
 	<div class="dropDownYears" id="dropDownYears" onmouseover="turnOnDropdownYearsVisibility()">
 		<form method = "get" action = "/stateQuery/">
-		<div class="dropdownYearsButtons">
-			<button><input type="submit" name="startYear" value="1999"></button>
-			<button><input type="submit" name="startYear" value="2000"></button>
-			<button><input type="submit" name="startYear" value="2001"></button>
-			<button><input type="submit" name="startYear" value="2002"></button>
-			<button><input type="submit" name="startYear" value="2003"></button>
-			<button><input type="submit" name="startYear" value="2004"></button>
-			<button><input type="submit" name="startYear" value="2005"></button>
-			<button><input type="submit" name="startYear" value="2006"></button>
-			<button><input type="submit" name="startYear" value="2007"></button>
-			<button><input type="submit" name="startYear" value="2008"></button>
-			<button><input type="submit" name="startYear" value="2009"></button>
-			<button><input type="submit" name="startYear" value="2010"></button>
-			<button><input type="submit" name="startYear" value="2011"></button>
-			<button><input type="submit" name="startYear" value="2012"></button>
-			<button><input type="submit" name="startYear" value="2013"></button>
-			<button><input type="submit" name="startYear" value="2014"></button>
-			<button><input type="submit" name="startYear" value="2015"></button>
-			<button><input type="submit" name="startYear" value="2016"></button>
-			<button><input type="submit" name="startYear" value="2017"></button>
-		</div>
+			<div class="dropdownYearsButtons">
+				<button><input type="submit" name="startYear" value="1999"></button>
+				<button><input type="submit" name="startYear" value="2000"></button>
+				<button><input type="submit" name="startYear" value="2001"></button>
+				<button><input type="submit" name="startYear" value="2002"></button>
+				<button><input type="submit" name="startYear" value="2003"></button>
+				<button><input type="submit" name="startYear" value="2004"></button>
+				<button><input type="submit" name="startYear" value="2005"></button>
+				<button><input type="submit" name="startYear" value="2006"></button>
+				<button><input type="submit" name="startYear" value="2007"></button>
+				<button><input type="submit" name="startYear" value="2008"></button>
+				<button><input type="submit" name="startYear" value="2009"></button>
+				<button><input type="submit" name="startYear" value="2010"></button>
+				<button><input type="submit" name="startYear" value="2011"></button>
+				<button><input type="submit" name="startYear" value="2012"></button>
+				<button><input type="submit" name="startYear" value="2013"></button>
+				<button><input type="submit" name="startYear" value="2014"></button>
+				<button><input type="submit" name="startYear" value="2015"></button>
+				<button><input type="submit" name="startYear" value="2016"></button>
+				<button><input type="submit" name="startYear" value="2017"></button>
+			</div>
 		</form>
 	</div>
 	  
@@ -326,8 +328,48 @@
 						</p>
 					</div>
 				</div>
-					
 		  		</div>
+                <div id="trendsBlock" class="resultTrends">
+                    <div class="sectionalTitle" id="aboutTheDataTitle">
+                        <h1>Search Results.</h1>
+                        <p>Here are the search results for {{state}}, from year {{startYear}} to {{endYear}}.</p>
+                    </div>
+                    <div id="resultVis">
+                        <script>
+
+                            eval({{inputdata|tojson}});
+                            eval({{inputlabels|tojson}});
+                            eval({{inputtitle|tojson}});
+
+
+                            window.onload = function() {
+                                var context = document.getElementById('canvas').getContext('2d');
+                                window.myScatter = new Chart(context, {
+                                    type: 'line',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: label,
+                                            pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+                                            backgroundColor: 'rgba(0, 0, 100, 0.2)',
+                                            borderColor: 'rgba(0, 0, 100, 0.9)',
+                                            data: data
+                                            },
+                                            ]
+                                    },
+                                    options: {
+                                        title: {
+                                            display: true,
+                                            text: 'Example line chart for homicides over time'
+                                        },
+                                    }
+                                });
+                            };
+
+
+                        </script>
+                    </div>
+                </div>
 				
 			</div>
 		  	</div>
