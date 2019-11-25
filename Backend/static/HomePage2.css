@@ -276,8 +276,8 @@ nav {
 	background-color:transparent;
 	width:200px;
 	border: none;
-	color:black;
-	font-size:300%;
+	color:white;
+	font-size:230%;
   border-radius: 1em;
 }
 .lookForSearcher h1{line-height: 40px;}
@@ -320,7 +320,7 @@ nav {
 	background-color:transparent;
 	width:100px;
 	border: none;
-	color:black;
+	color:white;
 	font-size:200%;
   border-radius: 1em;
 }
