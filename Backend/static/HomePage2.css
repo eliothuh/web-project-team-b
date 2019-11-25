@@ -169,6 +169,7 @@ nav {
 	justify-content: space-between;
 }
 .contentContainer{
+  margin-top:20px;
 	display:flex;
 	flex-direction:column;
 	width:70%;
