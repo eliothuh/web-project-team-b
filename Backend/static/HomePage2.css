@@ -285,8 +285,8 @@ nav {
 	font-size:230%;
   border-radius: 1em;
 }
-.lookForSearcher h1{line-height: 45px;}
-.lookForSearcher p{line-height: 35px;}
+.lookForSearcher h1{line-height: 200%;}
+.lookForSearcher p{line-height: 200%;}
 
 
 .lookForSearcherN {
@@ -329,8 +329,8 @@ nav {
 	font-size:200%;
   border-radius: 1em;
 }
-.lookForSearcherN h1{line-height: 30px;}
-.lookForSearcherN p{line-height: 15px;}
+.lookForSearcherN h1{line-height: 200%;}
+.lookForSearcherN p{line-height: 200%;}
 
 
 .aboutContentBlocks{
