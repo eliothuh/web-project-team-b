@@ -125,7 +125,7 @@ def formatJavascriptString(list, variableName):
 	a variable with our specified name in our Javascript file.
 	'''
 	javascriptString = "var " + variableName + " = "
-	javascriptString += list.toString()
+	javascriptString += ''.join(list)
 	return javascriptString
 
 def getYearRange(startYear, endYear):
