@@ -484,7 +484,8 @@
 
                         <div class="visual" id="homePageVisualsPie">
                             <canvas id="canvas2"></canvas>
-                            <script>
+                            <!---EITHER PIE WORKS (WITH YEARS HOMICIDE RATHER THAN METHODS), OR TREND WORKS. SEEMS TO BE CONFLICT SOMEWHERE. PLEASE SOLVE. --->
+                            <!---script>
                                 var data2 = {{inputdata|tojson}};
                                 var labels2 = {{inputlabels|tojson}};
                                 var label2 = {{inputtitle|tojson}};
@@ -527,9 +528,6 @@
                                     return adjustedColors;
                                 }
 
-
-
-
                                 window.onload = function() {
                                     var context = document.getElementById('canvas2').getContext('2d');
                                     var baseColors = getRandomColors(labels.length);
@@ -560,7 +558,7 @@
                                 };
 
 
-                            </script>
+                            </script--->
                         </div>
 
                     </div>

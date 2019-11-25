@@ -339,6 +339,7 @@ Map Styles
 }
 #oneLiner{
   color:#475a7a;
+  order:10;
   background-color: #050912;
 }
 #states a text {
