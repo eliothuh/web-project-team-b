@@ -215,10 +215,10 @@ nav {
   border-radius: 1em;
 
 }
-#info h2{line-height:200%;}
-#info p{line-height: 200%;}
-#trendText h2{line-height:200%;}
-#trendText p{line-height: 200%;}
+#info h2{margin:200%;}
+#info p{margin: 200%;}
+#trendText h2{margin:200%;}
+#trendText p{margin: 200%;}
 
 .mapBlock{
 	order:1;
