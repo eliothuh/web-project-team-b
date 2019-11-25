@@ -169,7 +169,7 @@ nav {
 	justify-content: space-between;
 }
 .contentContainer{
-  margin-top:100px;
+  margin-top:75px;
 	display:flex;
 	flex-direction:column;
 	width:70%;
@@ -182,10 +182,18 @@ nav {
 	flex-direction:row;
   flex-wrap:true;
   align-items: stretch;
+  align-content: stretch;
 }
 #info{
-  max-width:25%;
+  min-width:25%;
   order:3;
+  margin: 10px;
+  width: auto;
+  padding: 20px;
+  color:white;
+  background-color: #081122;
+  border-radius: 1em;
+  justify-content: space-between;
 }
 .mapBlock{
 	flex:6;
@@ -397,6 +405,7 @@ Map Styles
 	order:5;
 }
 #aboutTheData{
+    align-content: stretch;
     display: flex;
     min-height: 300px;
     flex-direction: row;
