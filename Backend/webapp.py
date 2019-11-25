@@ -504,6 +504,8 @@ def getNationalQueryResults():
 		dataTable = getNationalQueryData(start, end)
 
 		print(dataTable["singleYearCrudeRates"])
+		print(dataTable["yearRange"])
+		
 
 		return render_template('HomePage2.html',
 									inputdata = dataTable["singleYearCrudeRates"],
@@ -513,8 +515,7 @@ def getNationalQueryResults():
 									startYear = start,
 									endYear = end,
 									mostDangerousState = dataTable["mostDangerousState"],
-									mostDangerousStateRate = dataTable["mostDangerousStateRate"]
-									)
+									mostDangerousStateRate = dataTable["mostDangerousStateRate"])
 
 	except Exception as e:
 
