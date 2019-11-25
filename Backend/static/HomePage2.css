@@ -375,10 +375,7 @@ nav {
     order:2;
     width:50%;
 }
-#mission{
-  background-color:#DFEAFF;
-  color:black;
-}
+
 .pieText{
   order:2;
   color:white;
@@ -390,6 +387,17 @@ nav {
 #workCited{
   background-color:#DFEAFF;
   color:black;
+  flex-basis: 500px;
+  background-color: #DFEAFF;
+  flex-grow:1;
+}
+#noteOnA{
+  background-color:#DFEAFF;
+  order:3;
+  color:black;
+  flex-basis: 500px;
+  background-color: #DFEAFF;
+  flex-grow:1;
 }
 .nationalDataInnerBlocks {
   margin: 10px;
