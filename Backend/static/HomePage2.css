@@ -203,12 +203,12 @@ nav {
   align-items: stretch;
   align-content: stretch;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 #info{
-  min-width:25%;
-  order:3;
+  width:25%;
+  order:1;
   margin: 10px;
-  width: auto;
   padding: 20px;
   color:white;
   background-color: #081122;
@@ -222,7 +222,8 @@ nav {
 .trendText p{margin:20px;}
 
 .mapBlock{
-	order:1;
+	order:2;
+  display: flex;
 	justify-content: center;
 }
 .interactiveMap{
