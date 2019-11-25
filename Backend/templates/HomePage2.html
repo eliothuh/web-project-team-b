@@ -445,9 +445,9 @@
                             <canvas id="canvas"></canvas>
                             <script>
                               window.alert("entering script");
-                              eval({{inputdata|tojson}});
-                              eval({{inputlabels|tojson}});
-                              eval({{inputtitle|tojson}});
+                              data = {{inputdata|tojson}};
+                              labels = {{inputlabels|tojson}};
+                              label = {{inputtitle|tojson}};
                               window.alert("done with evals");
 
 																		//var i;
