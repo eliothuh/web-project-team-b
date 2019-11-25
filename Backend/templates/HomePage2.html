@@ -190,6 +190,9 @@
 </nav>
 	<div class="MainContainer" onclick="turnOffAllCollapsibles()">
 		<div class="contentContainer">
+            <div class="sectionalBlock" id="oneLiner">
+                <h2>United States Homicide Watch: Informing the public of the latest public safety statistics of United States.</h2>
+            </div>
 			<div class="mapAndInfo">
 					<div class="mapBlock">
 					  <div class="interactiveMap">
@@ -442,14 +445,41 @@
 
                         <div class="visual" id="homePageVisuals">
                             <canvas id="canvas"></canvas>
-                            
+                            <script>
+                              data = {{inputdata|tojson}};
+                              labels = {{inputlabels|tojson}};
+                              label = {{inputtitle|tojson}};
+
+
+                                window.onload = function() {
+                                    var context = document.getElementById('canvas').getContext('2d');
+                                    window.myScatter = new Chart(context, {
+                                        type: 'line',
+                                        data: {
+                                            labels: labels,
+                                            datasets: [{
+                                                label: "Homicide Rate Through the Years",
+                                                pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+                                                backgroundColor: 'rgba(0, 0, 100, 0.2)',
+                                                borderColor: 'rgba(0, 0, 100, 0.9)',
+                                                data: data
+                                                },
+                                                ]
+                                        },
+                                        options: {
+                                            title: {
+                                                display: false,
+                                                text: 'Example line chart for homicides over time'
+                                            },
+                                        }
+                                    });
+                                };
+
+                            </script>
                         </div>
 
                     </div>
 			</div>
-            <div class="sectionalBlock" id="oneLiner">
-                <h2>United States Homicide Watch: Informing the public of the latest public safety statistics of United States.</h2>
-            </div>
 		</div>
 	</div>
   </body>
