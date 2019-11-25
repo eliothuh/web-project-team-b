@@ -59,6 +59,7 @@ def getStateQueryData(startYear, endYear, state):
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 
+	print("all done!")
 
 	return dataTable
 
@@ -501,12 +502,17 @@ def getMapQueryResults():
 
 			dataTable = getStateQueryData(start, end, state)
 
+			print("getStateQueryData")
+
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
 										causesAndPercentages = dataTable["causesAndPercentages"],
 										state = state,
 										startYear = start,
-										endYear = end)
+										endYear = end,
+										inputdata = dataTable["singleYearCrudeRates"],
+										inputlabels = dataTable["yearRange"],
+										inputtitle = f"{state} Annual Crude Rates")
 
 		except Exception as e:
 
