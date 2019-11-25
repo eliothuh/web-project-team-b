@@ -59,6 +59,7 @@ def getStateQueryData(startYear, endYear, state):
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 
+	print("all done!")
 
 	return dataTable
 
@@ -125,7 +126,9 @@ def formatJavascriptString(list, variableName):
 	a variable with our specified name in our Javascript file.
 	'''
 	javascriptString = "var " + variableName + " = "
-	javascriptString += list.toString()
+	javascriptString += "[" + ', '.join([str(elem) for elem in list]) + "]"
+	print("no errors yet")
+	print(javascriptString)
 	return javascriptString
 
 def getYearRange(startYear, endYear):
@@ -499,12 +502,17 @@ def getMapQueryResults():
 
 			dataTable = getStateQueryData(start, end, state)
 
+			print("getStateQueryData")
+
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
 										causesAndPercentages = dataTable["causesAndPercentages"],
 										state = state,
 										startYear = start,
-										endYear = end)
+										endYear = end,
+										inputdata = dataTable["singleYearCrudeRates"],
+										inputlabels = dataTable["yearRange"],
+										inputtitle = f"{state} Annual Crude Rates")
 
 		except Exception as e:
 
