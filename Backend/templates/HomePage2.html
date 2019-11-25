@@ -36,9 +36,15 @@
   <body>
   <nav class="navbar">
 	<div class="theBar">
-		<a href="http://perlman.mathcs.carleton.edu:5113/" class="logo">
-		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
-		</a>
+        <div>
+            <a href="http://perlman.mathcs.carleton.edu:5113/" class="logo">
+		      <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
+		      </a>
+            <div id="oneLiner">
+            <h2>United States Homicide Watch: Informing the public of the latest public safety statistics of United States.</h2>
+            </div>
+        </div>
+		
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
 			<li class="navLinks" onClick="toggleDropdownYearsVisibility()">By Years</li>
@@ -563,9 +569,7 @@
 
                     </div>
 			</div>
-            <div class="sectionalBlock" id="oneLiner">
-                <h2>United States Homicide Watch: Informing the public of the latest public safety statistics of United States.</h2>
-            </div>
+            
 		</div>
 	</div>
   </body>
