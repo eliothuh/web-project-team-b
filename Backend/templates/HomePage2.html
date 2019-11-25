@@ -456,8 +456,9 @@
 																			labels[i] = labels[i].toString();
 																		}
 
-                                window.onload = function() {
-																	window.alert("entering onload function")
+                                //window.onload = function() {
+                                function main(){
+                                  window.alert("entering onload function");
                                     var context = document.getElementById('canvas').getContext('2d');
                                     window.myScatter = new Chart(context, {
                                         type: 'line',
@@ -480,7 +481,7 @@
                                         }
                                     });
                                 };
-
+                                main();
 
                             </script>
                         </div>
