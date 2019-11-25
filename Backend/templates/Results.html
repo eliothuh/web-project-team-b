@@ -308,16 +308,29 @@
 					
 				<div class="sectionalTitle" id="resultsBlock">
 					<h1>Search Results.</h1>
-                	<p>Here are the results for {{state}} data, from year {{startYear}} to {{endYear}}.</p>
+                	<p>Here are the search results for {{state}}, from year {{startYear}} to {{endYear}}.</p>
 				</div>
 					
-					<h2><p>State Average Annual Homicides Per 100,000: {{stateCrudeRate}}</p>
-					<p>National Average Annual Homicides Per 100,000: {{nationalCrudeRate}}</p>
-					<p>Means of Homicide:</p>
-					{% for key, value in causesAndPercentages.items() %}
-    					<li>{{ key }}: {{value}}%</li>
-					{% endfor %}
-					</h2>
+				<div>
+
+					<div class="sectionalInnerBlocks" id="overallNumbersBlock">
+						<h2>Overall Numbers</h2>
+						<p>&nbsp;</p>
+						<p class="genericP">State Average Annual Homicides Per 100,000:</p>
+						<h2>{{stateCrudeRate}}</h2>
+						<p class="genericP">National Average Annual Homicides Per 100,000:</p>
+						<h2>{{nationalCrudeRate}}</h2>
+					</div>
+
+					<div class="sectionalInnerBlocks" id="meansBlock">
+						<h2>Data by Means of Homicide</h2>
+						<p>
+							{% for key, value in causesAndPercentages.items() %}
+								<li>{{ key }}: {{value}}%</li>
+							{% endfor %}
+						</p>
+					</div>
+				</div>
 					
 		  		</div>
 				

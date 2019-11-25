@@ -373,5 +373,6 @@ Map Styles
 }
 
 #resultsBlock{
+	order:1;
 	margin-top:20px;
 }
