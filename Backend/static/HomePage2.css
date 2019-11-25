@@ -323,7 +323,9 @@ Map Styles
     background-color: #DFEAFF;
     border-radius: 1em;	
 }
-
+#resultsMC{
+	margin-top:30px;
+}
 #aboutTheDataTitle{
 	color: black;
     background-color: white;
@@ -374,5 +376,4 @@ Map Styles
 
 #resultsBlock{
 	order:1;
-	margin-top:20px;
 }
