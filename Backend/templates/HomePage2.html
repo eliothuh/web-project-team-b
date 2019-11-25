@@ -190,6 +190,9 @@
 </nav>
 	<div class="MainContainer" onclick="turnOffAllCollapsibles()">
 		<div class="contentContainer">
+            <div class="sectionalBlock" id="oneLiner">
+                <h2>United States Homicide Watch: Informing the public of the latest public safety statistics of United States.</h2>
+            </div>
 			<div class="mapAndInfo">
 					<div class="mapBlock">
 					  <div class="interactiveMap">
@@ -443,31 +446,23 @@
                         <div class="visual" id="homePageVisuals">
                             <canvas id="canvas"></canvas>
                             <script>
-                              window.alert("entering script");
-                              eval({{inputdata|tojson}});
-                              eval({{inputlabels|tojson}});
-                              eval({{inputtitle|tojson}});
-                              window.alert("done with evals");
+                              data = {{inputdata|tojson}};
+                              labels = {{inputlabels|tojson}};
+                              label = {{inputtitle|tojson}};
 
-																		//var i;
-																		//window.alert("entering string for loop");
-																		//for (i =0; i < labels.length, i++) {
-																		//	labels[i] = labels[i].toString();
-																		//}
 
                                 window.onload = function() {
-                                  window.alert("entering onload function");
                                     var context = document.getElementById('canvas').getContext('2d');
                                     window.myScatter = new Chart(context, {
                                         type: 'line',
                                         data: {
-                                            labels: [1999, 2000, 2001, 2002],
+                                            labels: labels,
                                             datasets: [{
                                                 label: "label",
                                                 pointBackgroundColor: 'rgba(255, 0, 0, 1)',
                                                 backgroundColor: 'rgba(0, 0, 100, 0.2)',
                                                 borderColor: 'rgba(0, 0, 100, 0.9)',
-                                                data: [1, 5, 10, 5]
+                                                data: data
                                                 },
                                                 ]
                                         },

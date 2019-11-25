@@ -173,7 +173,6 @@ nav {
 	flex-direction:column;
 	width:70%;
 	Background-color:#0b0e13;
-	margin-left:15%;
 }
 .mapAndInfo{
 	order:1;
@@ -327,7 +326,10 @@ Map Styles
 #states a.inverse text {
 	fill: #FFFFFF;
 }
-
+#oneLiner{
+  color:#475a7a;
+  background-color: #050912;
+}
 #states a text {
 	font-size: 12px;
 }
