@@ -309,32 +309,32 @@
 					<h1>Search Results.</h1>
                 	<p>Here are the search results for {{state}}, from year {{startYear}} to {{endYear}}.</p>
 				</div>
-				<div id="aboutTheData">
-					<div class="sectionalInnerBlocks" id="overallNumbersBlock">
-						<h2>Overall Numbers</h2>
-						<p>&nbsp;</p>
-						<h2>{{stateCrudeRate}}</h2>
-						<p class="genericP">&#8593; State Average Annual Homicides Per 100,000</p>
-						<h2>{{nationalCrudeRate}}</h2>
-						<p class="genericP">&#8593; National Average Annual Homicides Per 100,000</p>
-						
-					</div>
-					<div class="sectionalInnerBlocks" id="meansBlock">
-						<h2>Data by Means of Homicide</h2>
-						<p>
-							{% for key, value in causesAndPercentages.items() %}
-								<li>{{ key }}: {{value}}%</li>
-							{% endfor %}
-						</p>
-					</div>
-				</div>
+                <div id="aboutTheData">
+                        <div class="sectionalInnerBlocks" id="overallNumbersBlock">
+                            <h2>Overall Numbers</h2>
+                            <p>&nbsp;</p>
+                            <h2>{{stateCrudeRate}}</h2>
+                            <p class="genericP">&#8593; State Average Annual Homicides Per 100,000</p>
+                            <h2>{{nationalCrudeRate}}</h2>
+                            <p class="genericP">&#8593; National Average Annual Homicides Per 100,000</p>
+
+                        </div>
+                        <div class="sectionalInnerBlocks" id="meansBlock">
+                            <h2>Data by Means of Homicide</h2>
+                            <p>
+                                {% for key, value in causesAndPercentages.items() %}
+                                    <li>{{ key }}: {{value}}%</li>
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
 		  		</div>
                 <div id="trendsBlock" class="resultTrends">
                     <div class="sectionalTitle" id="aboutTheDataTitle">
                         <h1>Search Results.</h1>
                         <p>Here are the search results for {{state}}, from year {{startYear}} to {{endYear}}.</p>
                     </div>
-                    <div id="resultVis">
+                    <div id="resultVis" class="sectionalInnerBlock">
                         <script>
 
                             eval({{inputdata|tojson}});

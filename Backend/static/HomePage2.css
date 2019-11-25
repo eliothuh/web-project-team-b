@@ -26,7 +26,7 @@ body {
 	height:100%;
 	color:white;
 	font-family: 'Source Sans Pro', sans-serif;
-	
+
 }
 
 nav {
@@ -60,7 +60,7 @@ nav {
 	margin-top:60px;
 	list-style-type:none;
 	max-height:40px;
-	
+
 	display:none;
 	flex-direction: row;
 	justify-content: center;
@@ -100,7 +100,7 @@ nav {
 	list-style-type:none;
 	max-height:210px;
 	padding-bottom:15px;
-	
+
 	display:none;
 	flex-direction:column;
 	flex-wrap:wrap;
@@ -110,7 +110,7 @@ nav {
 	display:block;
 	background-color:#050912;
 	border:none;
-	
+
 }
 .dropdownStatesButtons input{
 	font-size:18px;
@@ -132,7 +132,7 @@ nav {
   	display: inline-block;
 }
 
-.navLinksList {	
+.navLinksList {
 	list-style: none;
   	display: flex;
 }
@@ -218,7 +218,7 @@ nav {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	
+
 }
 .lookForSearcher form div{
 	display:flex;
@@ -270,39 +270,39 @@ Map Styles
 #map{
 	user-select: none;
 }
-#states a path { transition: fill .5s ease; 
-	-moz-transition: fill .5s ease; 
-	-webkit-transition: fill .5s ease; 
+#states a path { transition: fill .5s ease;
+	-moz-transition: fill .5s ease;
+	-webkit-transition: fill .5s ease;
 	fill: #475A7A;z-index: 99;}
-#states a:hover path { 
-	transition: fill .5s ease; 
-	-moz-transition: fill .5s ease; 
-	-webkit-transition: fill .5s ease; 
+#states a:hover path {
+	transition: fill .5s ease;
+	-moz-transition: fill .5s ease;
+	-webkit-transition: fill .5s ease;
 	fill: #718FC2 !important;
 }
-#states a:hover path { 
-	cursor: pointer; 
+#states a:hover path {
+	cursor: pointer;
 	fill: #718FC2;
 }
-#states a text { 
-	cursor: pointer; 
-	fill: #FFFFFF; 
+#states a text {
+	cursor: pointer;
+	fill: #FFFFFF;
 	display: initial;
 }
-#states a:hover text { 
-	fill: #FFFFFF; 
+#states a:hover text {
+	fill: #FFFFFF;
 	color: #FFFFFF;
 }
-#states a.inverse text:hover { 
+#states a.inverse text:hover {
 	fill: #FFFFFF;
 }
-#states a.inverse text { 
+#states a.inverse text {
 	fill: #FFFFFF;
 }
-.CCMcredit a { 
+.CCMcredit a {
 	color: #475A7A;
 }
-#states a text { 
+#states a text {
 	font-size: 12px;
 }
 
@@ -321,7 +321,7 @@ Map Styles
     width: auto;
     padding: 20px;
     background-color: #DFEAFF;
-    border-radius: 1em;	
+    border-radius: 1em;
 }
 #resultsMC{
 	margin-top:100px;
@@ -375,6 +375,5 @@ Map Styles
 }
 
 #resultsBlock{
-	margin-top:80px;
 	order:1;
 }
