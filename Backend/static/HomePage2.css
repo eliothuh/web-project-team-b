@@ -204,15 +204,17 @@ nav {
   align-content: stretch;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-content: stretch;
 }
 #info{
-  width:25%;
+  flex-basis:25%;
   order:1;
   margin: 10px;
   padding: 20px;
   color:white;
   background-color: #081122;
   border-radius: 1em;
+
 
 }
 #info h2{margin:20px;}
