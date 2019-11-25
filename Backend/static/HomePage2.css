@@ -2,6 +2,7 @@
 /* CSS Document */
 html {
   box-sizing: border-box;
+  zoom: 90%;
 }
 
 *, *::before, *::after {
@@ -14,7 +15,6 @@ html {
     background: none;
     margin-bottom: 0px;
     max-width: none;
-    zoom: 90%;
 }
 ::selection {
   color:black;
