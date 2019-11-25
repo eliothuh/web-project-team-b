@@ -397,13 +397,13 @@
                 	<p>See it more clearly.</p>
 				</div>
                     <div class=nationalDataInnerBlocks>
-                        <div class="trendText">
+                        <div class="trendText" style="order=1;">
                             <h2>Historical Trend in Homicide Rate of the State of {{state}}:</h2>
                             <p>Displaying Years {{startYear}}-{{endYear}}.</p>
                             <p>Put the cursor onto the data points for specific data.</p>
                         </div>
 
-                        <div class="visual" id="homePageVisuals">
+                        <div class="visual" id="homePageVisuals" style="order=2;">
                             <canvas id="canvas"></canvas>
                             <script>
                               data = {{inputdata|tojson}};
@@ -440,12 +440,12 @@
 
                     </div>
                     <div class=nationalDataInnerBlocks>
-                        <div class="trendText" style="order=5;">
+                        <div class="trendText" style="order=2;">
                             <h2>Proportions of Homicides Committed through Different Means:</h2>
                             <p>For Years {{startYear}}-{{endYear}} of the State of  {{state}}.</p>
                         </div>
 
-                        <div class="visual" id="homePageVisuals" style="order=0;">
+                        <div class="visual" id="homePageVisuals" style="order=1;">
                             TODOTODOTODOTODO:Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.
                             <!---canvas id="canvas"></canvas>
                             <script>
