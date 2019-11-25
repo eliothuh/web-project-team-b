@@ -273,7 +273,14 @@ nav {
 #homePageVisuals {
     max-width:45%;
 }
-
+#mission{
+  background-color:white;
+  color:black;
+}
+#workCited{
+  background-color:white;
+  color:black;
+}
 .nationalDataInnerBlocks {
   margin: 10px;
   width: auto;
@@ -320,13 +327,16 @@ Map Styles
 #states a.inverse text {
 	fill: #FFFFFF;
 }
-.CCMcredit a {
-	color: #475A7A;
-}
+
 #states a text {
 	font-size: 12px;
 }
-
+.aboutSite{
+  order:6;
+  background-color:#475a7a;
+  color:white;
+  display:flex;
+}
 .sectionalBlock {
     background-color: white;
 }
