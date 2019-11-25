@@ -535,6 +535,8 @@ def getMapQueryResults():
 			end = request.args.get('endYear')
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
+			print(start)
+			print(end)
 
 			state = request.args.get('state')
 			state = cleanStateInput(state)
