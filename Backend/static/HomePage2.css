@@ -409,7 +409,14 @@ nav {
   display:flex;
   justify-content: space-between;
 }
-
+#overallNumbersBlock{
+  flex-basis: 500px;
+  flex-grow:1;
+}
+#meansBlock{
+  flex-basis: 500px;
+  flex-grow:1;
+}
 /*
 Map Styles
 */
