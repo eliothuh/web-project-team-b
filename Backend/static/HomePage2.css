@@ -203,6 +203,7 @@ nav {
   flex-wrap:wrap-reverse;
   align-items: stretch;
   align-content: stretch;
+  justify-content: space-between;
 }
 #info{
   min-width:25%;
@@ -213,7 +214,7 @@ nav {
   color:white;
   background-color: #081122;
   border-radius: 1em;
-  justify-content: space-between;
+
 }
 .mapBlock{
 	order:1;
