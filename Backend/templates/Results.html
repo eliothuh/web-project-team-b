@@ -391,44 +391,55 @@
                     </div>
 		  		</div>
                 
-                <div id="trendsBlock" class="resultTrends">
+                <div class="sectionalBlock" id="nationalData">
+				<div class="sectionalTitle" id="nationalDataTitle">
+					<h1>National Homicide Data:</h1>
+                	<p>The summary.</p>
+				</div>
+                    <div class=nationalDataInnerBlocks>
+                        <div class="trendText">
+                            <h2>Historical Trend in Homicide Rate of the State of {{state}}:</h2>
+                            <p>Displaying Years {{startYear}}-{{endYear}}.</p>
+                            <p>Put the cursor onto the data points for specific data.</p>
+                        </div>
 
-                    <div id="resultVis" class="sectionalInnerBlock">
-                        <script>
-                            eval({{inputdata|tojson}});
-                            eval({{inputlabels|tojson}});
-                            eval({{inputtitle|tojson}});
+                        <div class="visual" id="homePageVisuals">
+                            <canvas id="canvas"></canvas>
+                            <script>
+                              data = {{inputdata|tojson}};
+                              labels = {{inputlabels|tojson}};
+                              label = {{inputtitle|tojson}};
 
 
-                            window.onload = function() {
-                                var context = document.getElementById('canvas').getContext('2d');
-                                window.myScatter = new Chart(context, {
-                                    type: 'line',
-                                    data: {
-                                        labels: labels,
-                                        datasets: [{
-                                                label: label,
-                                                lableColor: 'rgb(255,255,255)',
-                                                pointBackgroundColor: 'rgba(255, 255, 255, 1)',
-                                                backgroundColor: 'rgba(223, 235, 255, 0.4)',
-                                                borderColor: 'rgba(71, 90, 122, 0.9)',
+                                window.onload = function() {
+                                    var context = document.getElementById('canvas').getContext('2d');
+                                    window.myScatter = new Chart(context, {
+                                        type: 'line',
+                                        data: {
+                                            labels: labels,
+                                            datasets: [{
+                                                label: "Homicide Rate Through the Years",
+                                                pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+                                                backgroundColor: 'rgba(0, 0, 100, 0.2)',
+                                                borderColor: 'rgba(0, 0, 100, 0.9)',
                                                 data: data
                                                 },
                                                 ]
-                                    },
-                                    options: {
-                                        title: {
-                                            display: true,
-                                            text: 'Example line chart for homicides over time'
                                         },
-                                    }
-                                });
-                            };
+                                        options: {
+                                            title: {
+                                                display: false,
+                                                text: 'Example line chart for homicides over time'
+                                            },
+                                        }
+                                    });
+                                };
 
+                            </script>
+                        </div>
 
-                        </script>
                     </div>
-                </div>
+			</div>
 
 			</div>
 		  	</div>
