@@ -49,8 +49,10 @@ def getStateQueryData(startYear, endYear, state):
 		raise fullList
 
 	dataTable["yearRange"] = getYearRange(startYear, endYear)
+	print("Single Year Crude Rates")
 	dataTable["singleYearCrudeRates"] = getStateSingleYearCrudeRates(startYear, endYear, state)
 
+	print("Big Crude Rate")
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -108,7 +110,7 @@ def getStateCrudeRate(list):
 	'''
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
-	print("111")
+	print("Wyoming's average population")
 	print(averagePopulation)
 
 	return round(averageDeaths*100000/averagePopulation, 3)
