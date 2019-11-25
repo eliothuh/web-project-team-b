@@ -274,12 +274,12 @@ nav {
     max-width:45%;
 }
 #mission{
-  background-color:white;
-  color:black;
+  background-color:#475a7a;
+  color:white;
 }
 #workCited{
-  background-color:white;
-  color:black;
+  background-color:#475a7a;
+  color:white;
 }
 .nationalDataInnerBlocks {
   margin: 10px;
@@ -331,10 +331,10 @@ Map Styles
 #states a text {
 	font-size: 12px;
 }
-.aboutSite{
+#aboutSite{
   order:6;
-  background-color:#475a7a;
-  color:white;
+  background-color:white;
+  color:black;
   display:flex;
 }
 .sectionalBlock {
