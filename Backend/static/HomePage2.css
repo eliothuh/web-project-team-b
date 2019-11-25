@@ -217,8 +217,8 @@ nav {
 }
 #info h2{line-height:35px;}
 #into p{line-height: 20px;}
-#trendText h2{line-height:35px;}
-#trendText p{line-height: 20px;}
+#trendText h2{line-height:45px;}
+#trendText p{line-height: 35px;}
 
 .mapBlock{
 	order:1;
@@ -285,8 +285,8 @@ nav {
 	font-size:230%;
   border-radius: 1em;
 }
-.lookForSearcher h1{line-height: 40px;}
-.lookForSearcher p{line-height: 20px;}
+.lookForSearcher h1{line-height: 45px;}
+.lookForSearcher p{line-height: 35px;}
 
 
 .lookForSearcherN {
