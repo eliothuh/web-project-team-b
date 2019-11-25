@@ -125,6 +125,7 @@ def formatJavascriptString(list, variableName):
 	a variable with our specified name in our Javascript file.
 	'''
 	javascriptString = "var " + variableName + " = "
+	print("no errors yet!")
 	javascriptString += ''.join(list)
 	return javascriptString
 
