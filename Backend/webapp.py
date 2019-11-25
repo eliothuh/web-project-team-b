@@ -22,9 +22,9 @@ dataSource = DataSource(connection)
 def getStateQueryData(startYear, endYear, state):
 	'''
 	Returns the average annual rate of homicide in a state (per 100,000 people),
-	the national average annual rate of homicide (per 100,000 people), 
-	a line of Javascript code that stores the average annual rate of homicide during each year within the specified 
-	range in the state (per 100,000), another line of Javascript code storing a list of years within the 
+	the national average annual rate of homicide (per 100,000 people),
+	a line of Javascript code that stores the average annual rate of homicide during each year within the specified
+	range in the state (per 100,000), another line of Javascript code storing a list of years within the
 	specified range, and the causes of homicide along with the percentage of total homicides they
 	contributed, if accurate data for each said cause is provided.
 
@@ -35,28 +35,28 @@ def getStateQueryData(startYear, endYear, state):
 
 	RETURN:
 		A dictionary containing the average annual rate homicide in the nation and
-		state, Strings representing Javascript code to store the annual rate of homicide each year and 
+		state, Strings representing Javascript code to store the annual rate of homicide each year and
 		a list of the years in the specified range, and another dictionary storing each cause and the percentage of
 		homicides it was responsible for
 
-	Calls getStateCrudeRate, getCausesAndPercentages, getSingleYearCrudeRates, getYearRange, 
+	Calls getStateCrudeRate, getCausesAndPercentages, getSingleYearCrudeRates, getYearRange,
 	and getNationalCrudeRate
 	'''
 	dataTable = {}
 	fullList = dataSource.getStateQuery(startYear, endYear, state)
-	
+
 	if isinstance(fullList, Exception):
-        raise fullList
-    
-    dataTable["yearRange"] = getYearRange(startYear, endYear)
-    dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
-		
-    dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
+		raise fullList
+
+		dataTable["yearRange"] = getYearRange(startYear, endYear)
+		dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
+
+		dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
-    
+
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
-    
+
 
 	return dataTable
 
@@ -79,62 +79,64 @@ def getStateCrudeRate(list):
 	averagePopulation = getAverageStatePopulation(list)
 
 	return round(averageDeaths*100000/averagePopulation, 3)
-              
+
 def getSingleYearCrudeRates(startYear, endYear, state):
-    '''
-    gets the rate of homicide over each year from startYear to endYear, places all of these
-    crude rates into a list of ints, and then returns this data as a formatted String
-    our Javascript file can parse.
-    
+	'''
+	gets the rate of homicide over each year from startYear to endYear, places all of these
+	crude rates into a list of ints, and then returns this data as a formatted String
+	our Javascript file can parse.
+
     PARAMETERS:
     startYear: the first year to find the homicide crude rate for
     endYear: the last year to find the homicide crude rate for
     state: the state to find the homicide crude rate for
-    
+
     RETURN:
     A String representation of our array of crude rates over the year range
-    
+
     Calls getStateCrudeRate, formatSingleYearCrudeRates
     '''
-    list = []
-    rate = 0
-    crudeRates = []
-    
-    for year in range (startYear, endYear):
-        list = dataSource.getStateQuery(year, year, state)
-        rate = getStateCrudeRate(list)
-        crudeRates.append(rate)
+	list = []
+	rate = 0
+	crudeRates = []
 
-    variableName = "data"
-    return formatJavascriptString(crudeRates, variableName)
+	for year in range (startYear, endYear):
+		list = dataSource.getStateQuery(year, year, state)
+		rate = getStateCrudeRate(list)
+		crudeRates.append(rate)
 
-def formatJavascriptString(list, variableName)
-    '''
-    takes in a list and a variable name and formats it into a string representing a line
-    of Javascript code that assigns the inputted array to a variable with the specified name
-    
-    PARAMETERS:
-    list: the list we want to store in Javascript
-    variableName: the name of the variable we want to store the list in
-    
-    RETURN:
-    A String representing the Javascript code that will store inputted list into
-    a variable with our specified name in our Javascript file.
-    '''
-    javascriptString = "var " + variableName + " = "
-    javascriptString += list.toString()
-    return javascriptString
+	variableName = "data"
+	return formatJavascriptString(crudeRates, variableName)
+
+
+def formatJavascriptString(list, variableName):
+	'''
+	takes in a list and a variable name and formats it into a string representing a line
+	of Javascript code that assigns the inputted array to a variable with the specified name
+
+	PARAMETERS:
+	list: the list we want to store in Javascript
+	variableName: the name of the variable we want to store the list in
+
+	RETURN:
+	A String representing the Javascript code that will store inputted list into
+	a variable with our specified name in our Javascript file.
+	'''
+	javascriptString = "var " + variableName + " = "
+	javascriptString += list.toString()
+	return javascriptString
 
 def getYearRange(startYear, endYear):
-    list = []
-    
-    for year in range(startYear, endYear):
-        list.append(year)
+	list = []
 
-    variableName = "labels"
+	for year in range(startYear, endYear):
+		list.append(year)
 
-    return formatJavascriptString(list, variableName)
-              
+	variableName = "labels"
+
+	return formatJavascriptString(list, variableName)
+
+
 def getAverageStateDeaths(list):
 	'''
 	Returns the average annual number of homicides in a state (per 100,000 people)
@@ -357,13 +359,13 @@ def getPercentOther(causesList, list):
 		percentageKnown += causesList[cause]
 
 	return round(100 - percentageKnown, 3)
-	
-	
+
+
 def adjustYears(startYear, endYear):
 	'''
 	Adjusts the start and end years to be the same year if only one is specified
-	and sets the start to 1999 and end to 2017 if neither is specified.    
-	
+	and sets the start to 1999 and end to 2017 if neither is specified.
+
 	PARAMETERS:
 		startYear- the start year specified by the user
 		endYear- the ending year specified by the user
@@ -371,37 +373,37 @@ def adjustYears(startYear, endYear):
 	RETURN:
 		An array of Strings, each specifying the start and end year
 	'''
-	
+
 	if(startYear is None or (startYear == "" and endYear == "")):
 		startYear = "1999"
 		endYear = "2017"
 		print("converted!")
-	
+
 	elif(startYear == ""):
 		startYear = endYear
-	
+
 	elif(endYear == ""):
 		endYear = startYear
-		
+
 	return startYear, endYear
-	
-		
+
+
 def setYearsToInts(startYear, endYear):
 	'''
-	Converts the inputted start year and end year to ints. 
-	
+	Converts the inputted start year and end year to ints.
+
 	PARAMETERS:
 		startYear- the starting year for the query passed as a String
 		endYear- the ending year for the query passed as a String
 
 	RETURN:
-		the start year String converted into and int and the end year String 
+		the start year String converted into and int and the end year String
 		converted into an int
 	'''
-	
+
 	startYear = int(startYear)
 	endYear = int(endYear)
-	
+
 	return startYear, endYear
 
 
@@ -438,14 +440,14 @@ def cleanIndividualWord(word):
 		word = word[0].capitalize() + word[1:]
 
 	return word
-	
+
 
 def getNationalQuery(startYear, endYear):
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	nationalCrudeRate = getNationalCrudeRate(nationTotals)
-	
+
 	mostDangerousState, mostDangerousStateRate = getMostDangerousStateAndData(startYear, endYear)
-	
+
 	return nationalCrudeRate, mostDangerousState, mostDangerousStateRate
 
 
@@ -454,15 +456,15 @@ def getMostDangerousStateAndData(startYear, endYear):
 	currentStateRate = 0
 	mostDangerousState = ""
 
-	for state in dataSource.stateDictionary: 
+	for state in dataSource.stateDictionary:
 		currentStateRate = getStateCrudeRate(dataSource.getStateQuery(startYear, endYear, state))
-		
+
 		if (currentStateRate > crudeRate):
 			crudeRate = currentStateRate
 			mostDangerousState = state
-	
+
 	return mostDangerousState, crudeRate
-		
+
 
 @app.route('/', methods = ['POST', 'GET'])
 def getStateQueryResults():
@@ -472,16 +474,16 @@ def getStateQueryResults():
 	'''
 
 	return render_template('HomePage2.html')
-		
+
 
 @app.route('/stateQuery/')
 def getMapQueryResults():
 	'''
-	Loads a resulting state query page if the user clicks on one of the states in the 
-	interactive map 
+	Loads a resulting state query page if the user clicks on one of the states in the
+	interactive map
 	'''
 	if(request.method == 'GET'):
-	
+
 		try:
 			start = request.args.get('startYear')
 			end = request.args.get('endYear')
@@ -490,9 +492,9 @@ def getMapQueryResults():
 
 			state = request.args.get('state')
 			state = cleanStateInput(state)
-            
+
 			"""(inputlabels, inputdata, inputtitle)"""
-            
+
 			dataTable = getStateQueryData(start, end, state)
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
@@ -505,28 +507,28 @@ def getMapQueryResults():
 		except Exception as e:
 
 			return render_template('Error.html', error = e)
-		
-	else: 
-		
+
+	else:
+
 		state = Alabama
 		start = 1999
 		end = 2017
 		dataTable = getStateQueryData(start, end, state)
 
-		
+
 		return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
 										causesAndPercentages = dataTable["causesAndPercentages"],
 										state = state,
 										startYear = start,
-										endYear = end) 
+										endYear = end)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
-        exit()
+	if len(sys.argv) != 3:
+		print('Usage: {0} host port'.format(sys.argv[0]), file=sys.stderr)
+		exit()
 
-    host = sys.argv[1]
-    port = sys.argv[2]
-    app.run(host=host, port=port)
+	host = sys.argv[1]
+	port = sys.argv[2]
+	app.run(host=host, port=port)
