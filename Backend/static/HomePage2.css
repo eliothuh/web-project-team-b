@@ -16,10 +16,12 @@ html {
     max-width: none;
 }
 ::selection {
-  background: red; /* WebKit/Blink Browsers */
+  color:white;
+  background: #ffb7b7; /* WebKit/Blink Browsers */
 }
 ::-moz-selection {
-  background: red; /* Gecko Browsers */
+  color:white;
+  background: #ffb7b7; /* Gecko Browsers */
 }
 
 body {
