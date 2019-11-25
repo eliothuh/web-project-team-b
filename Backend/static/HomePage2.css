@@ -278,6 +278,50 @@ nav {
 .lookForSearcher h1{line-height: 40px;}
 .lookForSearcher p{line-height: 20px;}
 
+
+.lookForSearcherN {
+	order:3;
+	padding: 20px;
+	background-color:#050912;
+	display:flex;
+	flex-direction:column;
+	padding-bottom:40px;
+}
+.lookForSearcherN form{
+	margin-top:20px;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+
+}
+.lookForSearcherN form div{
+	display:flex;
+	flex-direction: column;
+
+}
+.lookForSearcherN select[type=text]{
+	font-size: 100%;
+	margin-top:5px;
+    background-color: #D6E0F5;
+    color: black;
+    width: 200px;
+}
+.lookForSearcherN button{
+	border:none;
+	background-color:#B5C8ED;
+}
+.lookForSearcherN input{
+	background-color:transparent;
+	width:150px;
+	border: none;
+	color:black;
+	font-size:100%
+}
+.lookForSearcherN h1{line-height: 30px;}
+.lookForSearcherN p{line-height: 15px;}
+
+
 .aboutContentBlocks{
     line-height: 28px;
     padding-left: 40px;
