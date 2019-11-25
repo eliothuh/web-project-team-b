@@ -82,7 +82,7 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 	rate = 0
 	crudeRates = []
 
-	for year in range (startYear, endYear):
+	for year in range (startYear, endYear + 1):
 		list = dataSource.getStateQuery(year, year, state)
 		rate = getStateCrudeRate(list)
 		crudeRates.append(rate)
@@ -176,7 +176,7 @@ def formatJavascriptString(list, variableName):
 def getYearRange(startYear, endYear):
 	list = []
 
-	for year in range(startYear, endYear):
+	for year in range(startYear, endYear + 1):
 		list.append(year)
 
 	variableName = "labels"
@@ -480,7 +480,7 @@ def getNationalSingleYearCrudeRates(startYear, endYear):
 	rate = 0
 	crudeRates = []
 
-	for year in range (startYear, endYear):
+	for year in range (startYear, endYear + 1):
 		list = dataSource.getUSATotals(year, year)
 		rate = getNationalCrudeRate(list)
 		crudeRates.append(rate)
@@ -505,7 +505,7 @@ def getNationalQueryResults():
 
 		print(dataTable["singleYearCrudeRates"])
 		print(dataTable["yearRange"])
-		
+
 
 		return render_template('HomePage2.html',
 									inputdata = dataTable["singleYearCrudeRates"],
