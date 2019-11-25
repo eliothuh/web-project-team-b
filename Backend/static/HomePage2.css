@@ -326,7 +326,12 @@ Map Styles
 #states a text {
 	font-size: 12px;
 }
-
+.aboutSite{
+  order:6;
+  background-color:#475a7a;
+  color:white;
+  display:flex;
+}
 .sectionalBlock {
     background-color: white;
 }
