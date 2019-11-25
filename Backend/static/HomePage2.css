@@ -15,6 +15,12 @@ html {
     margin-bottom: 0px;
     max-width: none;
 }
+::selection {
+  background: red; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: red; /* Gecko Browsers */
+}
 
 body {
 	background:url("BGI.png");
