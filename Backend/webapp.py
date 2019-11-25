@@ -506,9 +506,9 @@ def getNationalQueryResults():
 		print(dataTable["singleYearCrudeRates"])
 
 		return render_template('HomePage2.html',
-									inputData = dataTable["singleYearCrudeRates"],
-									inputLabels = dataTable["yearRange"],
-									inputTitle = f"National Homicide Rate from {{start}} to {{end}}",
+									inputdata = dataTable["singleYearCrudeRates"],
+									inputlabels = dataTable["yearRange"],
+									inputtitle = f"National Homicide Rate from {{start}} to {{end}}",
 									nationalCrudeRate = dataTable["nationalCrudeRate"],
 									startYear = start,
 									endYear = end,
