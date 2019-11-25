@@ -43,7 +43,7 @@ def getStateQueryData(startYear, endYear, state):
 	and getNationalCrudeRate
 	'''
 	dataTable = {}
-    fullList = dataSource.getStateQuery(startYear, endYear, state)
+	fullList = dataSource.getStateQuery(startYear, endYear, state)
     
     if isinstance(fullList, Exception):
         raise fullList
