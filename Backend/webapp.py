@@ -50,6 +50,9 @@ def getStateQueryData(startYear, endYear, state):
 
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
+    dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
+    print(getSingleYearCrudeRates(startYear, endYear, state))
+    dataTable["yearRange"] = getYearRange(startYear, endYear)
 
 	return dataTable
 
@@ -72,8 +75,62 @@ def getStateCrudeRate(list):
 	averagePopulation = getAverageStatePopulation(list)
 
 	return round(averageDeaths*100000/averagePopulation, 3)
+              
+def getSingleYearCrudeRates(startYear, endYear, state):
+    '''
+    gets the rate of homicide over each year from startYear to endYear, places all of these
+    crude rates into a list of ints, and then returns this data as a formatted String
+    our Javascript file can parse.
+    
+    PARAMETERS:
+    startYear: the first year to find the homicide crude rate for
+    endYear: the last year to find the homicide crude rate for
+    state: the state to find the homicide crude rate for
+    
+    RETURN:
+    A String representation of our array of crude rates over the year range
+    
+    Calls getStateCrudeRate, formatSingleYearCrudeRates
+    '''
+    list = []
+    rate = 0
+    crudeRates = []
+    
+    for year in range (startYear, endYear):
+        list = dataSource.getStateQuery(year, year, state)
+        rate = getStateCrudeRate(list)
+        crudeRates.append(rate)
 
+    variableName = "data"
+    return formatJavascriptString(crudeRates, variableName)
 
+def formatJavascriptString(list, variableName)
+    '''
+    takes in a list and a variable name and formats it into a string representing a line
+    of Javascript code that assigns the inputted array to a variable with the specified name
+    
+    PARAMETERS:
+    list: the list we want to store in Javascript
+    variableName: the name of the variable we want to store the list in
+    
+    RETURN:
+    A String representing the Javascript code that will store inputted list into
+    a variable with our specified name in our Javascript file.
+    '''
+    javascriptString = "var " + variableName + " = "
+    javascriptString += list.toString()
+    return javascriptString
+
+def getYearRange(startYear, endYear):
+    list = []
+    
+    for year in range(startYear, endYear):
+        list.append(year)
+
+    variableName = "labels"
+
+    return formatJavascriptString(list, variableName)
+              
 def getAverageStateDeaths(list):
 	'''
 	Returns the average annual number of homicides in a state (per 100,000 people)
@@ -429,7 +486,9 @@ def getMapQueryResults():
 
 			state = request.args.get('state')
 			state = cleanStateInput(state)
-			
+            
+			"""(inputlabels, inputdata, inputtitle)"""
+            
 			dataTable = getStateQueryData(start, end, state)
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
