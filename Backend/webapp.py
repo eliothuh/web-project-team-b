@@ -108,7 +108,7 @@ def getStateCrudeRate(list):
 	'''
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
-	print("111")
+	print("Wyoming's average population")
 	print(averagePopulation)
 
 	return round(averageDeaths*100000/averagePopulation, 3)
