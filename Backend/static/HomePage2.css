@@ -48,6 +48,25 @@ nav {
 	z-index:999;
 	order:1;
 }
+.nationwide{
+	color:#6f8bbb;
+	order:2;
+	z-index:999;
+	position:fixed;
+	width: 100%;
+  	background-color: #050912;
+	font-size: 18px;
+	margin-top:60px;
+	list-style-type:none;
+	max-height:40px;
+
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color:#050912;
+	border:none;
+	padding:10px;
+}
 
 .dropDownYears{
 	color:#6f8bbb;
@@ -180,6 +199,7 @@ nav {
 	order:1;
 	display:flex;
 	flex-direction:row;
+  flex-wrap:wrap-reverse;
   align-items: stretch;
   align-content: stretch;
 }
