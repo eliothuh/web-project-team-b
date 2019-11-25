@@ -39,7 +39,7 @@ def getStateQueryData(startYear, endYear, state):
 		a list of the years in the specified range, and another dictionary storing each cause and the percentage of
 		homicides it was responsible for
 
-	Calls getStateCrudeRate, getCausesAndPercentages, getSingleYearCrudeRates, getYearRange,
+	Calls getStateCrudeRate, getCausesAndPercentages, getStateSingleYearCrudeRates, getYearRange,
 	and getNationalCrudeRate
 	'''
 	dataTable = {}
@@ -49,9 +49,7 @@ def getStateQueryData(startYear, endYear, state):
 		raise fullList
 
 	dataTable["yearRange"] = getYearRange(startYear, endYear)
-	dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
-	print(dataTable["yearRange"])
-	print(dataTable["singleYearCrudeRates"])
+	dataTable["singleYearCrudeRates"] = getStateSingleYearCrudeRates(startYear, endYear, state)
 
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
@@ -64,26 +62,7 @@ def getStateQueryData(startYear, endYear, state):
 	return dataTable
 
 
-def getStateCrudeRate(list):
-	'''
-	Returns the average annual rate of homicide in a state (per 100,000 people) over the
-	specified year range
-
-	PARAMETERS:
-		list - an array of state homicide data for each year in the range the user queried
-
-	RETURN:
-		A String representing the average annual number of homicides in the user's
-		requested state (per 100,000) rounded to 3 decimal places
-
-	Calls getAverageStateDeaths, getAverageStatePopulation
-	'''
-	averageDeaths = getAverageStateDeaths(list)
-	averagePopulation = getAverageStatePopulation(list)
-
-	return round(averageDeaths*100000/averagePopulation, 3)
-
-def getSingleYearCrudeRates(startYear, endYear, state):
+def getStateSingleYearCrudeRates(startYear, endYear, state):
 	'''
 	gets the rate of homicide over each year from startYear to endYear, places all of these
 	crude rates into a list of ints, and then returns this data as a formatted String
@@ -112,34 +91,24 @@ def getSingleYearCrudeRates(startYear, endYear, state):
 	return formatJavascriptString(crudeRates, variableName)
 
 
-def formatJavascriptString(list, variableName):
+def getStateCrudeRate(list):
 	'''
-	takes in a list and a variable name and formats it into a string representing a line
-	of Javascript code that assigns the inputted array to a variable with the specified name
+	Returns the average annual rate of homicide in a state (per 100,000 people) over the
+	specified year range
 
 	PARAMETERS:
-	list: the list we want to store in Javascript
-	variableName: the name of the variable we want to store the list in
+		list - an array of state homicide data for each year in the range the user queried
 
 	RETURN:
-	A String representing the Javascript code that will store inputted list into
-	a variable with our specified name in our Javascript file.
+		A String representing the average annual number of homicides in the user's
+		requested state (per 100,000) rounded to 3 decimal places
+
+	Calls getAverageStateDeaths, getAverageStatePopulation
 	'''
-	javascriptString = "var " + variableName + " = "
-	javascriptString += "[" + ', '.join([str(elem) for elem in list]) + "]"
-	print("no errors yet")
-	print(javascriptString)
-	return javascriptString
+	averageDeaths = getAverageStateDeaths(list)
+	averagePopulation = getAverageStatePopulation(list)
 
-def getYearRange(startYear, endYear):
-	list = []
-
-	for year in range(startYear, endYear):
-		list.append(year)
-
-	variableName = "labels"
-
-	return formatJavascriptString(list, variableName)
+	return round(averageDeaths*100000/averagePopulation, 3)
 
 
 def getAverageStateDeaths(list):
@@ -185,6 +154,34 @@ def getAverageStatePopulation(list):
 			total += year[0][6]
 
 	return total/numYears
+
+
+def formatJavascriptString(list, variableName):
+	'''
+	takes in a list and a variable name and formats it into a string representing a line
+	of Javascript code that assigns the inputted array to a variable with the specified name
+
+	PARAMETERS:
+	list: the list we want to store in Javascript
+	variableName: the name of the variable we want to store the list in
+
+	RETURN:
+	A String representing the Javascript code that will store inputted list into
+	a variable with our specified name in our Javascript file.
+	'''
+	javascriptString = "var " + variableName + " = "
+	javascriptString += "[" + ', '.join([str(elem) for elem in list]) + "]"
+	return javascriptString
+
+def getYearRange(startYear, endYear):
+	list = []
+
+	for year in range(startYear, endYear):
+		list.append(year)
+
+	variableName = "labels"
+
+	return formatJavascriptString(list, variableName)
 
 
 def getNationalCrudeRate(list):
@@ -378,11 +375,17 @@ def adjustYears(startYear, endYear):
 	RETURN:
 		An array of Strings, each specifying the start and end year
 	'''
-
-	if(startYear is None or (startYear == "" and endYear == "")):
+	if(startYear is None):
 		startYear = "1999"
 		endYear = "2017"
-		print("converted!")
+		return startYear, endYear
+
+	startYear.strip()
+	endYear.strip()
+
+	if(startYear == "" and endYear == ""):
+		startYear = "1999"
+		endYear = "2017"
 
 	elif(startYear == ""):
 		startYear = endYear
@@ -447,13 +450,15 @@ def cleanIndividualWord(word):
 	return word
 
 
-def getNationalQuery(startYear, endYear):
+def getNationalQueryData(startYear, endYear):
+	nationalQueryData = {}
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
-	nationalCrudeRate = getNationalCrudeRate(nationTotals)
+	nationalQueryData["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
+	nationalQueryData["mostDangerousState"], nationalQueryData["mostDangerousStateRate"] = getMostDangerousStateAndData(startYear, endYear)
+	nationalQueryData["yearRange"] = getYearRange(startYear, endYear)
+	nationalQueryData["singleYearCrudeRates"] = getNationalSingleYearCrudeRates(startYear, endYear)
 
-	mostDangerousState, mostDangerousStateRate = getMostDangerousStateAndData(startYear, endYear)
-
-	return nationalCrudeRate, mostDangerousState, mostDangerousStateRate
+	return nationalQueryData
 
 
 def getMostDangerousStateAndData(startYear, endYear):
@@ -470,15 +475,48 @@ def getMostDangerousStateAndData(startYear, endYear):
 
 	return mostDangerousState, crudeRate
 
+def getNationalSingleYearCrudeRates(startYear, endYear):
+	list = []
+	rate = 0
+	crudeRates = []
+
+	for year in range (startYear, endYear):
+		list = dataSource.getUSATotals(year, year)
+		rate = getNationalCrudeRate(list)
+		crudeRates.append(rate)
+
+	variableName = "data"
+	return formatJavascriptString(crudeRates, variableName)
+
 
 @app.route('/', methods = ['POST', 'GET'])
-def getStateQueryResults():
+def getNationalQueryResults():
 	'''
 	Loads the homepage and returns a results page corresponding to the user's query. Directs
 	user to an error page if the query was not formatted properly
 	'''
+	try:
+		start = request.args.get('startYear')
+		end = request.args.get('endYear')
+		start, end = adjustYears(start, end)
+		start, end = setYearsToInts(start, end)
 
-	return render_template('HomePage2.html')
+		dataTable = getNationalQueryData(start, end)
+
+		return render_template('Homepage2.html',
+									inputData = dataTable["singleYearCrudeRates"],
+									inputLabels = dataTable["yearRange"],
+									inputTitle = f"National Homicide Rate from {{start}} to {{end}}",
+									nationalCrudeRate = dataTable["nationalCrudeRate"],
+									startYear = start,
+									endYear = end,
+									mostDangerousState = dataTable["mostDangerousState"],
+									mostDangerousStateRate = dataTable["mostDangerousStateRate"]
+									)
+
+	except Exception as e:
+
+		return render_template('Error.html', error = e)
 
 
 @app.route('/stateQuery/')
