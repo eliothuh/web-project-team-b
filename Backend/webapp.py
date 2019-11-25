@@ -88,7 +88,8 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 		crudeRates.append(rate)
 
 	variableName = "data"
-	return crudeRates """formatJavascriptString(crudeRates, variableName)"""
+	"""formatJavascriptString(crudeRates, variableName)"""
+	return crudeRates
 
 
 def getStateCrudeRate(list):
@@ -486,7 +487,8 @@ def getNationalSingleYearCrudeRates(startYear, endYear):
 		crudeRates.append(rate)
 
 	variableName = "data"
-	return crudeRates """formatJavascriptString(crudeRates, variableName)"""
+	"""formatJavascriptString(crudeRates, variableName)"""
+	return crudeRates
 
 
 @app.route('/', methods = ['POST', 'GET'])
