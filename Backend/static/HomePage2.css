@@ -217,8 +217,9 @@ nav {
 }
 #info h2{margin:20px;}
 #info p{margin:20px;}
-#trendText h2{margin:20px;}
-#trendText p{margin:20px;}
+.trendText h2{margin:20px;}
+.trendText h3{margin:20px;}
+.trendText p{margin:20px;}
 
 .mapBlock{
 	order:1;
