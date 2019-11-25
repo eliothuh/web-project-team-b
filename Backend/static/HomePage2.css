@@ -182,7 +182,7 @@ nav {
 }
 #info{
   min-width:30%;
-  order:0;
+  order:3;
 }
 .mapBlock{
 	flex:6;
