@@ -507,15 +507,18 @@ Map Styles
 #consistBlock {
     flex-basis: 500px;
     background-color: #DFEAFF;
+    flex-grow:1;
 
 }
 #fromBlock {
     flex-basis: 500px;
     background-color: #DFEAFF;
+    flex-grow:1;
 }
 #processBlock {
     flex-basis: 500px;
     background-color: #DFEAFF;
+    flex-grow:1;
 }
 
 #nationalData{
