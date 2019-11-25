@@ -173,6 +173,7 @@ nav {
 	display:flex;
 	flex-direction:column;
 	width:80%;
+  margin-left:10px;
 	Background-color:#0b0e13;
 }
 .mapAndInfo{
@@ -194,7 +195,6 @@ nav {
   justify-content: space-between;
 }
 .mapBlock{
-	flex:6;
 	order:1;
 	justify-content: center;
 }
