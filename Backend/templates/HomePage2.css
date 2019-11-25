@@ -127,7 +127,6 @@ nav {
 	border:none;
 }
 
-
 .logo {
   	display: inline-block;
 }
@@ -247,9 +246,6 @@ nav {
 .lookForSearcher h1{line-height: 40px;}
 .lookForSearcher p{line-height: 20px;}
 
-
-
-
 .aboutContentBlocks{
     line-height: 28px;
     padding-left: 40px;
@@ -263,47 +259,6 @@ nav {
     padding: 20px;
     width: 60%;
     margin: 20px;
-}
-/*
-Map Styles
-*/
-#map{
-	user-select: none;
-}
-#states a path { transition: fill .5s ease; 
-	-moz-transition: fill .5s ease; 
-	-webkit-transition: fill .5s ease; 
-	fill: #475A7A;z-index: 99;}
-#states a:hover path { 
-	transition: fill .5s ease; 
-	-moz-transition: fill .5s ease; 
-	-webkit-transition: fill .5s ease; 
-	fill: #718FC2 !important;
-}
-#states a:hover path { 
-	cursor: pointer; 
-	fill: #718FC2;
-}
-#states a text { 
-	cursor: pointer; 
-	fill: #FFFFFF; 
-	display: initial;
-}
-#states a:hover text { 
-	fill: #FFFFFF; 
-	color: #FFFFFF;
-}
-#states a.inverse text:hover { 
-	fill: #FFFFFF;
-}
-#states a.inverse text { 
-	fill: #FFFFFF;
-}
-.CCMcredit a { 
-	color: #475A7A;
-}
-#states a text { 
-	font-size: 12px;
 }
 
 .sectionalBlock {
@@ -364,10 +319,57 @@ Map Styles
 #nationalDataTitle{
 	color:white;
 }
+#nationalDataInnerBlocks{
+	margin: 10px;
+    width: auto;
+    padding: 20px;
+    background-color: white;
+    color:black;
+    border-radius: 1em;	
+}
 #citationAndDownload{
 	padding: 20px;
 	display:flex;
 	flex-direction:column;
 	order:5;
 	background-color:#475a7a;
+}
+
+/*
+Map Styles
+*/
+#map{
+	user-select: none;
+}
+#states a path { transition: fill .5s ease; 
+	-moz-transition: fill .5s ease; 
+	-webkit-transition: fill .5s ease; 
+	fill: #475A7A;z-index: 99;}
+#states a:hover path { 
+	transition: fill .5s ease; 
+	-moz-transition: fill .5s ease; 
+	-webkit-transition: fill .5s ease; 
+	fill: #718FC2 !important;
+}
+#states a:hover path { 
+	cursor: pointer; 
+	fill: #718FC2;
+}
+#states a text { 
+	cursor: pointer; 
+	fill: #FFFFFF; 
+	display: initial;
+}
+#states a:hover text { 
+	fill: #FFFFFF; 
+	color: #FFFFFF;
+}
+#states a.inverse text:hover { 
+	fill: #FFFFFF;
+}
+#states a.inverse text { 
+	fill: #FFFFFF;
+}
+#states a text { 
+	font-size: 12px;
 }

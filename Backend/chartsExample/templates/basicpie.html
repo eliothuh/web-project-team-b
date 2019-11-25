@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>Chart Test</title>
+		{% block javascript %}
+			<script src="{{ url_for('static',filename='Chart.min.js') }}"></script>
+			<script src="{{ url_for('static',filename='utils.js') }}"></script>
+		{% endblock %}
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='basicline.css') }}" />
+
+
+		<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		</style>
+
+	</head>
+
+
+	<body>
+		This is a test page
+
+		<div style="width:75%">
+			<canvas id="canvas"></canvas>
+		</div>
+
+		<script>
+
+			eval({{inputdata|tojson}});
+			eval({{inputlabels|tojson}});
+			eval({{inputtitle|tojson}});
+
+			window.
+
+			window.onload = function() {
+				var context = document.getElementById('canvas').getContext('2d');
+				window.myScatter = new Chart(context, {
+					type: 'pie',
+					data: {
+						labels: labels,
+						datasets: [{
+							label: label,
+							pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+							backgroundColor: 'rgba(0, 0, 100, 0.2)',
+							borderColor: 'rgba(0, 0, 100, 0.9)',
+							data: data
+							},
+							]
+					},
+					options: {
+						title: {
+							display: true,
+							text: 'Example pie chart for comparing types of homicides'
+						},
+					}
+				});
+			};
+
+
+		</script>
+
+
+	</body>
+
+
+</html>

@@ -25,13 +25,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 	{% block javascript %}
+        <script src="{{ url_for('static',filename='Chart.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='utils.js') }}"></script>
 		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
 	{% endblock %}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
 	 
     <title>USHW</title>
   </head>
-	
   <body>
   <nav class="navbar">
 	<div class="theBar">
@@ -263,7 +264,7 @@
 		 	</div>
 		  	<div class="lookForSearcher">
 					<h1>Search for Data Here.</h1>
-					<p>Select a year range and state.</p>
+					<p>Select a year range and state. Hint: Try typing out first letters of your keyword on an active dropdown menu.</p>
 					<form method = "get" action = "/stateQuery/">
 						<div>
 							Beginning Year:
@@ -414,11 +415,60 @@
 					<p>citations will be added</p>
 				</div>
        	  </div>
-			<div id="nationalData" class="sectionalBlock">
-				<div class="sectionalTitle" id"nationalDataTitle">
+			<div class="sectionalBlock" id="nationalData">
+				<div class="sectionalTitle" id="nationalDataTitle">
 					<h1>National Homicide Data:</h1>
                 	<p>The summary.</p>
 				</div>
+                <div>
+                    <div class=NationalDataInnerBlocks>
+                        <div>
+                            <h2>National Trend of Homicide Data</h2>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="visual" id="homePageVisuals">
+                            <script>
+
+                                eval({{inputdata|tojson}});
+                                eval({{inputlabels|tojson}});
+                                eval({{inputtitle|tojson}});
+
+
+                                window.onload = function() {
+                                    var context = document.getElementById('canvas').getContext('2d');
+                                    window.myScatter = new Chart(context, {
+                                        type: 'line',
+                                        data: {
+                                            labels: ["1999","2000","2001"],
+                                            datasets: [{
+                                                label: "example",
+                                                pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+                                                backgroundColor: 'rgba(0, 0, 100, 0.2)',
+                                                borderColor: 'rgba(0, 0, 100, 0.9)',
+                                                data: [20, 30, 25]
+                                                },
+                                                ]
+                                        },
+                                        options: {
+                                            title: {
+                                                display: true,
+                                                text: 'Example line chart for homicides over time'
+                                            },
+                                        }
+                                    });
+                                };
+
+
+                            </script>
+                        </div>
+                        
+                    </div>
+                    <div class=NationalDataInnerBlocks>
+                        <h2>What It Consists Of</h2>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+
 			</div>
 		</div>
 	</div>
