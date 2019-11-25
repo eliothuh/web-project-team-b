@@ -247,9 +247,6 @@ nav {
 .lookForSearcher h1{line-height: 40px;}
 .lookForSearcher p{line-height: 20px;}
 
-
-
-
 .aboutContentBlocks{
     line-height: 28px;
     padding-left: 40px;
@@ -264,6 +261,30 @@ nav {
     width: 60%;
     margin: 20px;
 }
+#nationalData {
+  display:flex;
+  flex-direction:column;
+  background-color:#050912;
+  color:white;
+}
+.trendText {
+  color:white;
+}
+#homePageVisuals {
+    max-width:45%;
+}
+
+.nationalDataInnerBlocks {
+  margin: 10px;
+  width: auto;
+  padding: 20px;
+  color:black;
+  background-color: white;
+  border-radius: 1em;
+  display:flex;
+  justify-content: space-between;
+}
+
 /*
 Map Styles
 */
@@ -317,7 +338,7 @@ Map Styles
     order: 1;
 }
 .sectionalInnerBlocks {
-	margin: 10px;
+	  margin: 10px;
     width: auto;
     padding: 20px;
     background-color: #DFEAFF;

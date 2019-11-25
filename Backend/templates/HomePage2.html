@@ -421,16 +421,15 @@
                 	<p>The summary.</p>
 				</div>
                 <div>
-                    <div class=NationalDataInnerBlocks>
-                        <div>
-                            <h2>National Trend of Homicide Data</h2>
-                            <p>&nbsp;</p>
+                    <div class=nationalDataInnerBlocks>
+                        <div class="trendText">
+                            <h2>National Trend of Homicide Data:</h2>
+                            <p>Numbers throughout the years.</p>
                         </div>
                         
                         <div class="visual" id="homePageVisuals">
-                            <div style="width:75%">
-                                <canvas id="canvas"></canvas>
-                                <script>
+                            <canvas id="canvas"></canvas>
+                            <script>
                                     
                                     eval({{inputdata|tojson}});
                                     eval({{inputlabels|tojson}});
@@ -462,8 +461,6 @@
 
 
                             </script>
-                            </div>
-                            
                         </div>
                         
                     </div>
