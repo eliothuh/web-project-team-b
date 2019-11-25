@@ -439,6 +439,49 @@
                         </div>
 
                     </div>
+                    <div class=nationalDataInnerBlocks>
+                        <div class="trendText" style="order=5;">
+                            <h2>Proportions of Homicides Committed through Different Means:</h2>
+                            <p>For Years {{startYear}}-{{endYear}} of the State of  {{state}}.</p>
+                        </div>
+
+                        <div class="visual" id="homePageVisuals" style="order=0;">
+                            TODOTODOTODOTODO:Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.
+                            <!---canvas id="canvas"></canvas>
+                            <script>
+                              data = {{inputdata|tojson}};
+                              labels = {{inputlabels|tojson}};
+                              label = {{inputtitle|tojson}};
+
+
+                                window.onload = function() {
+                                    var context = document.getElementById('canvas').getContext('2d');
+                                    window.myScatter = new Chart(context, {
+                                        type: 'line',
+                                        data: {
+                                            labels: labels,
+                                            datasets: [{
+                                                label: "Homicide Rate Through the Years",
+                                                pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+                                                backgroundColor: 'rgba(0, 0, 100, 0.2)',
+                                                borderColor: 'rgba(0, 0, 100, 0.9)',
+                                                data: data
+                                                },
+                                                ]
+                                        },
+                                        options: {
+                                            title: {
+                                                display: false,
+                                                text: 'Example line chart for homicides over time'
+                                            },
+                                        }
+                                    });
+                                };
+
+                            </script--->
+                        </div>
+
+                    </div>
 			</div>
 
 			</div>
