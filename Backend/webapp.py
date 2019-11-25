@@ -502,6 +502,7 @@ def getNationalQueryResults():
 		start, end = setYearsToInts(start, end)
 
 		dataTable = getNationalQueryData(start, end)
+		print(dataTable)
 
 		return render_template('HomePage2.html',
 									inputData = dataTable["singleYearCrudeRates"],
