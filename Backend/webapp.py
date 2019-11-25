@@ -85,8 +85,9 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 	crudeRates = []
 
 	for year in range (startYear, endYear + 1):
-		str = "DATA IS FOR THIS YEAR" + year
-		print(str)
+		print("DATA IS FOR THIS YEAR")
+		print(year)
+		print("\n")
 		list = dataSource.getStateQuery(year, year, state)
 		rate = getStateCrudeRate(list)
 		crudeRates.append(rate)
