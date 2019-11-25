@@ -100,21 +100,22 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 def getStateCrudeRate(list):
 	'''
 	Returns the average annual rate of homicide in a state (per 100,000 people) over the
-	specified year range
+	specified year range. If no data was given over this year range (no population of deaths),
+	we return 0.
 
 	PARAMETERS:
 		list - an array of state homicide data for each year in the range the user queried
 
 	RETURN:
 		A String representing the average annual number of homicides in the user's
-		requested state (per 100,000) rounded to 3 decimal places
+		requested state (per 100,000) rounded to 3 decimal places or "0" if no valid data was given
 
 	Calls getAverageStateDeaths, getAverageStatePopulation
 	'''
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
-	print("Wyoming's average population")
-	print(averagePopulation)
+	if(averagePopulation == 0):
+		return "0"
 
 	return round(averageDeaths*100000/averagePopulation, 3)
 
@@ -160,9 +161,6 @@ def getAverageStatePopulation(list):
 	for year in list:
 		if(len(year) > 1):
 			total += year[0][6]
-
-	print("wyoming's cumulative population:")
-	print(total)
 
 	return total/numYears
 
