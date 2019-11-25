@@ -181,8 +181,8 @@ def getYearRange(startYear, endYear):
 		list.append(year)
 
 	variableName = "labels"
-
-	return list """formatJavascriptString(list, variableName)"""
+	"""formatJavascriptString(list, variableName)"""
+	return list
 
 
 def getNationalCrudeRate(list):
