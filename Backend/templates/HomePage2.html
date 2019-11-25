@@ -443,26 +443,23 @@
                         <div class="visual" id="homePageVisuals">
                             <canvas id="canvas"></canvas>
                             <script>
-                              window.alert("entering script");
                               data = {{inputdata|tojson}};
                               labels = {{inputlabels|tojson}};
                               label = {{inputtitle|tojson}};
-                              window.alert("done with evals");
 
 
                                 window.onload = function() {
-                                  window.alert("entering onload function");
                                     var context = document.getElementById('canvas').getContext('2d');
                                     window.myScatter = new Chart(context, {
                                         type: 'line',
                                         data: {
-                                            labels: [1999, 2000, 2001, 2002],
+                                            labels: labels,
                                             datasets: [{
                                                 label: "label",
                                                 pointBackgroundColor: 'rgba(255, 0, 0, 1)',
                                                 backgroundColor: 'rgba(0, 0, 100, 0.2)',
                                                 borderColor: 'rgba(0, 0, 100, 0.9)',
-                                                data: [1, 5, 10, 5]
+                                                data: data
                                                 },
                                                 ]
                                         },
