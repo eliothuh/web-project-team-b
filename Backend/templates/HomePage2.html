@@ -444,10 +444,11 @@
                         <div class="visual" id="homePageVisuals">
                             <canvas id="canvas"></canvas>
                             <script>
-														window.alert("entering script");
-                                    eval({{inputdata|tojson}});
-                                    eval({{inputlabels|tojson}});
-                                    eval({{inputtitle|tojson}});
+                              window.alert("entering script");
+                              eval({{inputdata|tojson}});
+                              eval({{inputlabels|tojson}});
+                              eval({{inputtitle|tojson}});
+                              window.alert("done with evals");
 
 																		//var i;
 																		//window.alert("entering string for loop");
