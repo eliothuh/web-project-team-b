@@ -335,9 +335,14 @@ Map Styles
   order:6;
   background-color:white;
   color:black;
+}
+#aboutSiteContents{
   display: flex;
   min-height: 300px;
   flex-direction: row;
+  order: 4;
+  background-color: white;
+  color: black;
   padding: 10px;
   margin-top: 10px;
   flex-wrap: wrap;
@@ -365,7 +370,7 @@ Map Styles
 }
 #aboutTheDataTitle{
 	color: black;
-    background-color: white;
+  background-color: white;
 }
 #aboutTheDataBlock{
 	order:4;

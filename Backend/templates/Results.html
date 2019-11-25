@@ -18,7 +18,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="{{ url_for('static', filename='ms-icon-144x144.png') }}">
 	<meta name="theme-color" content="#ffffff">
-	  
+
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
 		<script src="{{ url_for('static',filename='HomePage.js') }}"></script>
 	{% endblock %}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage2.css') }}" />
-	 
+
     <title>USHW Search Results</title>
   </head>
   <body>
@@ -38,7 +38,7 @@
 	<div class="theBar">
 		<a href="http://perlman.mathcs.carleton.edu:5113/" class="logo">
 		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
-		</a>	
+		</a>
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
 			<li class="navLinks" onClick="toggleDropdownYearsVisibility()">By Years</li>
@@ -46,12 +46,11 @@
 			<li class="navLinks"><a href="http://perlman.mathcs.carleton.edu:5113#citationAndDownload">Cite</a></li>
 		</ul>
 	</div>
-	  
+
 	<div class="dropDownYears" id="dropDownYears" onmouseover="turnOnDropdownYearsVisibility()">
-		<form method = "get" action = "/stateQuery/">
 			<div class="dropdownYearsButtons">
-				<button><input type="submit" name="startYear" value="1999"></button>
-				<button><input type="submit" name="startYear" value="2000"></button>
+				<a href = http://perlman.mathcs.carleton.edu:5113/stateQuery/?startYear=1999&endYear=1999&state=%09{{state}}><input type="submit" name="startYear" value="1999"></a>
+				<a><input type="submit" name="startYear" value="2000"></a>
 				<button><input type="submit" name="startYear" value="2001"></button>
 				<button><input type="submit" name="startYear" value="2002"></button>
 				<button><input type="submit" name="startYear" value="2003"></button>
@@ -70,9 +69,8 @@
 				<button><input type="submit" name="startYear" value="2016"></button>
 				<button><input type="submit" name="startYear" value="2017"></button>
 			</div>
-		</form>
 	</div>
-	  
+
 	<div class="dropDownStates" id="dropDownStates" onmouseover="turnOnDropdownStatesVisibility()">
 
 		<form method = "get" action = "/stateQuery/" class="dropdownStatesButtons">
@@ -370,7 +368,7 @@
                         </script>
                     </div>
                 </div>
-				
+
 			</div>
 		  	</div>
   </body>
