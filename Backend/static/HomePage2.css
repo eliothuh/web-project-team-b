@@ -189,7 +189,7 @@ nav {
 	justify-content: center;
 }
 .contentContainer{
-  margin-top:75px;
+  margin-top:95px;
 	display:flex;
 	flex-direction:column;
 	width:80%;
@@ -270,6 +270,7 @@ nav {
 .lookForSearcher button{
 	border:none;
 	background-color:#B5C8ED;
+  border-radius: 1em;
 }
 .lookForSearcher input{
 	background-color:transparent;
@@ -277,7 +278,7 @@ nav {
 	border: none;
 	color:black;
 	font-size:150%;
-  border-radius: 0.5em;
+  border-radius: 1em;
 }
 .lookForSearcher h1{line-height: 40px;}
 .lookForSearcher p{line-height: 20px;}
@@ -313,6 +314,7 @@ nav {
 .lookForSearcherN button{
 	border:none;
 	background-color:#B5C8ED;
+  border-radius: 1em;
 }
 .lookForSearcherN input{
 	background-color:transparent;
@@ -320,6 +322,7 @@ nav {
 	border: none;
 	color:black;
 	font-size:120%
+  border-radius: 1em;
 }
 .lookForSearcherN h1{line-height: 30px;}
 .lookForSearcherN p{line-height: 15px;}
