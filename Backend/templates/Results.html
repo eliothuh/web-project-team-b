@@ -249,7 +249,9 @@
 </nav>
 
 	  <div class="MainContainer" id="resultsMC">
+          
 			<div class="contentContainer">
+                
 				<div class="lookForSearcher">
 					<h1>Start a New Search.</h1>
 					<p>Select a year range and state.</p>
@@ -362,8 +364,13 @@
 						<button><input type=submit id="searchButton" value=Search></button>
 				  </form>
 		  </div>
+                
 				<div id="resultsBlock" class="sectionalBlock">
                 <div id="aboutTheData">
+                        <div class="sectionalTitle" id="aboutTheDataTitle">
+                        <h1>Search Results.</h1>
+                        <p>Here are the search results for {{state}}, from year {{startYear}} to {{endYear}}.</p>
+                        </div>
                         <div class="sectionalInnerBlocks" id="overallNumbersBlock">
                             <h2>Overall Numbers</h2>
                             <p>&nbsp;</p>
@@ -383,14 +390,11 @@
                         </div>
                     </div>
 		  		</div>
+                
                 <div id="trendsBlock" class="resultTrends">
-                    <div class="sectionalTitle" id="aboutTheDataTitle">
-                        <h1>Search Results.</h1>
-                        <p>Here are the search results for {{state}}, from year {{startYear}} to {{endYear}}.</p>
-                    </div>
+
                     <div id="resultVis" class="sectionalInnerBlock">
                         <script>
-
                             eval({{inputdata|tojson}});
                             eval({{inputlabels|tojson}});
                             eval({{inputtitle|tojson}});
