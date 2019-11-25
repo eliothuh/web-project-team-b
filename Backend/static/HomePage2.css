@@ -173,6 +173,7 @@ nav {
 	flex-direction:column;
 	width:70%;
 	Background-color:#0b0e13;
+	margin-left:15%;
 }
 .mapAndInfo{
 	order:1;
@@ -267,9 +268,11 @@ nav {
   color:white;
 }
 .trendText {
+  order:1
   color:white;
 }
 #homePageVisuals {
+    order:2;
     max-width:45%;
 }
 #mission{
@@ -358,7 +361,7 @@ Map Styles
     padding-bottom: 10px;
     padding-top: 20px;
     padding-right: 20px;
-    order: 1;
+    order: 0;
 }
 .sectionalInnerBlocks {
 	  margin: 10px;
