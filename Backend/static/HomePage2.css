@@ -215,6 +215,11 @@ nav {
   border-radius: 1em;
 
 }
+#info h2{line-height:35px;}
+#into p{line-height: 20px;}
+#trendText h2{line-height:35px;}
+#trendText p{line-height: 20px;}
+
 .mapBlock{
 	order:1;
 	justify-content: center;
