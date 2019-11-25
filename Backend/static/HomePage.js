@@ -37,7 +37,7 @@ function toggleNationwideVisibility() {
   var y = document.getElementById("dropDownStates");
   var x = document.getElementById("dropDownYears");
   var z = document.getElementById("nationwide");
-  if (x.style.display === "none") {
+  if (z.style.display === "none") {
 	z.style.display = "flex";
 	x.style.display = "none";
     y.style.display = "none";
