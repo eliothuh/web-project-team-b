@@ -190,6 +190,7 @@
 
 	  <div class="MainContainer">
 			<div class="contentContainer">
+				
 				<div class="lookForSearcher">
 					<h1>Search for Data Here.</h1>
 					<p>Select a year range and state.</p>
@@ -302,13 +303,14 @@
 						<button><input type=submit id="searchButton" value=Search></button>
 				  </form>
 		  </div>
+				
 				<div id="nationalData" class="sectionalBlock">
-				<div class="sectionalTitle" id="nationalDataTitle">
+					
+				<div class="sectionalTitle" id="resultsBlock">
 					<h1>Search Results.</h1>
                 	<p>Here are the results for {{state}} data, from year {{startYear}} to {{endYear}}.</p>
 				</div>
-				<div class="resultsData">
-					<h1> Search Results: {{state}} {{startYear}} to {{endYear}} </h1>
+					
 					<h2><p>State Average Annual Homicides Per 100,000: {{stateCrudeRate}}</p>
 					<p>National Average Annual Homicides Per 100,000: {{nationalCrudeRate}}</p>
 					<p>Means of Homicide:</p>
@@ -316,9 +318,10 @@
     					<li>{{ key }}: {{value}}%</li>
 					{% endfor %}
 					</h2>
+					
 		  		</div>
+				
 			</div>
 		  	</div>
-	  </div>
   </body>
 </html>
