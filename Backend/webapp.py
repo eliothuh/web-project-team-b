@@ -503,7 +503,7 @@ def getNationalQueryResults():
 
 		dataTable = getNationalQueryData(start, end)
 
-		return render_template('Homepage2.html',
+		return render_template('HomePage2.html',
 									inputData = dataTable["singleYearCrudeRates"],
 									inputLabels = dataTable["yearRange"],
 									inputTitle = f"National Homicide Rate from {{start}} to {{end}}",
