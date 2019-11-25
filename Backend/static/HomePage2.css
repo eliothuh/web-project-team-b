@@ -273,7 +273,14 @@ nav {
 #homePageVisuals {
     max-width:45%;
 }
-
+#mission{
+  background-color:white;
+  color:black;
+}
+#workCited{
+  background-color:white;
+  color:black;
+}
 .nationalDataInnerBlocks {
   margin: 10px;
   width: auto;
