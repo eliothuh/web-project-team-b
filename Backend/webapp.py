@@ -3,8 +3,6 @@
 webapp.py sends queries from the frontend to the backend.
 It loads and updates pages and processes data in a form easy
 for the html to present.
-
-***We have only implemented the text field inputs! The buttons at the top do not work!***
 '''
 
 import flask
@@ -23,9 +21,9 @@ def getStateQueryData(startYear, endYear, state):
 	'''
 	Returns the average annual rate of homicide in a state (per 100,000 people),
 	the national average annual rate of homicide (per 100,000 people),
-	a line of Javascript code that stores the average annual rate of homicide during each year within the specified
-	range in the state (per 100,000), another line of Javascript code storing a list of years within the
-	specified range, and the causes of homicide along with the percentage of total homicides they
+	a list of rates of homicide over each specified year within the state,
+	a list containing each year in the specified range (for our Javascript file), and the
+	causes of homicide along with the percentage of total homicides they
 	contributed, if accurate data for each said cause is provided.
 
 	PARAMETERS:
@@ -59,16 +57,13 @@ def getStateQueryData(startYear, endYear, state):
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	dataTable["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 
-	print("all done!")
-
 	return dataTable
 
 
 def getStateSingleYearCrudeRates(startYear, endYear, state):
 	'''
-	gets the rate of homicide over each year from startYear to endYear, places all of these
-	crude rates into a list of ints, and then returns this data as a formatted String
-	our Javascript file can parse.
+	Gets the rate of homicide within the specified state over each year from startYear to endYear,
+	places all of these crude rates into a list of ints and returns this list
 
     PARAMETERS:
     startYear: the first year to find the homicide crude rate for
@@ -76,9 +71,10 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
     state: the state to find the homicide crude rate for
 
     RETURN:
-    A String representation of our array of crude rates over the year range
+    A list of ints each representing the rate of homicide per 100,000 people in
+	each year within the specified range
 
-    Calls getStateCrudeRate, formatSingleYearCrudeRates
+    Calls getStateCrudeRate
     '''
 	list = []
 	rate = 0
@@ -92,8 +88,6 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 		rate = getStateCrudeRate(list)
 		crudeRates.append(rate)
 
-	variableName = "data"
-	"""formatJavascriptString(crudeRates, variableName)"""
 	return crudeRates
 
 
@@ -165,7 +159,7 @@ def getAverageStatePopulation(list):
 	return total/numYears
 
 
-def formatJavascriptString(list, variableName):
+"""def formatJavascriptString(list, variableName):
 	'''
 	takes in a list and a variable name and formats it into a string representing a line
 	of Javascript code that assigns the inputted array to a variable with the specified name
@@ -181,15 +175,25 @@ def formatJavascriptString(list, variableName):
 	javascriptString = "var " + variableName + " = "
 	javascriptString += "[" + ', '.join([str(elem) for elem in list]) + "]"
 	return javascriptString
+	"""
 
 def getYearRange(startYear, endYear):
+	'''
+	returns a list containing each year (as an int) from startYear to endYear
+
+	PARAMETERS:
+	startYear: the first year to store in the list
+	endYear: the last year to store in the list
+
+	RETURN:
+	A list of ints, starting from startYear and increasing sequentially
+	up to and including endYear
+	'''
 	list = []
 
 	for year in range(startYear, endYear + 1):
 		list.append(year)
 
-	variableName = "labels"
-	"""formatJavascriptString(list, variableName)"""
 	return list
 
 
@@ -425,8 +429,18 @@ def setYearsToInts(startYear, endYear):
 
 def cleanStateInput(state):
 	'''
-	if no state is provided, sets it to Alabama
-	if the state starts with a lowercase letter, makes it a capital letter.
+	Re-formats the inputted state to be usable in a SQL query. More specifically, this function
+	returns a String with the leading and trailing white space of the input removed and each word
+	within the string (except conjunctions/prepositions like "of" or "and") capitalized.
+	If no string was specified, we simply return "Alabama"
+
+	PARAMETERS:
+		state: the user inputted string representing the state they want to query over
+
+	RETURN:
+		a String representing the user's inputted state, but with the first letter of
+		each word capitalized (except for prepositions and conjunctions) or Alabama if
+		no String was entered.
 	'''
 	state = state.strip()
 
@@ -447,7 +461,14 @@ def cleanStateInput(state):
 
 def cleanIndividualWord(word):
 	'''
-	makes the first letter of the word a capital letter
+	Returns the inputted word with the first letter capitalized unless
+	the inputted word is a preposition or conjunction.
+
+	PARAMETERS:
+		word- the word to capitalize (or not capitalize)
+
+	RETURN:
+		a String representing the word, but capitalized if necessary
 	'''
 	nonCapitalizedWords = ["a", "an", "for", "and", "or", "nor", "but", "yet", "so", "at",
 	 "around", "by", "after", "along", "from", "of", "on", "to", "with", "without"]
@@ -459,6 +480,24 @@ def cleanIndividualWord(word):
 
 
 def getNationalQueryData(startYear, endYear):
+	'''
+	Returns the average annual rate of homicide per 100,000 people across the nation over the specified
+	year range, the state/region with the highest average annual rate of homicide over this range and
+	its rate of homicide, a list containing each year within the specified range (for our Javascript files),
+	and the rate of homicide in each individual year in the specified range stored in a list.
+
+	PARAMETERS:
+		startYear- the first year to collect national data for
+		endYear- the last year over which we will collect data
+
+	RETURN:
+		A dictionary with keys: "nationalCrudeRate" - the national rate of homicide per 100,000 people
+		over the specified years, "mostDangerousState" - the state with the highest homicide rate,
+		"mostDangerousStateRate" - the rate of homicide of the most dangerous state,
+		"yearRange" - a list of years, beginning with the start year and ending with the end year, and
+		"singleYearCrudeRates" - the national rate of homicide each year in the range, stored in a list
+	'''
+
 	nationalQueryData = {}
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	nationalQueryData["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
@@ -470,6 +509,20 @@ def getNationalQueryData(startYear, endYear):
 
 
 def getMostDangerousStateAndData(startYear, endYear):
+	'''
+	Returns the US state with the highest rate of homicide over the specified
+	range of years and the rate of homicide within this state per 100,000 people in the
+	population
+
+	PARAMETERS:
+		startYear - the first year over which to find homicide data
+		endYear- the last year to collect homicide data over
+
+	RETURN:
+		The most dangerous state, returned as a string, and the state's
+		average annual rate of homicide over the specified range (per 100,000 people)
+		returned as an int
+	'''
 	crudeRate = 0
 	currentStateRate = 0
 	mostDangerousState = ""
@@ -483,7 +536,22 @@ def getMostDangerousStateAndData(startYear, endYear):
 
 	return mostDangerousState, crudeRate
 
+
 def getNationalSingleYearCrudeRates(startYear, endYear):
+	'''
+	Gets the national rate of homicide over each year from startYear to endYear, places all of these
+	crude rates into a list of ints and returns this list
+
+    PARAMETERS:
+    startYear: the first year to find the homicide crude rate for
+    endYear: the last year to find the homicide crude rate for
+
+    RETURN:
+    A list of ints each representing the national rate of homicide per 100,000 people in
+	each year within the specified range
+
+    Calls getNationalCrudeRate
+    '''
 	list = []
 	rate = 0
 	crudeRates = []
@@ -493,8 +561,6 @@ def getNationalSingleYearCrudeRates(startYear, endYear):
 		rate = getNationalCrudeRate(list)
 		crudeRates.append(rate)
 
-	variableName = "data"
-	"""formatJavascriptString(crudeRates, variableName)"""
 	return crudeRates
 
 
