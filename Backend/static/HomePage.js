@@ -1,9 +1,11 @@
 function toggleDropdownStatesVisibility() {
   var x = document.getElementById("dropDownStates");
   var y = document.getElementById("dropDownYears");
+  var z = document.getElementById("nationwide");
   if (x.style.display === "none") {
 	x.style.display = "flex";
 	y.style.display = "none";
+    z.style.display = "none";
   } else {
 	x.style.display = "none";
   }
@@ -12,47 +14,34 @@ function toggleDropdownStatesVisibility() {
 function turnOffAllCollapsibles() {
 	var y = document.getElementById("dropDownStates");
 	var x = document.getElementById("dropDownYears");
+    var z = document.getElementById("nationwide");
 	x.style.display="none";
 	y.style.display="none";
+    z.style.display = "none";
 }
 
 function toggleDropdownYearsVisibility() {
   var y = document.getElementById("dropDownStates");
   var x = document.getElementById("dropDownYears");
+  var z = document.getElementById("nationwide");
   if (x.style.display === "none") {
 	x.style.display = "flex";
 	y.style.display = "none";
+    z.style.display = "none";
   } else {
 	x.style.display = "none";
   }
 }
-function submitForm(startY, endY, s) {
-	var form = document.createElement("form");
-    	var element1 = document.createElement("input"); 
-    	var element2 = document.createElement("input");  
-	var element2 = document.createElement("input");  
-    	
-	form.method = "POST"; 
 
-	element1.value=startY;
-	element1.name="startYear";
-	form.appendChild(element1);  
-
-	element2.value=endY;
-	element2.name="endYear";
-	form.appendChild(element2);
-
-	element3.value=s;
-	element3.name="state";
-	form.appendChild(element3);
-
-    	
-	document.body.appendChild(form);
-
-    form.submit();
+function toggleNationwideVisibility() {
+  var y = document.getElementById("dropDownStates");
+  var x = document.getElementById("dropDownYears");
+  var z = document.getElementById("nationwide");
+  if (x.style.display === "none") {
+	z.style.display = "flex";
+	x.style.display = "none";
+    y.style.display = "none";
+  } else {
+	z.style.display = "none";
+  }
 }
-$(document).ready(function () {
-toggleDropdownStatesVisibility()	
-turnOffAllCollapsibles()
-toggleDropdownYearsVisibility()
- }) ;
