@@ -85,6 +85,7 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 	crudeRates = []
 
 	for year in range (startYear, endYear + 1):
+		print("DATA IS FOR THIS YEAR" + year)
 		list = dataSource.getStateQuery(year, year, state)
 		rate = getStateCrudeRate(list)
 		crudeRates.append(rate)
@@ -251,6 +252,7 @@ def getAverageNationalPopulation(list):
 		tupleIndex = len(year) - 1
 		if(tupleIndex > 0):
 			total += year[tupleIndex][6]
+
 
 	return total/numYears
 
