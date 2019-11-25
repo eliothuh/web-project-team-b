@@ -48,10 +48,12 @@ def getStateQueryData(startYear, endYear, state):
 	if isinstance(fullList, Exception):
 		raise fullList
 
-		dataTable["yearRange"] = getYearRange(startYear, endYear)
-		dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
+	dataTable["yearRange"] = getYearRange(startYear, endYear)
+	dataTable["singleYearCrudeRates"] = getSingleYearCrudeRates(startYear, endYear, state)
+	print(dataTable["yearRange"])
+	print(dataTable["singleYearCrudeRates"])
 
-		dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
+	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
