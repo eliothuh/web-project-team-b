@@ -277,7 +277,7 @@ nav {
 	width:200px;
 	border: none;
 	color:black;
-	font-size:200%;
+	font-size:300%;
   border-radius: 1em;
 }
 .lookForSearcher h1{line-height: 40px;}
@@ -321,7 +321,7 @@ nav {
 	width:100px;
 	border: none;
 	color:black;
-	font-size:180%
+	font-size:200%;
   border-radius: 1em;
 }
 .lookForSearcherN h1{line-height: 30px;}
