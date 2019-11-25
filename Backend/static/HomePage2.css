@@ -268,7 +268,7 @@ nav {
   color:white;
 }
 .trendText {
-  order:1
+  order:1;
   color:white;
 }
 #homePageVisuals {
@@ -278,6 +278,14 @@ nav {
 #mission{
   background-color:#DFEAFF;
   color:black;
+}
+#pieText{
+  order:2;
+  color:white;
+}
+#homePageVisualsPie{
+  order:1;
+  width:50%;
 }
 #workCited{
   background-color:#DFEAFF;
