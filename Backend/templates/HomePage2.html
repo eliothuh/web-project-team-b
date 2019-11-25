@@ -37,14 +37,10 @@
   <nav class="navbar">
 	<div class="theBar">
         <div>
-            <a href="http://perlman.mathcs.carleton.edu:5113/" class="logo">
-		      <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
-		      </a>
-            <div id="oneLiner">
-            <h2>United States Homicide Watch: Informing the public of the latest public safety statistics of United States.</h2>
-            </div>
         </div>
-		
+		<a href="http://perlman.mathcs.carleton.edu:5113/" class="logo">
+		  <img alt = "USHW logo" src="{{ url_for('static', filename='logo.png') }}" />
+		</a>
 		<ul class="navLinksList">
 			<li class="navLinks" onClick="toggleDropdownStatesVisibility()">By States</li>
 			<li class="navLinks" onClick="toggleDropdownYearsVisibility()">By Years</li>
@@ -197,6 +193,9 @@
   <div class="MainContainer" onclick="turnOffAllCollapsibles()">
       <div class="contentContainer">
 			<div class="mapAndInfo">
+                    <div id="info">
+                    <h2>United States Homicide Watch: Informing the public of the latest public safety statistics of United States.</h2>
+                    </div>
 					<div class="mapBlock">
 					  <div class="interactiveMap">
 							<svg id="map" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="590">
@@ -569,7 +568,6 @@
 
                     </div>
 			</div>
-            
 		</div>
 	</div>
   </body>

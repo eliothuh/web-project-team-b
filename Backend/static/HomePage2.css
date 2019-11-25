@@ -180,6 +180,9 @@ nav {
 	display:flex;
 	flex-direction:column;
 }
+#info{
+  min-width:30%;
+}
 .mapBlock{
 	flex:6;
 	order:1;
