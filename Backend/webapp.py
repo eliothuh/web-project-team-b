@@ -376,7 +376,7 @@ def adjustYears(startYear, endYear):
 	RETURN:
 		An array of Strings, each specifying the start and end year
 	'''
-	if(endYear is None):
+	if(startYear is None):
 		startYear = "1999"
 		endYear = "2017"
 		return startYear, endYear
