@@ -34,7 +34,7 @@
     <title>USHW</title>
   </head>
   <body>
-		<script> window.alert("running test script"); </script>
+      <script> window.alert("running test script"); </script>
   <nav class="navbar">
 	<div class="theBar">
 		<a href="http://perlman.mathcs.carleton.edu:5113/" class="logo">
@@ -410,7 +410,7 @@
 				</div>
        	    </div>
             <div class="sectionalBlock" id="aboutSite">
-                <div class="sectionalTitle" style="color:white">
+                <div class="sectionalTitle">
                   <h1>About Our Site:</h1>
                   <p>More about USHW.</p>
                 </div>
@@ -456,8 +456,9 @@
 																			labels[i] = labels[i].toString();
 																		}
 
-                                window.onload = function() {
-																	window.alert("entering onload function")
+                                //window.onload = function() {
+                                function main(){
+                                  window.alert("entering onload function");
                                     var context = document.getElementById('canvas').getContext('2d');
                                     window.myScatter = new Chart(context, {
                                         type: 'line',
@@ -480,7 +481,7 @@
                                         }
                                     });
                                 };
-
+                                main();
 
                             </script>
                         </div>
