@@ -150,6 +150,7 @@ def getAverageStatePopulation(list):
 
 	for year in list:
 		print("error line 152")
+		print(len(year))
 		if(len(year) > 1):
 			total += year[0][6]
 
