@@ -621,6 +621,7 @@ def getMapQueryResults():
 			state = cleanStateInput(state)
 
 			dataTable = getStateQueryData(start, end, state)
+			print(dataTable["causesAndPercentages"])
 			inputData = getListOfValues(dataTable["causesAndPercentages"])
 			
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
