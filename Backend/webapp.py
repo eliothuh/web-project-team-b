@@ -565,6 +565,14 @@ def getNationalSingleYearCrudeRates(startYear, endYear):
 
 	return crudeRates
 
+def getListOfValues(dictionary):
+	list = []
+	
+	for key in dictionary:
+		list.append dictionary[key]
+	
+	return list 
+
 
 @app.route('/', methods = ['POST', 'GET'])
 def getNationalQueryResults():
@@ -579,11 +587,7 @@ def getNationalQueryResults():
 		start, end = setYearsToInts(start, end)
 
 		dataTable = getNationalQueryData(start, end)
-
-		print(dataTable["singleYearCrudeRates"])
-		print(dataTable["yearRange"])
 		
-
 		return render_template('HomePage2.html',
 									inputdata = dataTable["singleYearCrudeRates"],
 									inputlabels = dataTable["yearRange"],
@@ -617,12 +621,8 @@ def getMapQueryResults():
 			state = cleanStateInput(state)
 
 			dataTable = getStateQueryData(start, end, state)
-			stuff = list(dataTable["causesAndPercentages"].values())
-			print(stuff)
-			inputData = list(stuff)
-			print(type(inputData))
+			inputData = getListOfValues(dataTable["causesAndPercentages"])
 			
-
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
 										causesAndPercentages = dataTable["causesAndPercentages"],
