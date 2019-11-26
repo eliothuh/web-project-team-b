@@ -412,8 +412,8 @@
 
 
                                 window.onload = function() {
-                                    var context = document.getElementById('canvas').getContext('2d');
-                                    window.lineChart = new Chart(context, {
+                                    var linecCntext = document.getElementById('canvas').getContext('2d');
+                                    window.lineChart = new Chart(lineContext, {
                                         type: 'line',
                                         data: {
                                             labels: labels,
@@ -449,22 +449,65 @@
                             TODOTODOTODOTODO:Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.
                             <canvas id="piecanvas"></canvas>
                             <script>
+                            
+                    			function getRandomNumberInRange(min, max){
+									var randomNumber = Math.random();
+									var preFloorNumber = (randomNumber * (max - min)) + min;
+									var postFloorNumber = Math.floor(preFloorNumber);
+									return postFloorNumber;
+								}
+
+		
+								function getRandomColor() {
+									var red = Math.round(getRandomNumberInRange(0, 200));
+									var green = Math.round(getRandomNumberInRange(0, 200));
+									var blue = Math.round(getRandomNumberInRange(0, 200));
+									return 'rgba(' + red + ',' + green + ',' + blue + ')';
+								}
+
+								function getRandomColors(length) {
+									var colors = [];
+									var i;
+									for (j = 0; j < length; j++) {
+										var newColor = getRandomColor();
+										colors[j] = newColor;
+									}
+									return colors;
+								}
+
+
+								function adjustColors(colors, alpha){
+									var adjustedColors = [];
+									for (i = 0; i < colors.length; i++){
+										var currentColor = colors[i];
+										var partialColorString = currentColor.slice(0, currentColor.length - 1);
+										var newColorString = partialColorString + "," + alpha + ")";
+										adjustedColors[i] = newColorString;
+									}
+									return adjustedColors;
+								}
+								
+								
                               piedata = {{inputpiedata|tojson}};
                               pielabels = {{inputpielabels|tojson}};
                               pielabel = {{inputpietitle|tojson}};
 
 
                                 window.onload = function() {
-                                    var piecontext = document.getElementById('piecanvas').getContext('2d');
-                                    window.pieChart = new Chart(context, {
+                                    var pieContext = document.getElementById('piecanvas').getContext('2d');
+                                    var baseColors = getRandomColors(labels.length);
+									var outlineColors = adjustColors(baseColors, 1.0);
+									var backgroundColors = adjustColors(baseColors, 0.3);
+                                    
+                                    window.pieChart = new Chart(pieContext, {
                                         type: 'pie',
                                         data: {
                                             labels: pielabels,
                                             datasets: [{
                                                 label: pielabel,
                                                 pointBackgroundColor: 'rgba(255, 0, 0, 1)',
-                                                backgroundColor: 'rgba(0, 0, 100, 0.2)',
-                                                borderColor: 'rgba(0, 0, 100, 0.9)',
+                                                backgroundColor: backgroundColors,
+                                                borderColor: outlineColors,
                                                 data: piedata
                                                 },
                                                 ]
