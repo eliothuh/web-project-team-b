@@ -104,7 +104,7 @@ def getStateCrudeRate(list):
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
 	if(averagePopulation == 0):
-		return "0"
+		return 0
 
 	return round(averageDeaths*100000/averagePopulation, 3)
 
@@ -153,6 +153,8 @@ def getAverageStatePopulation(list):
 		print(len(year))
 		if(len(year) > 1):
 			total += year[0][6]
+		
+		print("no error 152")
 
 	return total/numYears
 
