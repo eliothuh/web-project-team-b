@@ -413,7 +413,7 @@
 
                                 window.onload = function() {
                                     var context = document.getElementById('canvas').getContext('2d');
-                                    window.myScatter = new Chart(context, {
+                                    window.lineChart = new Chart(context, {
                                         type: 'line',
                                         data: {
                                             labels: labels,
@@ -455,9 +455,9 @@
 
 
                                 window.onload = function() {
-                                    var context = document.getElementById('piecanvas').getContext('2d');
-                                    window.myScatter = new Chart(context, {
-                                        type: 'line',
+                                    var piecontext = document.getElementById('piecanvas').getContext('2d');
+                                    window.pieChart = new Chart(context, {
+                                        type: 'pie',
                                         data: {
                                             labels: pielabels,
                                             datasets: [{
