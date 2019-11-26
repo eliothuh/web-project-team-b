@@ -501,7 +501,7 @@ def getNationalQueryData(startYear, endYear):
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
 	if isinstance(nationTotals, Exception):
 		raise nationTotals
-	
+
 	nationalQueryData["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 	nationalQueryData["mostDangerousState"], nationalQueryData["mostDangerousStateRate"] = getMostDangerousStateAndData(startYear, endYear)
 	nationalQueryData["yearRange"] = getYearRange(startYear, endYear)
@@ -620,6 +620,7 @@ def getMapQueryResults():
 
 			dataTable = getStateQueryData(start, end, state)
 			print("NO ERRORS YET 2!!!")
+			print(dataTable["causesAndPercentages"].values())
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
