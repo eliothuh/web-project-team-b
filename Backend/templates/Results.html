@@ -406,12 +406,15 @@
                         <div class="visual" id="homePageVisuals">
                             <canvas id="linecanvas"></canvas>
                             <script>
+                              window.alert("entering line chart script");
                               data = {{inputdata|tojson}};
                               labels = {{inputlabels|tojson}};
                               label = {{inputtitle|tojson}};
+                              window.alert("fininished with tojson in line chart");
 
 
                                 window.onload = function() {
+                                	window.alert("entering window.onload function for line chart");
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
                                         type: 'line',
@@ -434,7 +437,7 @@
                                         }
                                     });
                                 };
-
+							window.alert("exiting line chart on load function");
                             </script>
                         </div>
 
