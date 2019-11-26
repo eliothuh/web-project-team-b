@@ -617,7 +617,9 @@ def getMapQueryResults():
 			state = cleanStateInput(state)
 
 			dataTable = getStateQueryData(start, end, state)
-			inputData = list(dataTable["causesAndPercentages"].values())
+			stuff = list(dataTable["causesAndPercentages"].values())
+			print(stuff)
+			inputData = list(stuff)
 			print(type(inputData))
 			
 
