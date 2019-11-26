@@ -96,8 +96,8 @@ def getStateCrudeRate(list):
 		list - an array of state homicide data for each year in the range the user queried
 
 	RETURN:
-		A String representing the average annual number of homicides in the user's
-		requested state (per 100,000) rounded to 3 decimal places or "0" if no valid data was given
+		A int representing the average annual number of homicides in the user's
+		requested state (per 100,000) rounded to 3 decimal places or 0 if no valid data was given
 
 	Calls getAverageStateDeaths, getAverageStatePopulation
 	'''
@@ -106,7 +106,6 @@ def getStateCrudeRate(list):
 	if(averagePopulation == 0):
 		return 0
 	
-	print(type(round(averageDeaths*100000/averagePopulation, 3)))
 	return round(averageDeaths*100000/averagePopulation, 3)
 
 
@@ -128,7 +127,6 @@ def getAverageStateDeaths(list):
 
 	for year in list:
 		tupleIndex = len(year) - 2
-		print("error line 130")
 		if(tupleIndex > 0):
 			stateTotal += year[tupleIndex][5]
 
@@ -150,33 +148,12 @@ def getAverageStatePopulation(list):
 	total = 0
 
 	for year in list:
-		print("error line 152")
 		print(len(year))
 		if(len(year) > 1):
 			total += year[0][6]
-		
-		print("no error 152")
 
 	return total/numYears
 
-
-"""def formatJavascriptString(list, variableName):
-	'''
-	takes in a list and a variable name and formats it into a string representing a line
-	of Javascript code that assigns the inputted array to a variable with the specified name
-
-	PARAMETERS:
-	list: the list we want to store in Javascript
-	variableName: the name of the variable we want to store the list in
-
-	RETURN:
-	A String representing the Javascript code that will store inputted list into
-	a variable with our specified name in our Javascript file.
-	'''
-	javascriptString = "var " + variableName + " = "
-	javascriptString += "[" + ', '.join([str(elem) for elem in list]) + "]"
-	return javascriptString
-	"""
 
 def getYearRange(startYear, endYear):
 	'''
@@ -233,7 +210,7 @@ def getNationalAverageDeaths(list):
 
 	for year in list:
 		tupleIndex = len(year) - 1
-		print("error line 232")
+		
 		if(tupleIndex > 0):
 			total += year[tupleIndex][5]
 
@@ -256,7 +233,7 @@ def getAverageNationalPopulation(list):
 
 	for year in list:
 		tupleIndex = len(year) - 1
-		print("error line 254")
+
 		if(tupleIndex > 0):
 			total += year[tupleIndex][6]
 
@@ -588,9 +565,6 @@ def getNationalQueryResults():
 		end = request.args.get('endYear')
 		start, end = adjustYears(start, end)
 		start, end = setYearsToInts(start, end)
-		print("START AND END YEAR TYPES")
-		print(type(start))
-		print(type(end))
 
 		dataTable = getNationalQueryData(start, end)
 		
