@@ -404,7 +404,7 @@
                         </div>
 
                         <div class="visual" id="homePageVisuals">
-                            <canvas id="canvas"></canvas>
+                            <canvas id="linecanvas"></canvas>
                             <script>
                               data = {{inputdata|tojson}};
                               labels = {{inputlabels|tojson}};
@@ -412,7 +412,7 @@
 
 
                                 window.onload = function() {
-                                    var linecCntext = document.getElementById('canvas').getContext('2d');
+                                    var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
                                         type: 'line',
                                         data: {
