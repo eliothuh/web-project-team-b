@@ -569,7 +569,7 @@ def getListOfValues(dictionary):
 	list = []
 	
 	for key in dictionary:
-		list.append dictionary[key]
+		list.append(dictionary[key])
 	
 	return list 
 
