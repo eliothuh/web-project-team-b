@@ -630,8 +630,8 @@ def getMapQueryResults():
 										inputdata = dataTable["singleYearCrudeRates"],
 										inputlabels = dataTable["yearRange"],
 										inputtitle = f"{state} Annual Crude Rates",
-										inputpiedata=[30,40,50,60],
-										inputpielabels=["apple","cherry","pecan","sharp object"],
+										inputpiedata=dataTable["causesAndPercentages"].values(),
+										inputpielabels=dataTable["causesAndPercentages"].keys(),
 										inputpietitle=f"{state} Homicide Data by Cause of Death")
 
 		except Exception as e:
