@@ -49,7 +49,7 @@
 	</div>
 
 	<div class="dropDownYears" id="dropDownYears" onmouseover="turnOnDropdownYearsVisibility()">
-		<form method = "get" action = "/stateQuery/">
+		<form method = "get" action = "/#nationalDataTitle">
 			<div class="dropdownYearsButtons">
 				<button><input type="submit" name="startYear" value="1999"></button>
 				<button><input type="submit" name="startYear" value="2000"></button>
@@ -80,7 +80,7 @@
 		  	<div class="lookForSearcherN">
 					<form method = "get" action = "/stateQuery/">
 						<div>
-							
+
 							From:<select type=text name="startYear">
 								<option value="1999">1999</option>
 								<option value="2000">2000</option>
@@ -105,7 +105,7 @@
 						</div>
 
 						<div>
-							
+
 							To:<select type=text name="endYear">
 								<option value="1999">1999</option>
 								<option value="2000">2000</option>
@@ -249,9 +249,9 @@
 </nav>
 
 	  <div class="MainContainer" id="resultsMC">
-          
+
 			<div class="contentContainer">
-                
+
 				<div class="lookForSearcher">
 					<h1>Start a New Search.</h1>
 					<p>Select a year range and state.</p>
@@ -364,7 +364,7 @@
 						<button><input type=submit id="searchButton" value=Search></button>
 				  </form>
 		  </div>
-                
+
 				<div id="resultsBlock" class="sectionalBlock">
                 <div class="sectionalTitle" id="aboutTheDataTitle">
                     <h1>Search Results.</h1>
@@ -390,7 +390,7 @@
                         </div>
                     </div>
 		  		</div>
-                
+
                 <div class="sectionalBlock" id="nationalData">
 				<div class="sectionalTitle" id="nationalDataTitle">
 					<h1>Data Visualizations.</h1>
@@ -452,8 +452,8 @@
                             var piedata={{inputpiedata|tojson}};
                             var pielabels={{inputpielabels|tojson}};
                             var pielabel={{inputpietitle|tojson}};
- 
-                            
+
+
                             function getRandomNumberInRange(min, max){
 								var randomNumber = Math.random();
 								var preFloorNumber = (randomNumber * (max - min)) + min;
@@ -490,15 +490,15 @@
 								}
 								return adjustedColors;
 							}
-							
+
 							function makePieChart(){
 								var piecontext = document.getElementById("piecanvas").getContext("2d");
 								var baseColors = getRandomColors(pielabels.length);
 								var outlineColors = adjustColors(baseColors, 1.0);
 								var backgroundColors = adjustColors(baseColors, 0.3);
-								
-								
-								
+
+
+
 								window.pieChart = new Chart(piecontext, {
 								type: "pie",
 								data: {
@@ -520,10 +520,10 @@
 								}
 								});
 							};
-							makePieChart();			
-				
-							
-                            
+							makePieChart();
+
+
+
                             </script>
                         </div>
 
