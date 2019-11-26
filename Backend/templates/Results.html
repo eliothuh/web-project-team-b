@@ -406,7 +406,6 @@
                         <div class="visual" id="homePageVisuals">
                             <canvas id="linecanvas"></canvas>
                             <script>
-                              window.alert("entering line chart script");
                               data = {{inputdata|tojson}};
                               labels = {{inputlabels|tojson}};
                               label = {{inputtitle|tojson}};
@@ -435,7 +434,6 @@
                                         }
                                     });
                                 };
-                                window.alert("Line Chart working!");
                             </script>
                         </div>
 
@@ -454,9 +452,7 @@
                             var piedata={{inputpiedata|tojson}};
                             var pielabels={{inputpielabels|tojson}};
                             var pielabel={{inputpietitle|tojson}};
-                            var causesAndPercentages = {{causesAndPercentages|tojson}};
-                            window.alert("cAP: " + causesAndPercentages);
-                            window.alert("var piedata test script working"); 
+ 
                             
                             function getRandomNumberInRange(min, max){
 								var randomNumber = Math.random();
@@ -496,7 +492,6 @@
 							}
 							
 							function makePieChart(){
-								window.alert("pie function running!");
 								var piecontext = document.getElementById("piecanvas").getContext("2d");
 								var baseColors = getRandomColors(pielabels.length);
 								var outlineColors = adjustColors(baseColors, 1.0);
@@ -528,7 +523,6 @@
 							makePieChart();			
 				
 							
-							window.alert("IT'S working!");
                             
                             </script>
                         </div>
