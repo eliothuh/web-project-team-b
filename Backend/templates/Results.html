@@ -70,6 +70,7 @@
 				<button><input type="submit" name="startYear" value="2015"></button>
 				<button><input type="submit" name="startYear" value="2016"></button>
 				<button><input type="submit" name="startYear" value="2017"></button>
+				<button><input type="text" name="state" value={{"state"}}>
 			</div>
 		</form>
 	</div>
@@ -78,7 +79,7 @@
                 <h2>Display Nationwide Data For Years:</h2>
             </div>
 		  	<div class="lookForSearcherN">
-					<form method = "get" action = "/stateQuery/">
+					<form method = "get" action = "/#nationalDataTitle">
 						<div>
 
 							From:<select type=text name="startYear">
@@ -439,14 +440,13 @@
 
                     </div>
                     <div class=nationalDataInnerBlocks>
-                        <div class="trendText2">
-                            <h2>Proportions of Homicides Committed through Different Means:</h2>
-                            <p>For Years {{startYear}}-{{endYear}} of the State of  {{state}}.</p>
-                        </div>
+
 
                         <div class="visual" id="homePageVisuals2">
-                            TODOTODOTODOTODO:Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.
-                            <canvas id="piecanvas"></canvas>
+													<div class="trendText2">
+	                            <h2>Proportions of Homicides Committed through Different Means:</h2>
+	                            <p>For Years {{startYear}}-{{endYear}} of the State of  {{state}}.</p>
+	                        </div>                            <canvas id="piecanvas"></canvas>
 
                             <script>
                             var piedata={{inputpiedata|tojson}};
