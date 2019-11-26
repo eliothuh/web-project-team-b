@@ -47,10 +47,8 @@ def getStateQueryData(startYear, endYear, state):
 		raise fullList
 
 	dataTable["yearRange"] = getYearRange(startYear, endYear)
-	print("Single Year Crude Rates")
 	dataTable["singleYearCrudeRates"] = getStateSingleYearCrudeRates(startYear, endYear, state)
 
-	print("Big Crude Rate")
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -81,9 +79,6 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 	crudeRates = []
 
 	for year in range (startYear, endYear + 1):
-		print("DATA IS FOR THIS YEAR")
-		print(year)
-		print("\n")
 		list = dataSource.getStateQuery(year, year, state)
 		rate = getStateCrudeRate(list)
 		crudeRates.append(rate)
