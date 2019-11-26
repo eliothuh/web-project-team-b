@@ -407,9 +407,9 @@
                             <canvas id="linecanvas"></canvas>
                             <script>
                               window.alert("entering line chart script");
-                              data = {{inputdata|tojson}};
-                              labels = {{inputlabels|tojson}};
-                              label = {{inputtitle|tojson}};
+                              var data = {{inputdata|tojson}};
+                              var labels = {{inputlabels|tojson}};
+                              var label = {{inputtitle|tojson}};
                               window.alert("fininished with tojson in line chart");
 
 
@@ -493,9 +493,9 @@
 								}
 								
 								
-                              piedata = {{inputpiedata|tojson}};
-                              pielabels = {{inputpielabels|tojson}};
-                              pielabel = {{inputpietitle|tojson}};
+                              var piedata = {{inputpiedata|tojson}};
+                              var pielabels = {{inputpielabels|tojson}};
+                              var pielabel = {{inputpietitle|tojson}};
 
 
                                 function makePieChart(piedata, pielabels, pielabel) {
