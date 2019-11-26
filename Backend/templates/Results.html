@@ -493,7 +493,7 @@
 								return adjustedColors;
 							}
 							
-							window.onload = function() {makePieChart()};
+							//window.onload = function() {makePieChart()};
 							function makePieChart(){
 								var piecontext = document.getElementById("piecanvas").getContext("2d");
 								var baseColors = getRandomColors(pielabels.length);
@@ -503,7 +503,7 @@
 								window.pieChart = new Chart(context, {
 								type: "pie",
 								data: {
-									labels: labels,
+									labels: pielabels,
 									datasets: [{
 										label: pielabel,
 										pointBackgroundColor: 'rgba(255, 0, 0, 1)',
