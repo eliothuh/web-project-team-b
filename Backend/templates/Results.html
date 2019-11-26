@@ -410,7 +410,7 @@
                               data = {{inputdata|tojson}};
                               labels = {{inputlabels|tojson}};
                               label = {{inputtitle|tojson}};
-;
+
 
                                 window.onload = function() {
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
@@ -448,14 +448,20 @@
                         <div class="visual" id="homePageVisuals2">
                             TODOTODOTODOTODO:Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.
                             <canvas id="piecanvas"></canvas>
-                            <script>window.alert("test script working"); </script>
                             <script>
                             	window.alert("this is the pie script");
-                            	var piedata={{inputpiedata.tojson}};
-                            	var pielabels={{inputpielabels.tojson}};
-                            	var pielabel={{inputpietitle.tojson}};
+                             	 data = {{inputdata|tojson}};
+                             	 labels = {{inputlabels|tojson}};
+                             	 label = {{inputtitle|tojson}};
                             	window.alert("this is the pie script variables: " + piedata + pielabels + pie label);
                             </script>
+                            <script>
+                            var piedata={{inputdata|tojson}};
+                            var pielabels={{inputlabels|tojson}};
+                            var pielabel={{inputlabel|tojson}};
+                            window.alert("var piedata test script working"); 
+                            </script>
+                            <script>window.alert("test script working"); </script>
                         </div>
 
                     </div>
