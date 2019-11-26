@@ -435,6 +435,7 @@
                                         }
                                     });
                                 };
+                                window.alert("Line Chart working!");
                             </script>
                         </div>
 
@@ -490,6 +491,13 @@
 									adjustedColors[i] = newColorString;
 								}
 								return adjustedColors;
+							}
+							
+							window.onload = function() {
+								var piecontext = document.getElementById("piecanvas").getContext("2d");
+								var baseColors = getRandomColors(pielabels.length);
+								var outlineColors = adjustColors(baseColors, 1.0);
+								var backgroundColors = adjustColors(baseColors, 0.3);
 							}
 							
 							window.alert("IT'S working!");
