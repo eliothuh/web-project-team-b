@@ -407,25 +407,25 @@
                             <canvas id="linecanvas"></canvas>
                             <script>
                               window.alert("entering line chart script");
-                              var data = {{inputdata|tojson}};
-                              var labels = {{inputlabels|tojson}};
-                              var label = {{inputtitle|tojson}};
+                              var linedata = {{inputdata|tojson}};
+                              var linelabels = {{inputlabels|tojson}};
+                              var linelabel = {{inputtitle|tojson}};
                               window.alert("fininished with tojson in line chart");
 
 
-                                function makeLineChart(labels, label, data) {
+                                function makeLineChart(linelabels, linelabel, linedata) {
                                 	window.alert("entering makeLineChart function for line chart");
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
                                         type: 'line',
                                         data: {
-                                            labels: labels,
+                                            labels: linelabels,
                                             datasets: [{
-                                                label: label,
+                                                label: linelabel,
                                                 pointBackgroundColor: 'rgba(255, 0, 0, 1)',
                                                 backgroundColor: 'rgba(0, 0, 100, 0.2)',
                                                 borderColor: 'rgba(0, 0, 100, 0.9)',
-                                                data: data
+                                                data: linedata
                                                 },
                                                 ]
                                         },
@@ -436,7 +436,7 @@
                                             },
                                         }
                                     });
-                                makeLineChart(labels, label, data);
+                                makeLineChart(linelabels, linelabel, linedata);
                                 window.alert("exiting line chart on load function");
 
                                 };
