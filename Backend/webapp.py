@@ -624,9 +624,7 @@ def getMapQueryResults():
 			
 			dataTable = getStateQueryData(start, end, state)
 			print("getStateQueryData")
-			
-			print(dataTable["causesAndPercentages"])
-			inputData = getListOfValues(dataTable["causesAndPercentages"])
+
 			
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
@@ -637,7 +635,7 @@ def getMapQueryResults():
 										inputdata = dataTable["singleYearCrudeRates"],
 										inputlabels = dataTable["yearRange"],
 										inputtitle = f"{state} Annual Crude Rates",
-										inputpiedata= inputData,
+										inputpiedata= [1, 1, 1, 1],
 										inputpielabels= dataTable["causesAndPercentages"].keys(),
 										inputpietitle=f"{state} Homicide Data by Cause of Death")
 
