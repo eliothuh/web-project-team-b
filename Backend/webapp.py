@@ -367,7 +367,7 @@ def adjustYears(startYear, endYear):
 		endYear- the ending year specified by the user
 
 	RETURN:
-		An array of Strings, each specifying the start and end year
+		The start year and end year returned as Strings
 	'''
 	if(startYear is None):
 		startYear = ""
@@ -397,7 +397,7 @@ def setYearsToInts(startYear, endYear):
 		endYear- the ending year for the query passed as a String
 
 	RETURN:
-		the start year String converted into and int and the end year String
+		the start year String converted into an int and the end year String
 		converted into an int
 	'''
 
@@ -587,7 +587,7 @@ def getNationalQueryResults():
 def getMapQueryResults():
 	'''
 	Loads a resulting state query page if the user clicks on one of the states in the
-	interactive map
+	interactive map or otherwise queries for a state
 	'''
 	if(request.method == 'GET'):
 
