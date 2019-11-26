@@ -493,12 +493,14 @@
 								return adjustedColors;
 							}
 							
-							window.onload = function() {
+							window.onload = function() {makePieChart()};
+							function makePieChart(){
 								var piecontext = document.getElementById("piecanvas").getContext("2d");
 								var baseColors = getRandomColors(pielabels.length);
 								var outlineColors = adjustColors(baseColors, 1.0);
 								var backgroundColors = adjustColors(baseColors, 0.3);
-							}
+							}					
+				
 							
 							window.alert("IT'S working!");
                             
