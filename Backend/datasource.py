@@ -85,7 +85,7 @@ class DataSource:
 			self.checkValidRange(startYear, endYear)
 
 		except Exception as e:
-			return None
+			return e
 
 		yearRange = endYear - startYear + 1
 
@@ -118,7 +118,7 @@ class DataSource:
 			self.checkValidYear(year)
 
 		except Exception as e:
-			return None
+			return e
 
 		results = []
 
@@ -146,6 +146,12 @@ class DataSource:
 
 		calls getUSASingleYearTotals
 		'''
+		try:
+			self.checkValidRange(startYear, endYear)
+
+		except Exception as e:
+			return e
+		
 		results = []
 		yearRange = endYear - startYear + 1
 
@@ -169,7 +175,7 @@ class DataSource:
 			self.checkValidYear(year)
 
 		except Exception as e:
-			return None
+			return e
 
 		try:
 			cursor = self.connection.cursor()

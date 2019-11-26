@@ -497,9 +497,11 @@ def getNationalQueryData(startYear, endYear):
 		"yearRange" - a list of years, beginning with the start year and ending with the end year, and
 		"singleYearCrudeRates" - the national rate of homicide each year in the range, stored in a list
 	'''
-
 	nationalQueryData = {}
 	nationTotals = dataSource.getUSATotals(startYear, endYear)
+	if isinstance(nationTotals, Exception):
+		raise nationTotals
+	
 	nationalQueryData["nationalCrudeRate"] = getNationalCrudeRate(nationTotals)
 	nationalQueryData["mostDangerousState"], nationalQueryData["mostDangerousStateRate"] = getMostDangerousStateAndData(startYear, endYear)
 	nationalQueryData["yearRange"] = getYearRange(startYear, endYear)
