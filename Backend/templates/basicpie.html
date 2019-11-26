@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>Chart Test</title>
+		{% block javascript %}
+			<script src="{{ url_for('static',filename='Chart.min.js') }}"></script>
+		{% endblock %}
+
+
+		<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		</style>
+
+	</head>
+
+
+	<body>
+		This is a test page
+
+		<div style="width:75%">
+			<canvas id="canvas"></canvas>
+		</div>
+
+		<script>
+			var data = {{inputdata|tojson}};
+			var labels = {{inputlabels|tojson}};
+			var label = {{inputtitle|tojson}};
+
+
+			function getRandomNumberInRange(min, max){
+				var randomNumber = Math.random();
+				var preFloorNumber = (randomNumber * (max - min)) + min;
+				var postFloorNumber = Math.floor(preFloorNumber);
+				return postFloorNumber;
+			}
+
+
+			function getRandomColor() {
+				var red = Math.round(getRandomNumberInRange(0, 200));
+				var green = Math.round(getRandomNumberInRange(0, 200));
+				var blue = Math.round(getRandomNumberInRange(0, 200));
+				return 'rgba(' + red + ',' + green + ',' + blue + ')';
+			}
+
+			function getRandomColors(length) {
+				var colors = [];
+				var i;
+				for (j = 0; j < length; j++) {
+					var newColor = getRandomColor();
+					colors[j] = newColor;
+				}
+				return colors;
+			}
+
+
+			function adjustColors(colors, alpha){
+				var adjustedColors = [];
+				for (i = 0; i < colors.length; i++){
+					var currentColor = colors[i];
+					var partialColorString = currentColor.slice(0, currentColor.length - 1);
+					var newColorString = partialColorString + "," + alpha + ")";
+					adjustedColors[i] = newColorString;
+				}
+				return adjustedColors;
+			}
+
+
+
+
+			window.onload = function() {
+				var context = document.getElementById('canvas').getContext('2d');
+				var baseColors = getRandomColors(labels.length);
+				var outlineColors = adjustColors(baseColors, 1.0);
+				var backgroundColors = adjustColors(baseColors, 0.3);
+
+
+				window.myScatter = new Chart(context, {
+					type: 'pie',
+					data: {
+						labels: labels,
+						datasets: [{
+							label: label,
+							pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+							backgroundColor: backgroundColors,
+							borderColor: outlineColors,
+							data: data
+							},
+							]
+					},
+					options: {
+						title: {
+							display: true,
+							text: 'Example pie chart for comparing types of homicides'
+						},
+					}
+				});
+			};
+
+
+		</script>
+
+
+	</body>
+
+
+</html>
