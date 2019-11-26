@@ -632,7 +632,7 @@ def getMapQueryResults():
 										inputdata = dataTable["singleYearCrudeRates"],
 										inputlabels = dataTable["yearRange"],
 										inputtitle = f"{state} Annual Crude Rates",
-										inputpiedata= [1, 1, 1, 1],
+										inputpiedata= list(dataTable["causesAndPercentages"].values()),
 										inputpielabels= list(dataTable["causesAndPercentages"].keys()),
 										inputpietitle=f"{state} Homicide Data by Cause of Death")
 
