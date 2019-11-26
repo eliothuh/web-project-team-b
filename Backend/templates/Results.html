@@ -413,7 +413,7 @@
                               window.alert("fininished with tojson in line chart");
 
 
-                                window.onload = function() {
+                                function makeLineChart() {
                                 	window.alert("entering window.onload function for line chart");
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
@@ -436,6 +436,7 @@
                                             },
                                         }
                                     });
+                                makeLineChart();
                                     							window.alert("exiting line chart on load function");
 
                                 };
