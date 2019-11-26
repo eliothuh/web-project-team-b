@@ -630,7 +630,7 @@ def getMapQueryResults():
 										inputtitle = f"{state} Annual Crude Rates",
 										inputpiedata=[30,40,50,60],
 										inputpielabels=["apple","cherry","pecan","sharp object"],
-										inputpielabel=f"{state} Homicide Data by Cause of Death")
+										inputpietitle=f"{state} Homicide Data by Cause of Death")
 
 		except Exception as e:
 
