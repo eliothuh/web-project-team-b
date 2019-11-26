@@ -1,2 +1,0 @@
-PSQL Port: 5432
-PSQL password: super
