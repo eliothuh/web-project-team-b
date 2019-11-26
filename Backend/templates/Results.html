@@ -413,7 +413,7 @@
                               window.alert("fininished with tojson in line chart");
 
 
-                                //function makeLineChart() {
+                                function makeLineChart(labels, label, data) {
                                 	window.alert("entering makeLineChart function for line chart");
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
@@ -435,8 +435,8 @@
                                                 text: 'Example line chart for homicides over time'
                                             },
                                         }
-                                    //});
-                                //makeLineChart();
+                                    });
+                                makeLineChart(labels, label, data);
                                     							window.alert("exiting line chart on load function");
 
                                 };
@@ -498,7 +498,7 @@
                               pielabel = {{inputpietitle|tojson}};
 
 
-                                window.onload = function() {
+                                function makePieChart(piedata, pielabels, pielabel) {
                                     var pieContext = document.getElementById('piecanvas').getContext('2d');
                                     var baseColors = getRandomColors(labels.length);
 									var outlineColors = adjustColors(baseColors, 1.0);
@@ -525,6 +525,7 @@
                                         }
                                     });
                                 };
+                                makePieChart(piedata, pielabels, pielabel);
 
                             </script>
                         </div>
