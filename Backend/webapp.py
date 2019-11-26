@@ -582,7 +582,7 @@ def getNationalQueryResults():
 
 		print(dataTable["singleYearCrudeRates"])
 		print(dataTable["yearRange"])
-
+		
 
 		return render_template('HomePage2.html',
 									inputdata = dataTable["singleYearCrudeRates"],
@@ -616,10 +616,7 @@ def getMapQueryResults():
 			state = request.args.get('state')
 			state = cleanStateInput(state)
 
-			"""(inputlabels, inputdata, inputtitle)"""
-
 			dataTable = getStateQueryData(start, end, state)
-			print("NO ERRORS YET 2!!!")
 			print(dataTable["causesAndPercentages"].values())
 
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
@@ -631,8 +628,8 @@ def getMapQueryResults():
 										inputdata = dataTable["singleYearCrudeRates"],
 										inputlabels = dataTable["yearRange"],
 										inputtitle = f"{state} Annual Crude Rates",
-										inputpiedata=[30,40,50,60],
-										inputpielabels=["apple","cherry","pecan","sharp object"],
+										inputpiedata= list(dataTable["causesAndPercentages"].values()),
+										inputpielabels= dataTable["causesAndPercentages"].keys(),
 										inputpietitle=f"{state} Homicide Data by Cause of Death")
 
 		except Exception as e:
