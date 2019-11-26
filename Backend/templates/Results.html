@@ -413,8 +413,8 @@
                               window.alert("fininished with tojson in line chart");
 
 
-                                function makeLineChart() {
-                                	window.alert("entering window.onload function for line chart");
+                                //function makeLineChart() {
+                                	window.alert("entering makeLineChart function for line chart");
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
                                         type: 'line',
@@ -435,8 +435,8 @@
                                                 text: 'Example line chart for homicides over time'
                                             },
                                         }
-                                    });
-                                makeLineChart();
+                                    //});
+                                //makeLineChart();
                                     							window.alert("exiting line chart on load function");
 
                                 };
