@@ -493,7 +493,6 @@
 								return adjustedColors;
 							}
 							
-							//window.onload = function() {makePieChart()};
 							function makePieChart(){
 								window.alert("pie function running!");
 								var piecontext = document.getElementById("piecanvas").getContext("2d");
@@ -501,7 +500,9 @@
 								var outlineColors = adjustColors(baseColors, 1.0);
 								var backgroundColors = adjustColors(baseColors, 0.3);
 								
-								window.pieChart = new Chart(context, {
+								
+								
+								window.pieChart = new Chart(piecontext, {
 								type: "pie",
 								data: {
 									labels: pielabels,
