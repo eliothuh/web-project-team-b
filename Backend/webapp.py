@@ -582,7 +582,7 @@ def getNationalQueryResults():
 
 		print(dataTable["singleYearCrudeRates"])
 		print(dataTable["yearRange"])
-
+		
 
 		return render_template('HomePage2.html',
 									inputdata = dataTable["singleYearCrudeRates"],
@@ -628,7 +628,7 @@ def getMapQueryResults():
 										inputdata = dataTable["singleYearCrudeRates"],
 										inputlabels = dataTable["yearRange"],
 										inputtitle = f"{state} Annual Crude Rates",
-										inputpiedata= dataTable["causesAndPercentages"].values(),
+										inputpiedata= list(dataTable["causesAndPercentages"].values()),
 										inputpielabels= dataTable["causesAndPercentages"].keys(),
 										inputpietitle=f"{state} Homicide Data by Cause of Death")
 
