@@ -406,26 +406,26 @@
                         <div class="visual" id="homePageVisuals">
                             <canvas id="linecanvas"></canvas>
                             <script>
-                              window.alert("entering line chart script");
-                              var linedata = {{inputdata|tojson}};
-                              var linelabels = {{inputlabels|tojson}};
-                              var linelabel = {{inputtitle|tojson}};
+                              window.alert("entering line chart script")
+                              data = {{inputdata|tojson}};
+                              labels = {{inputlabels|tojson}};
+                              label = {{inputtitle|tojson}};
                               window.alert("fininished with tojson in line chart");
+;
 
-
-                                function makeLineChart(linelabels, linelabel, linedata) {
-                                	window.alert("entering makeLineChart function for line chart");
+                                window.onload = function() {
+                                	window.alert("entering window.onload function for line chart");
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
                                         type: 'line',
                                         data: {
-                                            labels: linelabels,
+                                            labels: labels,
                                             datasets: [{
-                                                label: linelabel,
+                                                label: label,
                                                 pointBackgroundColor: 'rgba(255, 0, 0, 1)',
                                                 backgroundColor: 'rgba(0, 0, 100, 0.2)',
                                                 borderColor: 'rgba(0, 0, 100, 0.9)',
-                                                data: linedata
+                                                data: data
                                                 },
                                                 ]
                                         },
@@ -436,10 +436,8 @@
                                             },
                                         }
                                     });
-                                makeLineChart(linelabels, linelabel, linedata);
-                                window.alert("exiting line chart on load function");
-
                                 };
+							window.alert("exiting line chart on load function");
                             </script>
                         </div>
 
@@ -493,12 +491,12 @@
 								}
 								
 								
-                              var piedata = {{inputpiedata|tojson}};
-                              var pielabels = {{inputpielabels|tojson}};
-                              var pielabel = {{inputpietitle|tojson}};
+                              piedata = {{inputpiedata|tojson}};
+                              pielabels = {{inputpielabels|tojson}};
+                              pielabel = {{inputpietitle|tojson}};
 
 
-                                function makePieChart(piedata, pielabels, pielabel) {
+                                window.onload = function() {
                                     var pieContext = document.getElementById('piecanvas').getContext('2d');
                                     var baseColors = getRandomColors(labels.length);
 									var outlineColors = adjustColors(baseColors, 1.0);
@@ -525,7 +523,6 @@
                                         }
                                     });
                                 };
-                                makePieChart(piedata, pielabels, pielabel);
 
                             </script>
                         </div>
