@@ -585,6 +585,8 @@ def getNationalQueryResults():
 		end = request.args.get('endYear')
 		start, end = adjustYears(start, end)
 		start, end = setYearsToInts(start, end)
+		print(start)
+		print(end)
 
 		dataTable = getNationalQueryData(start, end)
 		
@@ -612,6 +614,7 @@ def getMapQueryResults():
 	if(request.method == 'GET'):
 
 		try:
+			print("we got here")
 			start = request.args.get('startYear')
 			end = request.args.get('endYear')
 			start, end = adjustYears(start, end)
@@ -624,7 +627,6 @@ def getMapQueryResults():
 			
 			dataTable = getStateQueryData(start, end, state)
 			print("getStateQueryData")
-
 			
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
