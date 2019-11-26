@@ -493,13 +493,36 @@
 								return adjustedColors;
 							}
 							
-							window.onload = function() {makePieChart()};
+							//window.onload = function() {makePieChart()};
 							function makePieChart(){
+								window.alert("pie function running!");
 								var piecontext = document.getElementById("piecanvas").getContext("2d");
 								var baseColors = getRandomColors(pielabels.length);
 								var outlineColors = adjustColors(baseColors, 1.0);
 								var backgroundColors = adjustColors(baseColors, 0.3);
-							}					
+								
+								window.pieChart = new Chart(context, {
+								type: "pie",
+								data: {
+									labels: pielabels,
+									datasets: [{
+										label: pielabel,
+										pointBackgroundColor: 'rgba(255, 0, 0, 1)',
+										backgroundColor: backgroundColors,
+										borderColor: outlineColors,
+										data: piedata
+									},
+									]
+								},
+								options: {
+									title: {
+										display: false,
+										text: "this should not display"
+									},
+								}
+								});
+							};
+							makePieChart();			
 				
 							
 							window.alert("IT'S working!");
