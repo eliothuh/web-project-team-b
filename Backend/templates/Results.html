@@ -406,15 +406,13 @@
                         <div class="visual" id="homePageVisuals">
                             <canvas id="linecanvas"></canvas>
                             <script>
-                              window.alert("entering line chart script")
+                              window.alert("entering line chart script");
                               data = {{inputdata|tojson}};
                               labels = {{inputlabels|tojson}};
                               label = {{inputtitle|tojson}};
-                              window.alert("fininished with tojson in line chart");
 ;
 
                                 window.onload = function() {
-                                	window.alert("entering window.onload function for line chart");
                                     var lineContext = document.getElementById('linecanvas').getContext('2d');
                                     window.lineChart = new Chart(lineContext, {
                                         type: 'line',
@@ -437,7 +435,6 @@
                                         }
                                     });
                                 };
-							window.alert("exiting line chart on load function");
                             </script>
                         </div>
 
@@ -451,10 +448,12 @@
                         <div class="visual" id="homePageVisuals2">
                             TODOTODOTODOTODO:Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.Pie Chart Here.
                             <canvas id="piecanvas"></canvas>
+                            <script>window.alert("test script working"); </script>
                             <script>
-                            	piedata={{inputpiedata.tojson}};
-                            	pielabels={{inputpielabels.tojson}};
-                            	pielabel={{inputpietitle.tojson}};
+                            	window.alert("this is the pie script");
+                            	var piedata={{inputpiedata.tojson}};
+                            	var pielabels={{inputpielabels.tojson}};
+                            	var pielabel={{inputpietitle.tojson}};
                             	window.alert("this is the pie script variables: " + piedata + pielabels + pie label);
                             </script>
                         </div>
