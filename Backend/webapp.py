@@ -616,11 +616,15 @@ def getMapQueryResults():
 			end = request.args.get('endYear')
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
+			print("start and end")
 
 			state = request.args.get('state')
 			state = cleanStateInput(state)
-
+			print("cleaned states")
+			
 			dataTable = getStateQueryData(start, end, state)
+			print("getStateQueryData")
+			
 			print(dataTable["causesAndPercentages"])
 			inputData = getListOfValues(dataTable["causesAndPercentages"])
 			
