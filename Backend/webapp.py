@@ -47,10 +47,8 @@ def getStateQueryData(startYear, endYear, state):
 		raise fullList
 
 	dataTable["yearRange"] = getYearRange(startYear, endYear)
-	print("Single Year Crude Rates")
 	dataTable["singleYearCrudeRates"] = getStateSingleYearCrudeRates(startYear, endYear, state)
 
-	print("Big Crude Rate")
 	dataTable["stateCrudeRate"] = getStateCrudeRate(fullList)
 	dataTable["causesAndPercentages"] = getCausesAndPercentages(fullList)
 
@@ -81,9 +79,6 @@ def getStateSingleYearCrudeRates(startYear, endYear, state):
 	crudeRates = []
 
 	for year in range (startYear, endYear + 1):
-		print("DATA IS FOR THIS YEAR")
-		print(year)
-		print("\n")
 		list = dataSource.getStateQuery(year, year, state)
 		rate = getStateCrudeRate(list)
 		crudeRates.append(rate)
@@ -109,8 +104,9 @@ def getStateCrudeRate(list):
 	averageDeaths = getAverageStateDeaths(list)
 	averagePopulation = getAverageStatePopulation(list)
 	if(averagePopulation == 0):
-		return "0"
-
+		return 0
+	
+	print(type(round(averageDeaths*100000/averagePopulation, 3)))
 	return round(averageDeaths*100000/averagePopulation, 3)
 
 
@@ -132,6 +128,7 @@ def getAverageStateDeaths(list):
 
 	for year in list:
 		tupleIndex = len(year) - 2
+		print("error line 130")
 		if(tupleIndex > 0):
 			stateTotal += year[tupleIndex][5]
 
@@ -153,8 +150,12 @@ def getAverageStatePopulation(list):
 	total = 0
 
 	for year in list:
+		print("error line 152")
+		print(len(year))
 		if(len(year) > 1):
 			total += year[0][6]
+		
+		print("no error 152")
 
 	return total/numYears
 
@@ -232,6 +233,7 @@ def getNationalAverageDeaths(list):
 
 	for year in list:
 		tupleIndex = len(year) - 1
+		print("error line 232")
 		if(tupleIndex > 0):
 			total += year[tupleIndex][5]
 
@@ -254,6 +256,7 @@ def getAverageNationalPopulation(list):
 
 	for year in list:
 		tupleIndex = len(year) - 1
+		print("error line 254")
 		if(tupleIndex > 0):
 			total += year[tupleIndex][6]
 
@@ -585,6 +588,9 @@ def getNationalQueryResults():
 		end = request.args.get('endYear')
 		start, end = adjustYears(start, end)
 		start, end = setYearsToInts(start, end)
+		print("START AND END YEAR TYPES")
+		print(type(start))
+		print(type(end))
 
 		dataTable = getNationalQueryData(start, end)
 		
@@ -616,13 +622,10 @@ def getMapQueryResults():
 			end = request.args.get('endYear')
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
-
 			state = request.args.get('state')
 			state = cleanStateInput(state)
-
+			
 			dataTable = getStateQueryData(start, end, state)
-			print(dataTable["causesAndPercentages"])
-			inputData = getListOfValues(dataTable["causesAndPercentages"])
 			
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
@@ -633,8 +636,8 @@ def getMapQueryResults():
 										inputdata = dataTable["singleYearCrudeRates"],
 										inputlabels = dataTable["yearRange"],
 										inputtitle = f"{state} Annual Crude Rates",
-										inputpiedata= inputData,
-										inputpielabels= dataTable["causesAndPercentages"].keys(),
+										inputpiedata= list(dataTable["causesAndPercentages"].values()),
+										inputpielabels= list(dataTable["causesAndPercentages"].keys()),
 										inputpietitle=f"{state} Homicide Data by Cause of Death")
 
 		except Exception as e:
