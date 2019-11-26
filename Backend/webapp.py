@@ -127,6 +127,7 @@ def getAverageStateDeaths(list):
 
 	for year in list:
 		tupleIndex = len(year) - 2
+		print("error line 130")
 		if(tupleIndex > 0):
 			stateTotal += year[tupleIndex][5]
 
@@ -148,6 +149,7 @@ def getAverageStatePopulation(list):
 	total = 0
 
 	for year in list:
+		print("error line 152")
 		if(len(year) > 1):
 			total += year[0][6]
 
@@ -227,6 +229,7 @@ def getNationalAverageDeaths(list):
 
 	for year in list:
 		tupleIndex = len(year) - 1
+		print("error line 232")
 		if(tupleIndex > 0):
 			total += year[tupleIndex][5]
 
@@ -249,6 +252,7 @@ def getAverageNationalPopulation(list):
 
 	for year in list:
 		tupleIndex = len(year) - 1
+		print("error line 254")
 		if(tupleIndex > 0):
 			total += year[tupleIndex][6]
 
@@ -580,8 +584,9 @@ def getNationalQueryResults():
 		end = request.args.get('endYear')
 		start, end = adjustYears(start, end)
 		start, end = setYearsToInts(start, end)
-		print(start)
-		print(end)
+		print("START AND END YEAR TYPES")
+		print(type(start))
+		print(type(end))
 
 		dataTable = getNationalQueryData(start, end)
 		
@@ -609,19 +614,14 @@ def getMapQueryResults():
 	if(request.method == 'GET'):
 
 		try:
-			print("we got here")
 			start = request.args.get('startYear')
 			end = request.args.get('endYear')
 			start, end = adjustYears(start, end)
 			start, end = setYearsToInts(start, end)
-			print("start and end")
-
 			state = request.args.get('state')
 			state = cleanStateInput(state)
-			print("cleaned states")
 			
 			dataTable = getStateQueryData(start, end, state)
-			print("getStateQueryData")
 			
 			return render_template('Results.html', stateCrudeRate = dataTable["stateCrudeRate"],
 										nationalCrudeRate = dataTable["nationalCrudeRate"],
