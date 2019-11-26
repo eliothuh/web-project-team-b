@@ -33,7 +33,7 @@ def getStateQueryData(startYear, endYear, state):
 
 	RETURN:
 		A dictionary containing the average annual rate homicide in the nation and
-		state, Strings representing Javascript code to store the annual rate of homicide each year and
+		state, a list of annual rates of homicide in the state,
 		a list of the years in the specified range, and another dictionary storing each cause and the percentage of
 		homicides it was responsible for
 
@@ -148,7 +148,6 @@ def getAverageStatePopulation(list):
 	total = 0
 
 	for year in list:
-		print(len(year))
 		if(len(year) > 1):
 			total += year[0][6]
 
@@ -544,14 +543,6 @@ def getNationalSingleYearCrudeRates(startYear, endYear):
 		crudeRates.append(rate)
 
 	return crudeRates
-
-def getListOfValues(dictionary):
-	list = []
-	
-	for key in dictionary:
-		list.append(dictionary[key])
-	
-	return list 
 
 
 @app.route('/', methods = ['POST', 'GET'])
