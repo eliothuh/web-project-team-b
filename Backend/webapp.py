@@ -105,7 +105,8 @@ def getStateCrudeRate(list):
 	averagePopulation = getAverageStatePopulation(list)
 	if(averagePopulation == 0):
 		return 0
-
+	
+	print(type(round(averageDeaths*100000/averagePopulation, 3)))
 	return round(averageDeaths*100000/averagePopulation, 3)
 
 
